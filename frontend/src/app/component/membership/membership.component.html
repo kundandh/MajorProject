@@ -1,0 +1,528 @@
+<section class="membership-section section-padding" id="section_3">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-12 col-12 text-center mx-auto mb-lg-5 mb-4">
+                <h2><span>Membership</span> at Power Pulse</h2>
+            </div>
+
+
+            <ng-container *ngIf="flag==='gold'||flag==='platinium'||flag==='diamond'; else notLoggedIn">
+                <div style="display: flex;">
+                    <div class="col-lg-6 col-12 mb-3 mb-lg-0">
+                        <h4 class="mb-4 pb-lg-2">Membership Fees</h4>
+
+                        <div class="table-responsive">
+                            <table class="table text-center">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 34%;">Yearly Access</th>
+
+                                        <th style="width: 22%;">Gold</th>
+
+                                        <th style="width: 22%;">Platinium</th>
+
+                                        <th style="width: 22%;">Diamond</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <th scope="row" class="text-start">Power Pulse Insurance</th>
+
+                                        <td>
+                                            <i class="bi-check-circle-fill"></i>
+                                        </td>
+
+                                        <td>
+                                            <i class="bi-check-circle-fill"></i>
+                                        </td>
+
+                                        <td>
+                                            <i class="bi-check-circle-fill"></i>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <th scope="row" class="text-start">Club Facilities</th>
+
+                                        <td>
+                                            <i class="bi-check-circle-fill"></i>
+                                        </td>
+
+                                        <td>
+                                            <i class="bi-check-circle-fill"></i>
+                                        </td>
+
+                                        <td>
+                                            <i class="bi-check-circle-fill"></i>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <th scope="row" class="text-start">Country Club</th>
+
+                                        <td>
+                                            <i class="bi-x-circle-fill"></i>
+                                        </td>
+
+                                        <td>
+                                            <i class="bi-check-circle-fill"></i>
+                                        </td>
+
+                                        <td>
+                                            <i class="bi-check-circle-fill"></i>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <th scope="row" class="text-start">Weekend Seasonal</th>
+
+                                        <td>
+                                            <i class="bi-x-circle-fill"></i>
+                                        </td>
+
+                                        <td>
+                                            <i class="bi-check-circle-fill"></i>
+                                        </td>
+
+                                        <td>
+                                            <i class="bi-check-circle-fill"></i>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <th scope="row" class="text-start">Premium Courses</th>
+
+                                        <td>
+                                            <i class="bi-x-circle-fill"></i>
+                                        </td>
+
+                                        <td>
+                                            <i class="bi-x-circle-fill"></i>
+                                        </td>
+
+                                        <td>
+                                            <i class="bi-check-circle-fill"></i>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <th scope="row" class="text-start">Pro's Networking</th>
+
+                                        <td>
+                                            <i class="bi-x-circle-fill"></i>
+                                        </td>
+
+                                        <td>
+                                            <i class="bi-x-circle-fill"></i>
+                                        </td>
+
+                                        <td>
+                                            <i class="bi-check-circle-fill"></i>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th></th>
+                                        <td><i class="bi bi-chevron-right custom-btn"
+                                                (click)="onMembershipbtn('gold')"></i>
+                                        </td>
+                                        <td><i #platinium class="bi bi-chevron-right custom-btn"
+                                                (click)="onMembershipbtn('platinium')"></i></td>
+                                        <td><i #diamond class="bi bi-chevron-right custom-btn"
+                                                (click)="onMembershipbtn('diamond')"></i></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5 col-12 mx-auto">
+
+                        <div *ngIf="showFirstDiv">
+                            <!-- Content of the first div -->
+                            <h4 class="mb-4 pb-lg-2">Please join us!</h4>
+                            <form action="#" method="post" class="custom-form membership-form shadow-lg" role="form">
+                                <h4 class="text-white mb-4">Become a member</h4>
+
+                                <div class="form-floating">
+                                    <input type="text" name="full-name" id="full-name" class="form-control"
+                                        placeholder="Full Name" required="">
+
+                                    <label for="floatingInput">Full Name</label>
+                                </div>
+
+
+                                <div class="form-floating">
+                                    <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*"
+                                        class="form-control" placeholder="Email address" required="">
+
+                                    <label for="floatingInput">Email address</label>
+                                </div>
+
+                                <div class="form-floating">
+                                    <textarea class="form-control" id="message" name="message"
+                                        placeholder="Describe message here"></textarea>
+
+                                    <label for="floatingTextarea"> Comments</label>
+                                </div>
+
+                                <button type="submit" class="form-control">Submit</button>
+                            </form>
+                        </div>
+                        <div *ngIf="!showFirstDiv">
+
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-template #notLoggedIn>
+                <section class="h-100" style="background-color: #3D405B; border-radius: 20px; ">
+                    <div class="container py-5 h-100">
+                        <div class="row d-flex justify-content-center align-items-center h-100">
+                            <div class="col">
+                                <div class="card card-registration my-4">
+                                    <div class="row g-0">
+                                        <div class="col-xl-6 d-none d-xl-block">
+                                            <img src="../../../assets/img/man-woman-are-watching-training-video.jpg"
+                                                alt="Sample photo" class="img-fluid"
+                                                style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <div class="card-body p-md-5 text-black">
+                                                <h3 class="mb-5 text-uppercase">Student registration form</h3>
+
+                                                <div class="row">
+                                                    <div class="col-md-6 mb-4">
+                                                        <div class="form-outline">
+                                                            <input type="text" id="form3Example1m"
+                                                                class="form-control form-control-lg" />
+                                                            <label class="form-label" for="form3Example1m">First
+                                                                name</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 mb-4">
+                                                        <div class="form-outline">
+                                                            <input type="text" id="form3Example1n"
+                                                                class="form-control form-control-lg" />
+                                                            <label class="form-label" for="form3Example1n">Last
+                                                                name</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-6 mb-4">
+                                                        <div class="form-outline">
+                                                            <input type="text" id="form3Example1m1"
+                                                                class="form-control form-control-lg"
+                                                                [(ngModel)]="flag"/>
+                                                            <label class="form-label" for="form3Example1m1">Selected
+                                                                Plan</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 mb-4">
+                                                        <div class="form-outline">
+                                                            <input type="text" id="form3Example1n1"
+                                                                class="form-control form-control-lg" />
+                                                            <label class="form-label" for="form3Example1n1">Father's
+                                                                name</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-outline mb-4">
+                                                    <input type="text" id="form3Example8"
+                                                        class="form-control form-control-lg" />
+                                                    <label class="form-label" for="form3Example8">Address</label>
+                                                </div>
+
+                                                <div
+                                                    class="d-md-flex justify-content-start align-items-center mb-4 py-2">
+
+                                                    <h6 class="mb-0 me-4">Gender: </h6>
+
+                                                    <div class="form-check form-check-inline mb-0 me-4">
+                                                        <input class="form-check-input" type="radio"
+                                                            name="inlineRadioOptions" id="femaleGender"
+                                                            value="option1" />
+                                                        <label class="form-check-label"
+                                                            for="femaleGender">Female</label>
+                                                    </div>
+
+                                                    <div class="form-check form-check-inline mb-0 me-4">
+                                                        <input class="form-check-input" type="radio"
+                                                            name="inlineRadioOptions" id="maleGender" value="option2" />
+                                                        <label class="form-check-label" for="maleGender">Male</label>
+                                                    </div>
+
+                                                    <div class="form-check form-check-inline mb-0">
+                                                        <input class="form-check-input" type="radio"
+                                                            name="inlineRadioOptions" id="otherGender"
+                                                            value="option3" />
+                                                        <label class="form-check-label" for="otherGender">Other</label>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-6 mb-4">
+
+                                                        <select class="select">
+                                                            <option value="1">State</option>
+                                                            <option value="2">Option 1</option>
+                                                            <option value="3">Option 2</option>
+                                                            <option value="4">Option 3</option>
+                                                        </select>
+
+                                                    </div>
+                                                    <div class="col-md-6 mb-4">
+
+                                                        <select class="select">
+                                                            <option value="1">City</option>
+                                                            <option value="2">Option 1</option>
+                                                            <option value="3">Option 2</option>
+                                                            <option value="4">Option 3</option>
+                                                        </select>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-outline mb-4">
+                                                    <input type="text" id="form3Example9"
+                                                        class="form-control form-control-lg" />
+                                                    <label class="form-label" for="form3Example9">DOB</label>
+                                                </div>
+
+                                                <div class="form-outline mb-4">
+                                                    <input type="text" id="form3Example90"
+                                                        class="form-control form-control-lg" />
+                                                    <label class="form-label" for="form3Example90">Pincode</label>
+                                                </div>
+
+                                                <div class="form-outline mb-4">
+                                                    <input type="text" id="form3Example99"
+                                                        class="form-control form-control-lg" />
+                                                    <label class="form-label" for="form3Example99">Course</label>
+                                                </div>
+
+                                                <div class="form-outline mb-4">
+                                                    <input type="text" id="form3Example97"
+                                                        class="form-control form-control-lg" />
+                                                    <label class="form-label" for="form3Example97">Email ID</label>
+                                                </div>
+
+                                                <div class="d-flex justify-content-end pt-3">
+                                                    <button type="button" class="custom-btn form-control"
+                                                        (click)="backToMembership()">Back</button>
+                                                    <button type="button" class="custom-btn form-control">Reset
+                                                        all</button>
+                                                    <button type="button" class="custom-btn form-control">Submit
+                                                        form</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </ng-template>
+
+
+
+        </div>
+    </div>
+</section>
+
+
+<section class="events-section section-bg section-padding" id="section_4">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-12 col-12">
+                <h2 class="mb-lg-3">Upcoming Events</h2>
+            </div>
+
+            <div class="row custom-block mb-3">
+                <div class="col-lg-2 col-md-4 col-12 order-2 order-md-0 order-lg-0">
+                    <div
+                        class="custom-block-date-wrap d-flex d-lg-block d-md-block align-items-center mt-3 mt-lg-0 mt-md-0">
+                        <h6 class="custom-block-date mb-lg-1 mb-0 me-3 me-lg-0 me-md-0">24</h6>
+
+                        <strong class="text-white">Feb 2048</strong>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-8 col-12 order-1 order-lg-0">
+                    <div class="custom-block-image-wrap">
+                        <a href="event-detail.html">
+                            <img src="../../../assets/img/bruce-mars-gJtDg6WfMlQ-unsplash.jpg"
+                                class="custom-block-image img-fluid" alt="">
+
+                            <i class="custom-block-icon bi-link"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-12 order-3 order-lg-0">
+                    <div class="custom-block-info mt-2 mt-lg-0">
+                        <a href="event-detail.html" class="events-title mb-3">Private activities</a>
+
+                        <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                            incididunt ut labore et dolore magna aliqua.</p>
+
+                        <div class="d-flex flex-wrap border-top mt-4 pt-3">
+
+                            <div class="mb-4 mb-lg-0">
+                                <div class="d-flex flex-wrap align-items-center mb-1">
+                                    <span class="custom-block-span">Location:</span>
+
+                                    <p class="mb-0">National Center, NYC</p>
+                                </div>
+
+                                <div class="d-flex flex-wrap align-items-center">
+                                    <span class="custom-block-span">Ticket:</span>
+
+                                    <p class="mb-0">$250</p>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-center ms-lg-auto">
+                                <a href="event-detail.html" class="btn custom-btn">Buy Ticket</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row custom-block custom-block-bg">
+                <div class="col-lg-2 col-md-4 col-12 order-2 order-md-0 order-lg-0">
+                    <div
+                        class="custom-block-date-wrap d-flex d-lg-block d-md-block align-items-center mt-3 mt-lg-0 mt-md-0">
+                        <h6 class="custom-block-date mb-lg-1 mb-0 me-3 me-lg-0 me-md-0">28</h6>
+
+                        <strong class="text-white">Feb 2048</strong>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-8 col-12 order-1 order-lg-0">
+                    <div class="custom-block-image-wrap">
+                        <a href="event-detail.html">
+                            <img src="../../../assets/img/dylan-gillis-YJdCZba0TYE-unsplash.jpg"
+                                class="custom-block-image img-fluid" alt="">
+
+                            <i class="custom-block-icon bi-link"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-12 order-3 order-lg-0">
+                    <div class="custom-block-info mt-2 mt-lg-0">
+                        <a href="event-detail.html" class="events-title mb-3">Group tournament activities</a>
+
+                        <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                            incididunt ut labore et dolore magna aliqua.</p>
+
+                        <div class="d-flex flex-wrap border-top mt-4 pt-3">
+
+                            <div class="mb-4 mb-lg-0">
+                                <div class="d-flex flex-wrap align-items-center mb-1">
+                                    <span class="custom-block-span">Location:</span>
+
+                                    <p class="mb-0">National Center, NYC</p>
+                                </div>
+
+                                <div class="d-flex flex-wrap align-items-center">
+                                    <span class="custom-block-span">Ticket:</span>
+
+                                    <p class="mb-0">$350</p>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-center ms-lg-auto">
+                                <a href="event-detail.html" class="btn custom-btn">Buy Ticket</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<section class="contact-section section-padding" id="section_5">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-5 col-12">
+                <form action="#" method="post" class="custom-form contact-form" role="form">
+                    <h2 class="mb-4 pb-2">Contact Power Pulse</h2>
+
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="form-floating">
+                                <input type="text" name="full-name" id="full-name" class="form-control"
+                                    placeholder="Full Name" required="">
+
+                                <label for="floatingInput">Full Name</label>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="form-floating">
+                                <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control"
+                                    placeholder="Email address" required="">
+
+                                <label for="floatingInput">Email address</label>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-12">
+                            <div class="form-floating">
+                                <textarea class="form-control" id="message" name="message"
+                                    placeholder="Describe message here"></textarea>
+
+                                <label for="floatingTextarea">Message</label>
+                            </div>
+
+                            <button type="submit" class="form-control">Submit Form</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-lg-6 col-12">
+                <div class="contact-info mt-5">
+                    <div class="contact-info-item">
+                        <div class="contact-info-body">
+                            <strong>Pune, India</strong>
+
+                            <p class="mt-2 mb-1">
+                                <a href="tel: 010-020-0340" class="contact-link">
+                                    (020)010-020-0340
+                                </a>
+                            </p>
+
+                            <p class="mb-0">
+                                <a href="mailto:info@company.com" class="contact-link">
+                                    powerpulse@company.com
+                                </a>
+                            </p>
+                        </div>
+
+                        <div class="contact-info-footer">
+                            <a (click)="redirectToMapPage()">Directions</a>
+                        </div>
+                    </div>
+
+                    <img src="../../../assets/img/WorldMap.svg " class="img-fluid" alt="">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
