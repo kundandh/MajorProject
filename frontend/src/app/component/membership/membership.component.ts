@@ -8,14 +8,13 @@ import { Component } from '@angular/core';
     '../../../assets/Css/globle.css']
 })
 export class MembershipComponent {
-  showFirstDiv: boolean = true;
+  showMembership: boolean = true;
   flag: string = 'gold';
 
   ngOnInit(): void {
 
   }
   onMembershipbtn(flag: string) {
-    this.flag = flag;
     switch (flag) {
       case 'gold':
         console.warn(flag);
@@ -29,9 +28,8 @@ export class MembershipComponent {
       default:
         throw new Error("404 Error");
     }
-    this.flag = "";
-
-
+    this.flag = flag.toUpperCase();
+    this.showMembership = !this.showMembership;
   }
 
   redirectToMapPage() {
@@ -39,12 +37,11 @@ export class MembershipComponent {
     window.open(externalUrl, '_blank');
   }
 
-  submitForm() {
+  onResetClick() {
+    console.log(this.flag);
   }
-
+  onSubmit() { }
   backToMembership() {
-    this.flag = "gold";
-
+    this.showMembership = !this.showMembership;
   }
-
 }

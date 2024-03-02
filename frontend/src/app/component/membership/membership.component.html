@@ -7,7 +7,7 @@
             </div>
 
 
-            <ng-container *ngIf="flag==='gold'||flag==='platinium'||flag==='diamond'; else notLoggedIn">
+            <ng-container *ngIf="showMembership; else notLoggedIn">
                 <div style="display: flex;">
                     <div class="col-lg-6 col-12 mb-3 mb-lg-0">
                         <h4 class="mb-4 pb-lg-2">Membership Fees</h4>
@@ -139,10 +139,10 @@
 
                     <div class="col-lg-5 col-12 mx-auto">
 
-                        <div *ngIf="showFirstDiv">
+                        <div>
                             <!-- Content of the first div -->
                             <h4 class="mb-4 pb-lg-2">Please join us!</h4>
-                            <form action="#" method="post" class="custom-form membership-form shadow-lg" role="form">
+                            <!-- <form action="#" method="post" class="custom-form membership-form shadow-lg" role="form">
                                 <h4 class="text-white mb-4">Become a member</h4>
 
                                 <div class="form-floating">
@@ -168,11 +168,14 @@
                                 </div>
 
                                 <button type="submit" class="form-control">Submit</button>
-                            </form>
+                            </form> -->
+                            <img src="../../../assets/img/man-woman-are-watching-training-video.jpg" alt="Sample photo"
+                                class="img-fluid"
+                                style="height: 600px;width: 700px;border-radius: 20px;" />
                         </div>
-                        <div *ngIf="!showFirstDiv">
+                        <!-- <div *ngIf="!">
 
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </ng-container>
@@ -216,7 +219,7 @@
                                                         <div class="form-outline">
                                                             <input type="text" id="form3Example1m1"
                                                                 class="form-control form-control-lg"
-                                                                [(ngModel)]="flag"/>
+                                                                [(ngModel)]="flag" />
                                                             <label class="form-label" for="form3Example1m1">Selected
                                                                 Plan</label>
                                                         </div>
@@ -267,12 +270,15 @@
 
                                                 <div class="row">
                                                     <div class="col-md-6 mb-4">
-
+                                                        <!-- 
+                                                        <select [(ngModel)]="selectedItem">
+                                                            <option *ngFor="let item of items" [value]="item.value">{{item.label}}</option>
+                                                          </select> -->
                                                         <select class="select">
                                                             <option value="1">State</option>
-                                                            <option value="2">Option 1</option>
-                                                            <option value="3">Option 2</option>
-                                                            <option value="4">Option 3</option>
+                                                            <option value="2">Maharastra</option>
+                                                            <option value="3">Gujrat</option>
+                                                            <option value="4">Madhyapradesh</option>
                                                         </select>
 
                                                     </div>
@@ -509,7 +515,7 @@
 
                             <p class="mb-0">
                                 <a href="mailto:info@company.com" class="contact-link">
-                                    powerpulse@company.com
+                                    powerpulse&#64;company.com
                                 </a>
                             </p>
                         </div>

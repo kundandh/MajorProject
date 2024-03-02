@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Gym-Web:build:production"
+              "buildTarget": "Gym-Web:build:production"
             },
             "development": {
-              "browserTarget": "Gym-Web:build:development"
+              "buildTarget": "Gym-Web:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -75,7 +75,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Gym-Web:build"
+            "buildTarget": "Gym-Web:build"
           }
         },
         "test": {
