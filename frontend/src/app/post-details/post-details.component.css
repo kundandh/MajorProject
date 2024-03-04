@@ -1,0 +1,49 @@
+
+.post-container {
+   background: #adddb5;
+    text-align: center; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+  }
+  
+  .post-image {
+    display: block;
+    margin: 0 auto; 
+    max-width: 45%; 
+    height: auto; 
+    margin-top: 20px; 
+    margin-bottom: 20px; 
+  }
+  
+  h2 {
+    color: black;
+    font-size: 50px;
+    font-weight: 600;
+    margin-top: 0; 
+  }
+  
+  .description {
+    text-align: justify; 
+  }
+  
+  .description p {
+    margin-right: 20px;
+    margin-left:20px;
+    color: black;
+    font-size: 18px;
+    line-height: 1.5;
+    animation: fadeIn 1s ease-in-out; 
+  }
+  
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

@@ -1,0 +1,15 @@
+
+<div class="container ">
+  <div class="row card-container">
+    <div class="col-md-4" *ngFor="let post of posts">
+      <div class="card mb-4">
+        <img class="card-img-top card-image" [src]="post.imageUrl" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{ post.title }}</h5>
+          <p class="card-text card-description">{{ post.description.slice(0, 100) }}</p>
+          <a [routerLink]="['/post', post._id]" class="btn btn-primary read-more-button">Read More...</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
