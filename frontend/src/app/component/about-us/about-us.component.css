@@ -1,0 +1,133 @@
+:host {
+    --white-color: #ffffff;
+    --primary-color: #81B29A;
+    --secondary-color: #3D405B;
+    --section-bg-color: #F4F1DE;
+    --custom-btn-bg-color: #F2CC8F;
+    --custom-btn-bg-hover-color: #E07A5F;
+    --dark-color: #000000;
+    --p-color: #717275;
+    --link-hover-color: #F2CC8F;
+
+    --body-font-family: 'DM Sans', sans-serif;
+
+    --h1-font-size: 42px;
+    --h2-font-size: 36px;
+    --h3-font-size: 28px;
+    --h4-font-size: 24px;
+    --h5-font-size: 22px;
+    --h6-font-size: 20px;
+    --p-font-size: 18px;
+    --menu-font-size: 16px;
+    --btn-font-size: 14px;
+
+    --border-radius-large: 100px;
+    --border-radius-medium: 20px;
+    --border-radius-small: 10px;
+
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+}
+
+/*---------------------------------------
+  BACKGROUND IMAGE SECTION        
+-----------------------------------------*/
+.section-bg-image {
+    background-image: url('../../../assets/img/danielle-cerullo-CQfNt66ttZM-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    margin-bottom: -70px;
+}
+
+.section-bg-image .container+svg {
+    transform: rotate(180deg);
+    position: relative;
+    bottom: -1px;
+}
+
+.section-bg-image-block {
+    backdrop-filter: blur(5px) saturate(180%);
+    -webkit-backdrop-filter: blur(5px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.75);
+    border-radius: var(--border-radius-medium);
+    border: 1px solid rgba(209, 213, 219, 0.3);
+    border-radius: var(--border-radius-medium);
+    padding: 50px;
+}
+
+.section-bg-image-block .input-group {
+    background-color: var(--white-color);
+    border-radius: var(--border-radius-large);
+    padding: 10px 15px;
+}
+
+.section-bg-image-block .input-group-text {
+    background-color: transparent;
+    border: 0;
+}
+
+.section-bg-image-block input[type="email"] {
+    border: 0;
+    box-shadow: none;
+    margin-bottom: 0;
+    padding-left: 0;
+}
+
+.section-bg-image-block button[type="submit"] {
+    background-color: var(--primary-color);
+    border: 0;
+    border-radius: var(--border-radius-large) !important;
+    color: var(--white-color);
+    max-width: 150px;
+}
+
+
+/*---------------------------------------
+    ABOUT SECTOIN              
+  -----------------------------------------*/
+.about-section {
+    padding-bottom: 70px;
+}
+
+.member-block-image-wrap {
+    border-radius: var(--border-radius-medium);
+    position: relative;
+    overflow: hidden;
+}
+
+.member-block-image-wrap:hover .member-block-image {
+    transform: scale(1.2);
+}
+
+.member-block-image-wrap:hover .social-icon {
+    opacity: 1;
+}
+
+.member-block-image-wrap .social-icon {
+    background-color: var(--white-color);
+    border-radius: var(--border-radius-large);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all 0.5s;
+    padding: 15px 20px;
+    width: auto;
+}
+
+.member-block-image {
+    transition: all 0.3s;
+}
+
+.member-block-info {
+    padding: 10px;
+}
+
+.member-block-info h4,
+.member-block-info p {
+    margin-bottom: 0;
+}
