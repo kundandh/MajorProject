@@ -1,0 +1,382 @@
+/*---------------------------------------
+  CUSTOM PROPERTIES ( VARIABLES )             
+-----------------------------------------*/
+:host {
+    --white-color: #ffffff;
+    --primary-color: #81B29A;
+    --secondary-color: #3D405B;
+    --section-bg-color: #F4F1DE;
+    --custom-btn-bg-color: #F2CC8F;
+    --custom-btn-bg-hover-color: #E07A5F;
+    --dark-color: #000000;
+    --p-color: #717275;
+    --link-hover-color: #F2CC8F;
+  
+    --body-font-family: 'DM Sans', sans-serif;
+  
+    --h1-font-size: 42px;
+    --h2-font-size: 36px;
+    --h3-font-size: 28px;
+    --h4-font-size: 24px;
+    --h5-font-size: 22px;
+    --h6-font-size: 20px;
+    --p-font-size: 18px;
+    --menu-font-size: 16px;
+    --btn-font-size: 14px;
+  
+    --border-radius-large: 100px;
+    --border-radius-medium: 20px;
+    --border-radius-small: 10px;
+  
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+  }
+
+  /* Apply styles to form elements */
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Style the submit button */
+button[type="submit"] {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Add more styles as needed */
+
+/*---------------------------------------
+  CUSTOM BLOCK              
+-----------------------------------------*/
+.custom-block {
+  border-radius: var(--border-radius-medium);
+  position: relative;
+  overflow: hidden;
+  padding: 30px 20px;
+}
+
+.custom-block-bg {
+  background: var(--white-color);
+}
+
+.custom-block-date-wrap {
+  background-color: var(--primary-color);
+  border-radius: var(--border-radius-medium);
+  text-align: center;
+  padding: 20px 30px;
+}
+
+.custom-block-date {
+  font-size: var(--h1-font-size);
+}
+
+.custom-block-image-wrap {
+  border-radius: var(--border-radius-medium);
+  position: relative;
+  overflow: hidden;
+}
+
+.custom-block-image-wrap:hover .custom-block-image {
+  transform: scale(1.2);
+}
+
+.custom-block-image-wrap:hover .custom-block-icon {
+  opacity: 1;
+}
+
+.custom-block-image {
+  transition: all 0.3s;
+}
+
+.custom-block-image-wrap .custom-block-date-wrap,
+.custom-block-image-wrap .custom-btn-wrap {
+  position: absolute;
+  bottom: 0;
+}
+
+.custom-block-image-wrap .custom-block-date-wrap {
+  border-radius: 0;
+  left: 0;
+  width: 50%;
+  padding: 12.30px 20px;
+}
+
+.custom-block-image-wrap .custom-btn-wrap {
+  right: 0;
+  width: 50%;
+}
+
+.custom-block-image-wrap .custom-btn  {
+  border-radius: 0;
+  display: block;
+  padding: 15px 20px;
+}
+
+.custom-block-info {
+  padding-top: 10px;
+}
+
+.custom-block-image-wrap + .custom-block-info {
+  padding-top: 20px;
+}
+
+.custom-block-span {
+  color: var(--secondary-color);
+  font-weight: var(--font-weight-bold);
+  min-width: 110px;
+  margin-right: 10px;
+}
+
+.custom-block-icon {
+  background: var(--custom-btn-bg-color);
+  border-radius: var(--border-radius-large);
+  color: var(--white-color);
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  font-size: var(--h3-font-size);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+.custom-block-icon:hover {
+  background: var(--custom-btn-bg-hover-color);
+  color: var(--white-color);
+}
+
+/*---------------------------------------
+  MEMBERSHIP SECTION            
+-----------------------------------------*/
+.membership-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* .table-responsive {
+  border-radius: var(--border-radius-medium);
+} */
+
+.responsive-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+}
+
+.table-responsive tbody, 
+.table-responsive td, 
+.table-responsive tfoot, 
+.table-responsive th, 
+.table-responsive thead, 
+.table-responsive tr {
+  border: 0;
+}
+
+
+.table-responsive thead tr {
+  background-color: var(--secondary-color);
+  color: var(--white-color);
+}
+
+.table-responsive thead th {
+  padding: 22px 16px !important;
+}
+
+.table-responsive tbody tr:nth-child(even) {
+  background-color: var(--section-bg-color);
+}
+
+.table>:not(caption)>*>* {
+  padding: 18px 16px;
+}
+
+.table-responsive .bi-check-circle-fill {
+  color: var(--primary-color);
+}
+
+.table-responsive .bi-x-circle-fill {
+  color: var(--custom-btn-bg-hover-color);
+}
+
+.membership-form {
+  background-color: var(--secondary-color);
+  border-radius: var(--border-radius-medium);
+  padding: 35px;
+}
+
+.membership-form .form-floating>textarea {
+  border-radius: var(--border-radius-medium);
+  height: 100px;
+}
+
+
+/*---------------------------------------
+  CONTACT               
+-----------------------------------------*/
+.contact-form .form-floating>textarea {
+    border-radius: var(--border-radius-medium);
+    height: 120px;
+  }
+  
+  .contact-info {
+    position: relative;
+  }
+  
+  .contact-info-item {
+    background: var(--secondary-color);
+    border-radius: var(--border-radius-medium);
+    position: absolute;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .contact-info-body {
+    padding: 20px 30px;
+  }
+  
+  .contact-info-body strong,
+  .contact-info-item a {
+    color: var(--white-color);
+  }
+  
+  .contact-info-footer {
+    background-color: var(--custom-btn-bg-hover-color);
+    padding: 10px 20px;
+    transition: all 0.3s;
+  }
+  
+  .contact-info-footer:hover {
+    background-color: var(--custom-btn-bg-color);
+  }
+  
+  .contact-info-footer a {
+    display: block;
+    font-weight: var(--font-weight-bold);
+  }
+  
+  
+/*---------------------------------------
+  EVENTS SECTION            
+-----------------------------------------*/
+.events-section.section-bg .container > .row {
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+  
+  .events-section.section-bg .container > .row .row {
+    margin: auto;
+  }
+  
+  .events-listing-section {
+    margin-bottom: 100px;
+  }
+  
+  .events-detail-section .custom-block-info {
+    padding: 40px 60px;
+  }
+  
+  .events-detail-info {
+    background-color: var(--section-bg-color);
+    border-radius: var(--border-radius-medium);
+    padding: 50px 25px;
+  }
+  
+  .events-title {
+    font-size: var(--h3-font-size);
+    font-weight: var(--font-weight-medium);
+  }
+  
+  
+
+  /* ----------------------------- */
+  .card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+    }
+    .card-registration .select-arrow {
+    top: 13px;
+    }
+
+
+    /* ---------------- */
+    .custom-form .form-control {
+      border-radius: var(--border-radius-large);
+      border-width: 2px;
+      box-shadow: none;
+      color: var(--p-color);
+      margin-bottom: 20px;
+      padding: 10px;
+      padding-left: 20px;
+      outline: none;
+    }
+    
+    .custom-form .form-control:focus,
+    .custom-form .form-control:hover {
+      border-color: var(--dark-color);
+    }
+
+    
+/*---------------------------------------
+  CUSTOM BUTTON               
+-----------------------------------------*/
+.custom-btn {
+  background: var(--custom-btn-bg-color);
+  border: 2px solid transparent;
+  border-radius: var(--border-radius-large);
+  color: var(--white-color);
+  font-size: var(--btn-font-size);
+  font-weight: var(--font-weight-bold);
+  line-height: normal;
+  transition: all 0.3s;
+  padding: 10px 20px;
+}
+
+.custom-btn:hover {
+  background: var(--custom-btn-bg-hover-color);
+  color: var(--white-color);
+}
+
+.custom-border-btn {
+  background: transparent;
+  border: 2px solid var(--custom-btn-bg-color);
+  color: var(--custom-btn-bg-color);
+}
+
+.custom-border-btn:hover {
+  background: var(--custom-btn-bg-color);
+  border-color: transparent;
+  color: var(--white-color);
+}
