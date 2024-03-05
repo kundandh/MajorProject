@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -8,5 +9,7 @@ import { Component } from '@angular/core';
     '../../../../assets/Css/globle.css']
 })
 export class NavbarComponent {
+
+  constructor(private routerModule : RouterModule){}
 
 }
