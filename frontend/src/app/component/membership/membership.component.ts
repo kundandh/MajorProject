@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-membership',
@@ -7,11 +8,26 @@ import { Component } from '@angular/core';
     '../../../assets/Css/bootstrap-icons.css',
     '../../../assets/Css/globle.css']
 })
-export class MembershipComponent {
-  showMembership: boolean = true;
-  flag: string = 'gold';
 
-  ngOnInit(): void {
+export class MembershipComponent {
+
+  showMembership: boolean = true;
+
+  selectedItemState: string = 'Select a state';
+  selectedCity: string = 'Select a city';
+  flag: string = 'gold';
+  states: string[] = ['Maharashtra', 'Gujarat', 'Karnataka']; // list of states
+  citiesByState: { [key: string]: string[] } = {
+    Maharashtra: ['Mumbai', 'Pune', 'Nagpur'],
+    Gujarat: ['Ahmedabad', 'Surat', 'Vadodara'],
+    Karnataka: ['Bangalore', 'Mysore', 'Hubli']
+  }
+  formData: any = {};
+
+  onStateChange() {
+    this.selectedCity = '';
+    // this.selectedCity = this.citiesByState[this.selectedItemState][0];
+    // console.log(this.citiesByState[this.selectedItemState][0]);
 
   }
   onMembershipbtn(flag: string) {
@@ -40,8 +56,20 @@ export class MembershipComponent {
   onResetClick() {
     console.log(this.flag);
   }
-  onSubmit() { }
+  submitForm(form: any) {
+    if (form.valid) {
+      console.log('Form submitted:', this.formData);
+      // Here you can perform further actions like sending the form data to the server
+    } else {
+      console.log('Form is invalid. Please check the fields.');
+    }
+  }
   backToMembership() {
     this.showMembership = !this.showMembership;
+  }
+  selectFirstOption(selectElement: HTMLSelectElement) {
+    if (selectElement.firstElementChild instanceof HTMLOptionElement) {
+      selectElement.firstElementChild.selected = true;
+    }
   }
 }

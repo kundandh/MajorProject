@@ -180,8 +180,15 @@ button[type="submit"]:hover {
   z-index: 2;
 }
 
-.table-responsive {
+/* .table-responsive {
   border-radius: var(--border-radius-medium);
+} */
+
+.responsive-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 20px;
 }
 
 .table-responsive tbody, 
@@ -192,6 +199,7 @@ button[type="submit"]:hover {
 .table-responsive tr {
   border: 0;
 }
+
 
 .table-responsive thead tr {
   background-color: var(--secondary-color);

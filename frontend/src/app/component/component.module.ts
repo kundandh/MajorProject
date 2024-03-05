@@ -7,11 +7,11 @@ import { PartialModule } from './partial/partial.module';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { MembershipComponent } from './membership/membership.component';
 import { FooterComponent } from './footer/footer.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [DashboardComponent, AboutUsComponent, MembershipComponent, FooterComponent],
-  imports: [CommonModule, ComponentRoutingModule, PartialModule, FormsModule],
+  imports: [CommonModule, ComponentRoutingModule, PartialModule, FormsModule,ReactiveFormsModule],
   exports: [DashboardComponent, AboutUsComponent, MembershipComponent, FooterComponent],
 })
 export class ComponentModule { }
