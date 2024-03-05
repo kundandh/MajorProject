@@ -31,6 +31,7 @@ export class ProductPageComponent {
   }
 
   addToCart(){
+    console.log("add to cart method");
     this.cartService.addToCart(this.product);
     this.router.navigateByUrl('/cart-page')
   }
