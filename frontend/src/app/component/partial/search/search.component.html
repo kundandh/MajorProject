@@ -1,0 +1,4 @@
+<div class="d-flex">
+    <input class="form-control" type="search" placeholder="Search" aria-label="Search" #s (keyup.enter)="search(s.value)" [value]="searchTerm">
+    <button class="btn" type="submit" (click)="search(s.value)">Search</button>
+  </div>
