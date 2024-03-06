@@ -11,25 +11,10 @@ import { httpInterceptorProviders } from "./_helpers/http.interceptor";
 import { NgModule } from "@angular/core";
 
 
-<<<<<<< HEAD
 
 @NgModule({
   declarations: [
     AppComponent,
-=======
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { ComponentRoutingModule } from './component/component-routing.module';
-import { ComponentModule } from './component/component.module';
-import {  HttpClientModule } from '@angular/common/http';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
-
-
-@NgModule({
-  declarations: [
-    AppComponent
->>>>>>> main
     ],
   imports: [
     BrowserModule,
@@ -37,17 +22,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ComponentRoutingModule,
     ComponentModule,
     HttpClientModule,
-<<<<<<< HEAD
     NgbModule,
     FormsModule,
     CommonModule
   ],
   providers: [httpInterceptorProviders],
-=======
-    NgbModule
-  ],
-  providers: [],
->>>>>>> main
   bootstrap: [AppComponent],
 })
 export class AppModule {}

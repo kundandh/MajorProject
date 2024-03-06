@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-<<<<<<< HEAD
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { StorageService } from 'src/app/services/storage.service';
 import { EventBusService } from 'src/app/shared/event-bus.service';
-=======
->>>>>>> main
 
 @Component({
   selector: 'app-navbar',
@@ -17,7 +14,6 @@ import { EventBusService } from 'src/app/shared/event-bus.service';
 })
 export class NavbarComponent {
 
-<<<<<<< HEAD
   private roles: string[] = [];
   isLoggedIn = false;
   showAdminBoard = false;
@@ -61,8 +57,5 @@ export class NavbarComponent {
       }
     });
   }
-=======
-  constructor(private routerModule : RouterModule){}
->>>>>>> main
 
 }

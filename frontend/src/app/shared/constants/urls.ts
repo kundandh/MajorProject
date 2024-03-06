@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 const BASE_URL =  "http://localhost:8080";
-=======
-const BASE_URL =  "http://localhost:4000";
->>>>>>> main
 
 export const PRODUCTS_URL = BASE_URL + '/api/products';
 export const PRODUCTS_CATEGORY_URL = PRODUCTS_URL + '/category';
