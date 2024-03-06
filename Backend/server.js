@@ -1,8 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 const cookieSession = require("cookie-session");
-const ProductModel = require('../node-js-server/app/models/productModel')
-const EventModel = require('../node-js-server/app/models/eventModel')
+const ProductModel = require('./app/models/productModel')
+const EventModel = require('./app/models/eventModel')
 const dbConfig = require("./app/config/db.config");
 
 const app = express();

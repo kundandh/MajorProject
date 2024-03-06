@@ -44,38 +44,3 @@
 </div>
 
 <app-footer></app-footer>
-
-
-
-<!-- <div *ngIf="product?._id" class="container">
-    <img [src]="product.imageUrl" [alt]="product.productName"/>
-    <div class="details">
-        <div class="header">
-            <span class="name">
-                {{product.productName}}
-            </span>
-            
-        </div>
-        <div class="rating">
-            <ngb-rating [max]="5" [(rate)]="product.stars" [readonly]="true" checkedcolor="red"
-            uncheckedcolor="black"></ngb-rating>
-        </div>
-      
-        <div class="category">
-            <a routerLink="/category/{{product.category}}">
-                {{product.category}}
-            </a>
-        </div>
-        <div class="description">
-            <span>
-                Time to cook <strong>{{product.description}}</strong>&ensp;minutes
-            </span>
-        </div>
-        <div class="price">
-            <span>
-                {{product.price | currency: 'INR'}}
-            </span>
-        </div>
-        <button (click)="addToCart()">Add To Cart</button>
-    </div>
-</div> -->
