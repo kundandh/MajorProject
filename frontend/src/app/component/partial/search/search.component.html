@@ -1,4 +1,23 @@
-<div class="d-flex">
+<!-- <div class="d-flex">
     <input class="form-control" type="search" placeholder="Search" aria-label="Search" #s (keyup.enter)="search(s.value)" [value]="searchTerm">
     <button class="btn" type="submit" (click)="search(s.value)">Search</button>
-  </div>
+  </div> -->
+
+
+  
+
+    <div class="row mt-3 d-flex justify-content-center align-items-center">
+
+      <div class="col-md-5">
+
+        <div class="form">
+          <i class="fa fa-search"></i>
+          <input type="text" #s (keyup.enter)="search(s.value)" [value]="searchTerm" class="form-control form-input search-bar" placeholder="Search Products...">
+          <span class="left-pan"><i class="fa fa-long-arrow-right" (click)="search(s.value)"></i></span>
+        </div>
+        
+      </div>
+      
+    </div>
+    
+ 

@@ -35,5 +35,7 @@ export class ProductPageComponent {
     this.cartService.addToCart(this.product);
     this.router.navigateByUrl('/cart-page')
   }
+
+
 }
 

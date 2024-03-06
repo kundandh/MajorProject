@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-require('../ConnectionConfig/connect')
+require('../config/db.config')
 
 const productSchema = mongoose.Schema({
     "productName" : String,

@@ -38,8 +38,9 @@ body {
   font-family: var(--body-font-family);
 }
 
-navbar{
-  position: fixed;
+.navbar{
+  position: sticky;
+  z-index: 10;
 }
 
 /*---------------------------------------
@@ -662,3 +663,4 @@ strong {
 .navbar-toggler .navbar-toggler-icon::after {
   top: 8px;
 }
+

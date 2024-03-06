@@ -1,4 +1,4 @@
-.form-control{
+/* .form-control{
     width: 300px;
     border-radius: 20px 0px 0px 20px;
 }
@@ -32,4 +32,66 @@ outline: 0;
 
 .d-flex input::placeholder{
     color: #aaa7a7;
+} */
+
+/* ----------------------------------------------------- */
+
+body{
+
+    background: #d1d5db;
+}
+
+.height{
+
+    height: 100vh;
+}
+
+.form{
+
+    position: relative;
+}
+
+.form .fa-search{
+
+    position: absolute;
+    top:20px;
+    left: 20px;
+    color: #434344;
+
+}
+
+.form span{
+
+    position: absolute;
+    right: 17px;
+    top: 13px;
+    padding: 2px;
+    border-left: 1px solid #000000;
+
+}
+
+.left-pan{
+    padding-left: 7px;
+}
+
+.left-pan i{
+   
+   padding-left: 10px;
+}
+
+.form-input{
+
+    height: 55px;
+    text-indent: 33px;
+    border-radius: 10px;
+}
+
+.form-input:focus{
+
+    box-shadow: rgb(2, 2, 111);
+    /* border:none; */
+}
+
+.search-bar{
+    box-shadow: 1px 1px 1px 1px rgb(121, 121, 121);
 }
