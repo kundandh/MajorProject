@@ -8,6 +8,27 @@ import { SearchComponent } from './search/search.component';
 
 import { TagsComponent } from './tags/tags.component';
 import { FooterComponent } from './footer/footer.component';
+<<<<<<< HEAD
+import { LoginComponent } from "../login/login.component";
+import { RegisterComponent } from "../register/register.component";
+
+@NgModule({
+    declarations: [
+        NavbarComponent,
+        FooterComponent,
+        NotFoundComponent,
+        SearchComponent,
+        TagsComponent,
+    ],
+    exports: [
+        NavbarComponent,
+        FooterComponent,
+        NotFoundComponent,
+        SearchComponent,
+        TagsComponent,
+    ],
+    imports: [CommonModule, PartialRoutingModule, LoginComponent, RegisterComponent]
+=======
 
 @NgModule({
   declarations: [
@@ -25,5 +46,6 @@ import { FooterComponent } from './footer/footer.component';
     SearchComponent,
     TagsComponent,
   ],
+>>>>>>> main
 })
 export class PartialModule {}
