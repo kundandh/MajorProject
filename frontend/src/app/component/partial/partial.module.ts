@@ -8,22 +8,24 @@ import { SearchComponent } from './search/search.component';
 
 import { TagsComponent } from './tags/tags.component';
 import { FooterComponent } from './footer/footer.component';
+import { LoginComponent } from "../login/login.component";
+import { RegisterComponent } from "../register/register.component";
 
 @NgModule({
-  declarations: [
-    NavbarComponent,
-    FooterComponent,
-    NotFoundComponent,
-    SearchComponent,
-    TagsComponent,
-  ],
-  imports: [CommonModule, PartialRoutingModule],
-  exports: [
-    NavbarComponent,
-    FooterComponent,
-    NotFoundComponent,
-    SearchComponent,
-    TagsComponent,
-  ],
+    declarations: [
+        NavbarComponent,
+        FooterComponent,
+        NotFoundComponent,
+        SearchComponent,
+        TagsComponent,
+    ],
+    exports: [
+        NavbarComponent,
+        FooterComponent,
+        NotFoundComponent,
+        SearchComponent,
+        TagsComponent,
+    ],
+    imports: [CommonModule, PartialRoutingModule, LoginComponent, RegisterComponent]
 })
 export class PartialModule {}

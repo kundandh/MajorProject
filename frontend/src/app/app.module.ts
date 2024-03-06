@@ -1,18 +1,20 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { ComponentRoutingModule } from './component/component-routing.module';
-import { ComponentModule } from './component/component.module';
-import {  HttpClientModule } from '@angular/common/http';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserModule } from "@angular/platform-browser";
+import { AppComponent } from "./app.component";
+import { AppRoutingModule } from "./app-routing.module";
+import { ComponentRoutingModule } from "./component/component-routing.module";
+import { ComponentModule } from "./component/component.module";
+import { HttpClientModule } from "@angular/common/http";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { FormsModule } from "@angular/forms";
+import { CommonModule } from "@angular/common";
+import { httpInterceptorProviders } from "./_helpers/http.interceptor";
+import { NgModule } from "@angular/core";
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
     ],
   imports: [
     BrowserModule,
@@ -20,9 +22,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ComponentRoutingModule,
     ComponentModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    FormsModule,
+    CommonModule
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
