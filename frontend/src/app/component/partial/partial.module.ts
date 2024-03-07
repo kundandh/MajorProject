@@ -10,6 +10,7 @@ import { TagsComponent } from './tags/tags.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from "../login/login.component";
 import { RegisterComponent } from "../register/register.component";
+import { ProfileComponent } from "../profile/profile.component";
 
 @NgModule({
     declarations: [
@@ -26,6 +27,6 @@ import { RegisterComponent } from "../register/register.component";
         SearchComponent,
         TagsComponent,
     ],
-    imports: [CommonModule, PartialRoutingModule, LoginComponent, RegisterComponent]
+    imports: [CommonModule, PartialRoutingModule, LoginComponent, RegisterComponent, ProfileComponent]
 })
 export class PartialModule {}
