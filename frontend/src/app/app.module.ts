@@ -25,8 +25,7 @@ import { AdminTempRoutingModule } from "./admin/admin-routing.module";
     ComponentModule,
     HttpClientModule,
     NgbModule,
-    FormsModule,
-    CommonModule,
+    
     // AdminModule,
     // AdminRoutingModule
     AdminTempModule,
