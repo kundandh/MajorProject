@@ -14,6 +14,7 @@ import { PartialModule } from './partial/partial.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
+
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -22,7 +23,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HomeComponent,
     ProductPageComponent,
     CartPageComponent,
-    
   ],
   imports: [
     CommonModule,

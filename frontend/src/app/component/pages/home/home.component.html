@@ -35,7 +35,7 @@
                       <ngb-rating [max]="5" [(rate)]="product.stars" [readonly]="true"></ngb-rating><br>
                     </div>
                     <p class="item-price">
-                      <s>₹400.00</s>&nbsp;&nbsp;<b>₹{{ product.price }}</b>
+                      <s>₹{{ product.price + 100 }}</s>&nbsp;&nbsp;<b>₹{{ product.price }}</b>
                     </p>
                     <button
                       routerLink="/product/{{ product._id }}"
@@ -60,13 +60,13 @@
               <img src={{product.imageUrl}} class="card-img-top" alt="{{product.productName}}" />
               <div class="card-body d-flex flex-column">
                 <h5 class="card-title">$120.00</h5>
-                <p class="card-text">{{ product.brandName }}</p>
+  l              <p class="card-text">{{ product.brandName }}</p>
                 <p class="card-text">{{ product.productName}}</p>
                 <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
                   <a routerLink="/product/{{product._id}}" class="btn btn-primary shadow-0 me-1">Add to cart</a>
                   <a href="#!" class="btn btn-light border icon-hover px-2 pt-2"><i class="fas fa-heart fa-lg text-secondary px-1"></i></a>
                 </div>
               </div>
-            </div>
+            </div>l
           </div>
       </div> -->
