@@ -36,11 +36,6 @@
     border-radius: 5px;
   }
   
-  /* Style for form checkbox in the offcanvas body */
-  .offcanvas-body .form-check-input {
-    margin-right: 5px;
-  }
-  
   /* Style for the buttons in the offcanvas body */
   .offcanvas-body button {
     background-color: #3D405B;
@@ -53,11 +48,6 @@
   
   .offcanvas-body button:hover {
     background-color: #1A202C;
-  }
-  
-  /* Style for the alert message */
-  .offcanvas-body .alert {
-    margin-top: 10px;
   }
   
   /* Style for the SVG wave at the bottom */
