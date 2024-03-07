@@ -1,9 +1,4 @@
 <app-navbar/>
-<app-not-found
-  [visible]="!product._id"
-  notFoundMessage="Food Not Found"
-  resetLinkText="Back To Homepage">
-</app-not-found>
 
 <div class="container mt-5 mb-5" *ngIf="product?._id">
     <div class="row d-flex justify-content-center">

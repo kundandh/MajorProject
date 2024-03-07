@@ -1,4 +1,19 @@
-.container{
-   padding-bottom: 62px;
+.main-container{
+    height: 100%;
+    
+    padding: 0;
+}
 
+.custom-list-item {
+  width: 70%; 
+  margin: 0 auto; 
+  cursor: pointer;
+}
+
+.custom-list-item:hover {
+  background-color: #b5b6b6;
+}
+
+app-footer{
+    margin-bottom: 0;
 }
