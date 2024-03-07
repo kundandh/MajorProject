@@ -17,8 +17,20 @@ export class ProductService {
     return this.http.get<Product[]>(PRODUCTS_URL);
   }
 
+  addProduct(newProduct: Product): Observable<Product> {
+    return this.http.post<Product>(PRODUCTS_URL, newProduct);
+  }
+  
   getProductById(productId:string):Observable<Product>{
     return this.http.get<Product>(PRODUCT_BY_ID_URL + productId);
+  }
+
+  deleteProductById(productId: string): Observable<void> {
+    return this.http.delete<void>(PRODUCT_BY_ID_URL + productId);
+  }
+
+  editProductById(productId: string, updatedProduct: Product): Observable<Product> {
+    return this.http.put<Product>(PRODUCT_BY_ID_URL + productId, updatedProduct);
   }
 
   getAllTags(): Observable<Category[]> {

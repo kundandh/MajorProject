@@ -106,6 +106,7 @@ app.post('/api/products',async (req,res) => {
   const result = await product.save();
   res.send(result)
 })
+
 app.get('/api/products/:productId',async (req, res) => {
   const productId = req.params.productId;
   // const products = await ProductModel.find({ _id: productId });
@@ -113,6 +114,40 @@ app.get('/api/products/:productId',async (req, res) => {
   const products = result.find(product => product._id == productId)
   res.send(products);
 })
+
+app.delete('/api/products/:productId', async (req, res) => {
+  const productId = req.params.productId;
+
+  try {
+    const deletedProduct = await ProductModel.findByIdAndDelete(productId);
+    if (!deletedProduct) {
+      return res.status(404).send({ message: 'Product not found' });
+    }
+    res.send({ message: 'Product deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting product:', error);
+    res.status(500).send({ message: 'Internal Server Error' });
+  }
+});
+
+app.put('/api/products/:productId', async (req, res) => {
+  try {
+    const productId = req.params.productId;
+    const updatedProductData = req.body;
+    const updatedProduct = await ProductModel.findByIdAndUpdate(
+      productId,
+      { $set: updatedProductData },
+      { new: true } 
+    );
+    if (!updatedProduct) {
+      return res.status(404).json({ error: 'Product not found' });
+    }
+    res.json(updatedProduct);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
 
 app.get('/api/products/search/:searchTerm', async(req, res) => {
   const searchTerm = req.params.searchTerm;
