@@ -1,0 +1,19 @@
+<app-navbar></app-navbar>
+<div class="container main-container mt-4">
+    <div class="row">
+      <!-- First Column (col-3) -->
+      <div class="col-3 slider">
+        <ul class="list-group">
+          <li class="list-group-item custom-list-item" routerLink="allProducts/category/All" routerLinkActive="active">Products</li>
+          <li class="list-group-item custom-list-item" routerLink="customers" routerLinkActive="active">Customers</li>
+          <li class="list-group-item custom-list-item" routerLink="orders" routerLinkActive="active">Orders</li>
+          <li class="list-group-item custom-list-item" routerLink="memberships" routerLinkActive="active">Memberships</li>
+        </ul>
+      </div>
+      <!-- Second Column (col-9) -->
+      <div class="col-9 ">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+<app-footer></app-footer>
