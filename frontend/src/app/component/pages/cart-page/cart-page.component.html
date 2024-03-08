@@ -1,75 +1,105 @@
-<app-navbar/>
-<app-not-found 
-[visible]="!cart || !cart.items.length"
-notFoundMessage="Cart Page Is Empty!"
-resetLinkText="Go To Homepage"
+<app-navbar />
+<app-not-found
+  [visible]="!cart || !cart.items.length"
+  notFoundMessage="Cart Page Is Empty!"
+  resetLinkText="Go To Homepage"
 >
 </app-not-found>
 <div *ngIf="cart.items.length" class="container-xl">
-<div class="card mt-5 mb-5">
+  <div class="card mt-5 mb-5">
     <div class="row">
-        <div class="col-md-8 cart">
-            <div class="title">
-                <div class="row">
-                    <div class="col"><h4><b>Shopping Cart</b></h4></div>
-                    <div class="col align-self-center text-right text-muted">{{cart.totalCount}} items</div>
-                </div>
-            </div>    
-            <div *ngFor="let cartItem of cart.items" class="row border-top border-bottom">
-                <div class="row main align-items-center">
-                    <div class="col-2"><img class="img-fluid" src={{cartItem.product.imageUrl}}></div>
-                    <div class="col">
-                        <div class="row text-muted">{{cartItem.product.productName}}</div>
-                        <div class="row">{{cartItem.product.brandName}}</div>
-                    </div>
-                    <div class="col">
-                        <select #quantitySelect [value]="cartItem.quantity" (change)="changeQuantity(cartItem, quantitySelect.value)">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        </select>
-                    </div>
-                    <div class="col">₹ {{cartItem.price}} &nbsp;&nbsp;&nbsp;&nbsp; <button class="remove-button" (click)="removeFromCart(cartItem)"><span class="close">&#10005;</span></button></div>
-                </div>
+      <div class="col-md-8 cart">
+        <div class="title">
+          <div class="row">
+            <div class="col">
+              <h4><b>Shopping Cart</b></h4>
             </div>
-            
-            <div class="back-to-shop"><a routerLink="products">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
+            <div class="col align-self-center text-right text-muted">
+              {{ cart.totalCount }} items
+            </div>
+          </div>
         </div>
-        <div class="col-md-4 summary">
-            <div><h5><b>Summary</b></h5></div>
-            <hr>
-            <div class="row">
-                <div class="col" style="padding-left:0;">ITEMS {{cart.totalCount}}</div>
-                <div class="col text-right">₹{{cart.totalPrice}}</div>
+        <div
+          *ngFor="let cartItem of cart.items"
+          class="row border-top border-bottom"
+        >
+          <div class="row main align-items-center">
+            <div class="col-2">
+              <img class="img-fluid" src="{{ cartItem.product.imageUrl }}" />
             </div>
-            <form>
-                <p>SHIPPING</p>
-                <select><option class="text-muted">Standard Free Delivery</option></select>
-                <p>GIVE CODE</p>
-                <input id="code" placeholder="Enter your code">
-            </form>
-            <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
-                <div class="col">TOTAL PRICE</div>
-                <div class="col text-right">₹{{cart.totalPrice}}</div>
+            <div class="col">
+              <div class="row text-muted">
+                {{ cartItem.product.productName }}
+              </div>
+              <div class="row">{{ cartItem.product.brandName }}</div>
             </div>
-            <button class="btn">CHECKOUT</button>
+            <div class="col">
+              <select
+                #quantitySelect
+                [value]="cartItem.quantity"
+                (change)="changeQuantity(cartItem, quantitySelect.value)"
+              >
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+            <div class="col">
+              ₹ {{ cartItem.price }} &nbsp;&nbsp;&nbsp;&nbsp;
+              <button class="remove-button" (click)="removeFromCart(cartItem)">
+                <span class="close">&#10005;</span>
+              </button>
+            </div>
+          </div>
         </div>
+
+        <div class="back-to-shop">
+          <a routerLink="products">&leftarrow;</a
+          ><span class="text-muted">Back to shop</span>
+        </div>
+      </div>
+      <div class="col-md-4 summary">
+        <div>
+          <h5><b>Summary</b></h5>
+        </div>
+        <hr />
+        <div class="row">
+          <div class="col" style="padding-left: 0">
+            ITEMS {{ cart.totalCount }}
+          </div>
+          <div class="col text-right">₹{{ cart.totalPrice }}</div>
+        </div>
+        <form>
+          <p>SHIPPING</p>
+          <select>
+            <option class="text-muted">Standard Free Delivery</option>
+          </select>
+
+          <form>
+            <p>GIVE CODE</p>
+            <input
+              id="code"
+              placeholder="Enter your code"
+              [(ngModel)]="promoCode"
+            />
+            <button type="button" (click)="applyPromoCode()">Apply</button>
+          </form>
+        </form>
+        <div
+          class="row"
+          style="border-top: 1px solid rgba(0, 0, 0, 0.1); padding: 2vh 0"
+        >
+          <div class="col">TOTAL PRICE</div>
+          <div class="col text-right">₹{{ promoCodeApplied ? cart.discountTotal : cart.totalPrice }}</div>
+        </div>
+        <button class="btn">CHECKOUT</button>
+      </div>
     </div>
-    
-</div>
-
-
+  </div>
 </div>
 <app-footer></app-footer>
-
-
-
-
-
-
-
 
 <!-- <div *ngIf="cart && cart.items.length" class="container">
     <ul>

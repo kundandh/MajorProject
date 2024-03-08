@@ -4,6 +4,7 @@ const cookieSession = require("cookie-session");
 const ProductModel = require('./app/models/productModel')
 const EventModel = require('./app/models/eventModel')
 const dbConfig = require("./app/config/db.config");
+const promocodeModel = require('./app/models/promocode')
 
 const app = express();
 
@@ -128,6 +129,21 @@ app.get('/api/products/category/:categoryName',async (req, res) => {
   res.send(products);
 })
 
+app.get('/api/promocode',async (req, res) => {
+  const promocode = await promocodeModel.find();
+  res.send(promocode);
+})
+
+app.get('/api/promocode/:promocode',async (req, res) => {
+  const promocode_ = req.params.promocode;
+  const result = await promocodeModel.find({promocode:promocode_});
+  res.send(result[0]);
+})
+
+app.post('/api/promocode', async (req, res) => {
+  const promocode = new promocodeModel(req.body);
+  const result = await promocode.save();
+  res.send(result)});
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
