@@ -13,7 +13,6 @@ import { CartPageComponent } from './pages/cart-page/cart-page.component';
 import { PartialModule } from './partial/partial.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -22,7 +21,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HomeComponent,
     ProductPageComponent,
     CartPageComponent,
-    
   ],
   imports: [
     CommonModule,
@@ -30,7 +28,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     ReactiveFormsModule,
     PartialModule,
-    NgbModule
+    NgbModule,
   ],
   exports: [
     DashboardComponent,

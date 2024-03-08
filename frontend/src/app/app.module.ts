@@ -9,6 +9,9 @@ import { FormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 import { httpInterceptorProviders } from "./_helpers/http.interceptor";
 import { NgModule } from "@angular/core";
+import { AdminTempModule } from "./admin/admin.module";
+import { AdminTempRoutingModule } from "./admin/admin-routing.module";
+import { ModalModule } from "ngx-bootstrap/modal";
 
 
 
@@ -24,7 +27,12 @@ import { NgModule } from "@angular/core";
     HttpClientModule,
     NgbModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    ModalModule.forRoot(),
+    // AdminModule,
+    // AdminRoutingModule
+    AdminTempModule,
+    AdminTempRoutingModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent],
