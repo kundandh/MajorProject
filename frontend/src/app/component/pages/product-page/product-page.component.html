@@ -29,7 +29,11 @@
                             <div class="sizes mt-4">
                                 <h6 class="text-uppercase">Size : <span>{{product.size}}</span></h6>
                             </div>
+                            @if(isLoggedIn){
                             <div class="cart mt-4 align-items-center"> <button class="btn btn-danger text-uppercase mr-2 px-4" (click)="addToCart()">Add to cart</button> <i class="fa fa-heart text-muted"></i> <i class="fa fa-share-alt text-muted"></i> </div>
+                            }@else(){
+                                <div class="cart mt-4 align-items-center" id="hoverbtn"> <button class="btn btn-danger text-uppercase mr-2 px-4" disabled>Add to cart</button> <i class="fa fa-heart text-muted"></i> <i class="fa fa-share-alt text-muted"></i> </div>
+                            }
                         </div>
                     </div>
                 </div>
