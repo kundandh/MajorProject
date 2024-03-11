@@ -1,12 +1,12 @@
-<app-navbar />
-<app-not-found
-  [visible]="!cart || !cart.items.length"
-  notFoundMessage="Cart Page Is Empty!"
-  resetLinkText="Go To Homepage"
+<app-navbar/>
+<app-not-found 
+[visible]="!cart || !cart.items.length"
+notFoundMessage="Cart Page Is Empty!"
+resetLinkText="Go To Homepage"
 >
 </app-not-found>
 <div *ngIf="cart.items.length" class="container-xl">
-  <div class="card mt-5 mb-5">
+<div class="card mt-5 mb-5">
     <div class="row">
       <div class="col-md-8 cart">
         <div class="title">
@@ -98,7 +98,17 @@
         <button class="btn" routerLink="/checkout">CHECKOUT</button>
       </div>
     </div>
-  </div>
+    
+</div>
+
+
 </div>
 <app-footer></app-footer>
+
+
+
+
+
+
+
 

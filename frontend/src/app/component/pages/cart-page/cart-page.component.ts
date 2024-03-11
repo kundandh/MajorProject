@@ -1,15 +1,14 @@
-// cart-page.component.ts
-
 import { Component } from '@angular/core';
 import { Cart } from '../../../shared/module/Cart';
 import { CartService } from '../../../services/cart.service';
 import { CartItem } from '../../../shared/module/Cartitem';
-import { Router } from '@angular/router';
+import {  Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-cart-page',
   templateUrl: './cart-page.component.html',
-  styleUrls: ['./cart-page.component.css'],
+  styleUrl: './cart-page.component.css'
 })
 export class CartPageComponent {
   cart!: Cart;
@@ -29,10 +28,10 @@ export class CartPageComponent {
   }
   removeFromCart(cartItem: CartItem) {
     this.cartService.removeFromCart(cartItem.product._id);
-    this.applyPromoCode();
+    console.log(cartItem.imageUrl);
   }
 
-  changeQuantity(cartItem: CartItem, quantityInString: string) {
+  changeQuantity(cartItem:CartItem,quantityInString:string){
     const quantity = parseInt(quantityInString);
     this.cartService.changeQuantity(cartItem.product._id, quantity);
     if(this.buttonClicked){

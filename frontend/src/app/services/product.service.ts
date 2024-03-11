@@ -12,8 +12,6 @@ import { PromoCode } from '../shared/module/PromoCode';
 })
 export class ProductService {
 
-  
-
   constructor(private http: HttpClient) {}
 
   getAll(): Observable<Product[]> {

@@ -1,10 +1,4 @@
-const BASE_URL = 'http://localhost:8080';
-
-// ----------------dashboard----------------
-export const EVENT_URL = BASE_URL + '/api/events';
-export const NEWSLETTER_URL = BASE_URL + '/api/newsletter';
-export const CONTACTUS_URL = BASE_URL + '/api/contactus';
-export const MEMBERSHIP_URL = BASE_URL + '/api/membeships';
+const BASE_URL =  "http://localhost:8080";
 
 export const PRODUCTS_URL = BASE_URL + '/api/products';
 export const PRODUCTS_CATEGORY_URL = PRODUCTS_URL + '/category';

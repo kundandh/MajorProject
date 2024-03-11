@@ -15,6 +15,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { PaymentGatewayComponent } from './pages/payment-gateway/payment-gateway.component';
 
+
+
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -32,7 +34,7 @@ import { PaymentGatewayComponent } from './pages/payment-gateway/payment-gateway
     FormsModule,
     ReactiveFormsModule,
     PartialModule,
-    NgbModule,
+    NgbModule
   ],
   exports: [
     DashboardComponent,

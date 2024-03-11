@@ -28,7 +28,6 @@ import {NgxStripeModule} from "ngx-stripe";
     NgbModule,
     FormsModule,
     CommonModule,
-    ModalModule.forRoot(),
     // AdminModule,
     // AdminRoutingModule
     AdminTempModule,

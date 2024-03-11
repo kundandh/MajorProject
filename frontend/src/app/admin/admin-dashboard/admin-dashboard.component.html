@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-<div class="container main-container mt-4">
+<div class="container mt-4 border-1px black">
     <div class="row">
       <!-- First Column (col-3) -->
       <div class="col-3 slider">
@@ -9,9 +9,11 @@
           <li class="list-group-item custom-list-item" routerLink="allOrders" routerLinkActive="active">Orders</li>
           <li class="list-group-item custom-list-item" routerLink="memberships" routerLinkActive="active">Memberships</li>
         </ul>
+        
       </div>
+  
       <!-- Second Column (col-9) -->
-      <div class="col-9 ">
+      <div class="col-9">
         <router-outlet></router-outlet>
       </div>
     </div>

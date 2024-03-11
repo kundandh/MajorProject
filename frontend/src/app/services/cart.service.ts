@@ -3,7 +3,6 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { Cart } from '../shared/module/Cart';
 import { Product } from '../shared/module/Product';
 import { CartItem } from '../shared/module/Cartitem';
-import { ProductService } from './product.service';
 
 
 @Injectable({
@@ -12,10 +11,7 @@ import { ProductService } from './product.service';
 export class CartService {
   private cart: Cart = this.getCartFromLocalStorage();
   private cartSubject: BehaviorSubject<Cart> = new BehaviorSubject(this.cart);
-  constructor(private productService: ProductService) {}
-
-
-  
+  constructor() { }
 
   addToCart(product: Product): void {
     let cartItem = this.cart.items
