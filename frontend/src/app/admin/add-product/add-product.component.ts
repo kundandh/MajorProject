@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup,  Validators } from '@angular/forms';
 import { ProductService } from '../../services/product.service';
 import { Router } from '@angular/router';
-import { BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-add-product',
@@ -15,8 +14,7 @@ export class AddProductComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private productService: ProductService,
-    private router: Router,
-    private bsModalRef: BsModalRef
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -41,7 +39,7 @@ export class AddProductComponent implements OnInit {
         (product) => {
           console.log('Product created successfully:', product);
           // Optionally, navigate to the product list or another page
-          this.router.navigate(['allProducts']);
+          this.router.navigate(['/products']);
         },
         (error) => {
           console.error('Error creating product:', error);
@@ -49,6 +47,5 @@ export class AddProductComponent implements OnInit {
         }
       );
     }
-    this.bsModalRef.hide();
   }
 }

@@ -11,7 +11,6 @@ import { httpInterceptorProviders } from "./_helpers/http.interceptor";
 import { NgModule } from "@angular/core";
 import { AdminTempModule } from "./admin/admin.module";
 import { AdminTempRoutingModule } from "./admin/admin-routing.module";
-import { ModalModule } from "ngx-bootstrap/modal";
 
 
 
@@ -28,7 +27,6 @@ import { ModalModule } from "ngx-bootstrap/modal";
     NgbModule,
     FormsModule,
     CommonModule,
-    ModalModule.forRoot(),
     // AdminModule,
     // AdminRoutingModule
     AdminTempModule,

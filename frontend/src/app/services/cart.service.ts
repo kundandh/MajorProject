@@ -3,7 +3,6 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { Cart } from '../shared/module/Cart';
 import { Product } from '../shared/module/Product';
 import { CartItem } from '../shared/module/Cartitem';
-import { ProductService } from './product.service';
 
 
 @Injectable({
@@ -12,10 +11,7 @@ import { ProductService } from './product.service';
 export class CartService {
   private cart: Cart = this.getCartFromLocalStorage();
   private cartSubject: BehaviorSubject<Cart> = new BehaviorSubject(this.cart);
-  constructor(private productService: ProductService) {}
-
-
-  
+  constructor() { }
 
   addToCart(product: Product): void {
     let cartItem = this.cart.items
@@ -71,47 +67,4 @@ export class CartService {
     const cartJson = localStorage.getItem('Cart');
     return cartJson ? JSON.parse(cartJson) : new Cart();
   }
-
-  calculateTotalDiscount(): number {
-    return this.cart.totalPrice* this.cart.promoDiscount/100;
-    
-  }
-
- 
-
- // Inject the PromoService in the constructor
-
-  updateCart() {
-    this.cart.promoDiscount = this.calculateTotalDiscount();
-    this.cart.discountTotal = this.cart.totalPrice - this.cart.promoDiscount;
-    
-    this.cartSubject.next({ ...this.cart });
-  }
-
-  applyPromoCode(promoCode: string) {
-    this.productService.getPromoCodeByName(promoCode).subscribe(
-      (promoData: any) => {
-         let promo = promoData[0]
-        if (promo && promo.discount) {
-          this.cart.promoCode = promo;
-          this.cart.promoDiscount = promo.discount;
-          this.cart.discountTotal = this.cart.totalPrice;
-          this.updateCart();
-        } else {
-          console.log('Invalid promo code');
-        }
-      },
-      (error: any) => {
-        console.error('Error fetching promo code from backend', error);
-        // Handle error (e.g., show a message to the user)
-      }
-    );
-  }
-
-  removePromoCode() {
-    this.cart.promoCode = '';
-    this.cart.promoDiscount = 0;
-    this.updateCart();
-  }
 }
-

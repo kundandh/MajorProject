@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Product } from '../shared/module/Product';
-import { PRODUCTS_BY_CATEGORY_URL, PROMOCODE_URL,PRODUCTS_BY_SEARCH_URL, PRODUCTS_CATEGORY_URL, PRODUCTS_URL, PRODUCT_BY_ID_URL } from '../shared/constants/urls';
+import { PRODUCTS_BY_CATEGORY_URL, PRODUCTS_BY_SEARCH_URL, PRODUCTS_CATEGORY_URL, PRODUCTS_URL, PRODUCT_BY_ID_URL } from '../shared/constants/urls';
 import { Category} from '../shared/module/Category';
 
 
@@ -10,8 +10,6 @@ import { Category} from '../shared/module/Category';
   providedIn: 'root'
 })
 export class ProductService {
-
-  private apiUrl = 'your_backend_api_url';
 
   constructor(private http: HttpClient) {}
 
@@ -49,11 +47,4 @@ export class ProductService {
     return this.http.get<Product[]>(PRODUCTS_BY_SEARCH_URL + searchTerm);
   }
 
-  getPromoCode(promoCode: string): Observable<any> {
-    return this.http.get(PROMOCODE_URL);
-  }
-
-  getPromoCodeByName(promoCode: string): Observable<any> {
-    return this.http.get(PROMOCODE_URL + promoCode);
-  }
 }
