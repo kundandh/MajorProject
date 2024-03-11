@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-update-profile',
@@ -17,15 +18,13 @@ export class UpdateProfileComponent {
   currentPassword: string = '';
   newPassword: string = '';
   confirmNewPassword: string = '';
+  upass = false;
 
   @ViewChild('notificationArea') notificationArea!: ElementRef;
 
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private storageService: StorageService) {}
 
-  toggleEditingUsername(): void {
-    this.editingUsername = !this.editingUsername;
-  }
 
   toggleAddingAddress(): void {
     this.addingAddress = !this.addingAddress;
@@ -56,10 +55,15 @@ export class UpdateProfileComponent {
 
   updateAddress(): void {
     // Make a PUT request to update the user's address
-    this.http.put('/api/auth/updateAddress', { address: this.newAddress })
+    this.http.put('http://localhost:8080/api/auth/updateAddress', { address: this.newAddress })
       .subscribe((response: any) => {
         console.log(response);
-        // You can add further logic here if needed
+        this.upass=true;
+        // sessionStorage.clear();
+        sessionStorage.setItem('auth-user', JSON.stringify(response));
+        console.log(response);
+        
+        window.location.reload()
       }, (error: any) => {
         console.error(error);
       });

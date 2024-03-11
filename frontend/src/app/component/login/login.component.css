@@ -1,68 +1,44 @@
-/* Style for the offcanvas container */
+/* Add your global styles here */
 .offcanvas {
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+    background-color: #fff; /* Background color of the offcanvas */
   }
   
-  /* Style for the offcanvas header */
   .offcanvas-header {
-    background-color: #3D405B;
-    color: #fff;
-    border-bottom: 1px solid #dee2e6;
+    background-color: #3D405B; /* Header background color */
+    color: #fff; /* Header text color */
   }
   
-  /* Style for the close button in the header */
-  .offcanvas-header .btn-close {
-    color: #fff;
+  .offcanvas-title {
+    color: #fff; /* Title text color */
   }
   
-  /* Style for the offcanvas body */
   .offcanvas-body {
-    padding: 20px;
+    padding: 20px; /* Padding for the body */
   }
   
-  /* Style for form labels in the offcanvas body */
-  .offcanvas-body label {
-    font-weight: bold;
+  .member-login-form-body {
+    max-width: 400px; /* Set the maximum width of the form */
+    margin: 0 auto; /* Center the form horizontally */
+  }
+  
+  .form-label {
     color: #3D405B;
+    font-weight: bold; /* Bold labels */
   }
   
-  /* Style for form inputs in the offcanvas body */
-  .offcanvas-body input {
-    margin-bottom: 10px;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+  .input-group {
+    position: relative;
   }
   
-  /* Style for form checkbox in the offcanvas body */
-  .offcanvas-body .form-check-input {
-    margin-right: 5px;
+  .input-group-text {
+    cursor: pointer; /* Add pointer cursor to the eye icon */
   }
   
-  /* Style for the buttons in the offcanvas body */
-  .offcanvas-body button {
-    background-color: #3D405B;
-    color: #fff;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  .alert {
+    margin-top: 20px; /* Add some space above the alert */
   }
   
-  .offcanvas-body button:hover {
-    background-color: #1A202C;
+  /* Add your own custom styling as needed */
+  input{
+    border: 0.2px solid rgb(108, 107, 107);
   }
-  
-  /* Style for the alert message */
-  .offcanvas-body .alert {
-    margin-top: 10px;
-  }
-  
-  /* Style for the SVG wave at the bottom */
-  svg {
-    display: block;
-    margin-top: -1px; /* Adjust to match your design */
-  }
-  
