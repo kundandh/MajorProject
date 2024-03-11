@@ -70,7 +70,7 @@
   left: 0;
 }
 #home{
-  margin-top: -33px;
+  margin-top: -7px;
 }
 
 .hero-section>svg {
@@ -318,6 +318,8 @@
 
 
 .navbar {
+  
+ 
 
 
   position: sticky;

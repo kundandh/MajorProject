@@ -1,14 +1,11 @@
 const express = require("express");
 const cors = require("cors");
-const Razorpay = require('razorpay');
 const cookieSession = require("cookie-session");
 const ProductModel = require('./app/models/productModel')
 const EventModel = require('./app/models/eventModel')
 const dbConfig = require("./app/config/db.config");
 
 const app = express();
-
-app.use('/uploads', express.static('uploads'));
 
 const corsOptions = {
   origin: "http://localhost:4200", // Replace with the actual origin of your Angular app
@@ -74,93 +71,78 @@ function initial() {
 }
 
 // kundan product routs
-app.get("/api/products", async (req, res) => {
+app.get('/api/events',async (req,res) => {
+  const result = await EventModel.find();
+  res.send(result);
+})
+
+
+app.get('/api/products',async (req,res) => {
   const result = await ProductModel.find();
   res.send(result);
-});
+})
 
-app.get("/api/products/category", async (req, res) => {
+app.get('/api/products/category',async (req,res) => {
   const result = await ProductModel.aggregate([
     {
-      $group: {
-        _id: "$category",
-        count: { $sum: 1 },
+        $group: {
+          _id: "$category",
+          count: { $sum: 1 }
+        }
       },
-    },
-    {
-      $project: {
-        name: "$_id",
-        count: 1,
-        _id: 0,
-      },
-    },
-  ]);
-  res.send(result);
-});
+      {
+        $project: {
+          name: "$_id",
+          count: 1,
+          _id: 0
+        }
+      }
+    ])
+    res.send(result);
+})
 
-app.post('/api/products', upload.single('imageUrl'), async (req, res)=> {
-  const imageURL = req.file ? `http://localhost:8080/${req.file.path}` : null;
-  const product = new ProductModel({
-    productName: req.body.productName,
-    brandName: req.body.brandName,
-    price: req.body.price,
-    category: req.body.category,
-    description: req.body.description,
-    size: req.body.size,
-    stars: req.body.stars,
-    // Get the path of the uploaded image file
-    imageUrl : imageURL
-  });
+app.post('/api/products',async (req,res) => {
+  const product = new ProductModel(req.body);
   const result = await product.save();
-  res.send(result);
-});
+  res.send(result)
+})
 
-app.get("/api/products/:productId", async (req, res) => {
+app.get('/api/products/:productId',async (req, res) => {
   const productId = req.params.productId;
   // const products = await ProductModel.find({ _id: productId });
   const result = await ProductModel.find();
-  const products = result.find((product) => product._id == productId);
+  const products = result.find(product => product._id == productId)
   res.send(products);
-});
+})
 
-app.delete("/api/products/:productId", async (req, res) => {
+app.delete('/api/products/:productId', async (req, res) => {
   const productId = req.params.productId;
 
   try {
     const deletedProduct = await ProductModel.findByIdAndDelete(productId);
     if (!deletedProduct) {
-      return res.status(404).send({ message: "Product not found" });
+      return res.status(404).send({ message: 'Product not found' });
     }
-    res.send({ message: "Product deleted successfully" });
+    res.send({ message: 'Product deleted successfully' });
   } catch (error) {
-    console.error("Error deleting product:", error);
-    res.status(500).send({ message: "Internal Server Error" });
+    console.error('Error deleting product:', error);
+    res.status(500).send({ message: 'Internal Server Error' });
   }
 });
 
-app.put('/api/products/:productId', upload.single('imageUrl'), async (req, res) => {
+app.put('/api/products/:productId', async (req, res) => {
   try {
     const productId = req.params.productId;
-    let updatedProductData = req.body;
-    
-    // If an image file is uploaded, update the imageURL
-    if (req.file) {
-      const imageURL = req.file ? `http://localhost:8080/${req.file.path}` : null;
-      updatedProductData.imageUrl = imageURL.toString()
-    }
-    console.log(updatedProductData.imageUrl)
-    // Find the product by its ID and update its data
+    const updatedProductData = req.body;
     const updatedProduct = await ProductModel.findByIdAndUpdate(
       productId,
       { $set: updatedProductData },
-      { new: true } // Return the updated document
+      { new: true } 
     );
-
     if (!updatedProduct) {
       return res.status(404).json({ error: 'Product not found' });
       return res.status(404).json({ error: 'Product not found' });
     }
-
     res.json(updatedProduct);
   } catch (error) {
     console.error(error);
@@ -169,17 +151,17 @@ app.put('/api/products/:productId', upload.single('imageUrl'), async (req, res) 
   }
 });
 
-app.get("/api/products/search/:searchTerm", async (req, res) => {
+app.get('/api/products/search/:searchTerm', async(req, res) => {
   const searchTerm = req.params.searchTerm;
   const products = await ProductModel.find({
-    productName: { $regex: new RegExp(searchTerm, "i") },
+    productName: { $regex: new RegExp(searchTerm, 'i') }
   });
   res.send(products);
-});
+})
 
-app.get("/api/products/category/:categoryName", async (req, res) => {
+app.get('/api/products/category/:categoryName',async (req, res) => {
   const category_ = req.params.categoryName;
-  const products = await ProductModel.find({ category: category_ });
+  const products = await ProductModel.find({category:category_});
   res.send(products);
 })
 

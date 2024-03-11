@@ -12,8 +12,6 @@ import { ProductPageComponent } from './pages/product-page/product-page.componen
 import { CartPageComponent } from './pages/cart-page/cart-page.component';
 import { PartialModule } from './partial/partial.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { CheckoutComponent } from './pages/checkout/checkout.component';
-import { PaymentGatewayComponent } from './pages/payment-gateway/payment-gateway.component';
 
 
 
@@ -25,8 +23,6 @@ import { PaymentGatewayComponent } from './pages/payment-gateway/payment-gateway
     HomeComponent,
     ProductPageComponent,
     CartPageComponent,
-    CheckoutComponent,
-    PaymentGatewayComponent
   ],
   imports: [
     CommonModule,
@@ -43,8 +39,6 @@ import { PaymentGatewayComponent } from './pages/payment-gateway/payment-gateway
     HomeComponent,
     ProductPageComponent,
     CartPageComponent,
-    CheckoutComponent,
-    PaymentGatewayComponent
   ],
 })
 export class ComponentModule {}

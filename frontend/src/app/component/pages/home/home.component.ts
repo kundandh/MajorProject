@@ -36,10 +36,6 @@ export class HomeComponent {
 round(x:number):any{
   Math.round(x);
 }
-
-round(x:number):any{
-  Math.round(x);
-}
 }
 
 
