@@ -1,10 +1,7 @@
 <app-navbar />
 <app-search></app-search>
 <app-tags></app-tags>
-<app-not-found
-  [visible]="!products || !products.length"
-  resetLinkText="Reset Search"
-></app-not-found>
+
 <div class="container-xl">
   <div class="row">
     <div class="col-md-12">
@@ -15,6 +12,10 @@
         data-ride="carousel"
         data-interval="0"
       >
+      <app-not-found
+       [visible]="!products || !products.length"
+       resetLinkText="Reset Search"
+      ></app-not-found>
         <!-- Wrapper for carousel items -->
         <div class="carousel-inner">
           <div class="item carousel-item active">

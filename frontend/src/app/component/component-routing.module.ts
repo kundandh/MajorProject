@@ -7,6 +7,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { CartPageComponent } from './pages/cart-page/cart-page.component';
 import { AdminDashboardComponent } from '../admin/admin-dashboard/admin-dashboard.component';
 
+
 const routes: Routes = [
   {
     path: 'about-us',
@@ -24,7 +25,6 @@ const routes: Routes = [
     path: 'admin-dash',
     component: AdminDashboardComponent
   }
-
   
 ];
 
