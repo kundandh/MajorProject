@@ -3,6 +3,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { Cart } from '../shared/module/Cart';
 import { Product } from '../shared/module/Product';
 import { CartItem } from '../shared/module/Cartitem';
+import { ProductService } from './product.service';
 
 
 @Injectable({
@@ -11,7 +12,10 @@ import { CartItem } from '../shared/module/Cartitem';
 export class CartService {
   private cart: Cart = this.getCartFromLocalStorage();
   private cartSubject: BehaviorSubject<Cart> = new BehaviorSubject(this.cart);
-  constructor() { }
+  constructor(private productService: ProductService) {}
+
+
+  
 
   addToCart(product: Product): void {
     let cartItem = this.cart.items
@@ -59,7 +63,7 @@ export class CartService {
       .reduce((prevSum, currentItem) => prevSum + currentItem.quantity, 0);
 
     const cartJson = JSON.stringify(this.cart);
-    localStorage.setItem('Cart', cartJson);
+    sessionStorage.setItem('Cart', cartJson);
     this.cartSubject.next(this.cart);
   }
 
@@ -67,4 +71,49 @@ export class CartService {
     const cartJson = localStorage.getItem('Cart');
     return cartJson ? JSON.parse(cartJson) : new Cart();
   }
+
+  calculateTotalDiscount(): number {
+    return this.cart.totalPrice* this.cart.promoDiscount/100;
+    
+  }
+
+ 
+
+ // Inject the PromoService in the constructor
+
+  updateCart() {
+    this.cart.promoDiscount = this.calculateTotalDiscount();
+    this.cart.discountTotal = this.cart.totalPrice - this.cart.promoDiscount;
+    
+    this.cartSubject.next({ ...this.cart });
+  }
+
+  applyPromoCode(promoCode: string) {
+    this.productService.getPromoCodeByName(promoCode).subscribe(
+      (promoData: any) => {
+         let promo = promoData
+        if (promo && promo.discount) {
+          this.cart.promoCode = promo.promocode;
+          this.cart.promoDiscount = promo.discount;
+          this.cart.discountTotal = this.cart.totalPrice;
+          this.updateCart();
+        } else {
+          console.log('Invalid promo code');
+          this.cart.discountTotal = this.cart.totalPrice;
+          this.cartSubject.next({ ...this.cart });
+        }
+      },
+      (error: any) => {
+        console.error('Error fetching promo code from backend', error);
+        // Handle error (e.g., show a message to the user)
+      }
+    );
+  }
+
+  removePromoCode() {
+    this.cart.promoCode = '';
+    this.cart.promoDiscount = 0;
+    this.updateCart();
+  }
 }
+

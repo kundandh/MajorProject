@@ -1,11 +1,8 @@
 <app-navbar />
 <app-search></app-search>
 <app-tags></app-tags>
-<app-not-found
-  [visible]="!products || !products.length"
-  resetLinkText="Reset Search"
-></app-not-found>
-<div class="container-xl">
+
+<div class="container-xl" >
   <div class="row">
     <div class="col-md-12">
       <h2>Featured <b>Products</b></h2>
@@ -15,16 +12,23 @@
         data-ride="carousel"
         data-interval="0"
       >
+      <app-not-found
+       [visible]="!products || !products.length"
+       resetLinkText="Reset Search"
+      ></app-not-found>
         <!-- Wrapper for carousel items -->
         <div class="carousel-inner">
           <div class="item carousel-item active">
             <div class="row mt-4">
               <div class="col-sm-3 mb-4" *ngFor="let product of products">
                 <div class="thumb-wrapper">
-                  <span class="wish-icon"><i class="fa fa-heart-o"></i></span>
+                  <!-- <div class="discount"> -->
+                    <div class=" discount">{{ ((100 - (product.price / (product.price + 100)) * 100)).toFixed() }}%<br>OFF</div>
+                  <!-- </div> -->
+                  
                   <div class="img-box">
                     <img
-                      src="{{ product.imageUrl }}"
+                      src={{product.imageUrl}}
                       class="img-fluid"
                       alt="{{ product.productName }}"
                     />
@@ -41,7 +45,7 @@
                       routerLink="/product/{{ product._id }}"
                       class="btn btn-outline-dark"
                     >
-                      Add to Cart
+                      See Details
                     </button>
                   </div>
                 </div>

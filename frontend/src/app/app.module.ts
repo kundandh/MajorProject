@@ -5,14 +5,13 @@ import { ComponentRoutingModule } from "./component/component-routing.module";
 import { ComponentModule } from "./component/component.module";
 import { HttpClientModule } from "@angular/common/http";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 import { httpInterceptorProviders } from "./_helpers/http.interceptor";
 import { NgModule } from "@angular/core";
 import { AdminTempModule } from "./admin/admin.module";
 import { AdminTempRoutingModule } from "./admin/admin-routing.module";
-import { ModalModule } from "ngx-bootstrap/modal";
-import {NgxStripeModule} from "ngx-stripe";
+
 
 
 @NgModule({
@@ -31,7 +30,8 @@ import {NgxStripeModule} from "ngx-stripe";
     // AdminModule,
     // AdminRoutingModule
     AdminTempModule,
-    AdminTempRoutingModule
+    AdminTempRoutingModule,
+    ReactiveFormsModule,
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent],

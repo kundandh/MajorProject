@@ -1,32 +1,56 @@
+// cart-page.component.ts
+
 import { Component } from '@angular/core';
 import { Cart } from '../../../shared/module/Cart';
 import { CartService } from '../../../services/cart.service';
 import { CartItem } from '../../../shared/module/Cartitem';
-import {  Router } from '@angular/router';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart-page',
   templateUrl: './cart-page.component.html',
-  styleUrl: './cart-page.component.css'
+  styleUrls: ['./cart-page.component.css'],
 })
 export class CartPageComponent {
   cart!: Cart;
-  constructor(private cartService: CartService, private router: Router) {
-    this.cartService.getCartObservable().subscribe((cart) => {
-      this.cart = cart;
-      console.log(this.cart)
-      
-    })
-   }
+  promoCode: string = '';
+  promoCodeApplied : boolean = false;
+  buttonClicked : boolean = false;
 
-  removeFromCart(cartItem:CartItem){
-    this.cartService.removeFromCart(cartItem.product._id);
-    console.log(cartItem.imageUrl);
+  constructor(private cartService: CartService, private router: Router) {
+    
   }
 
-  changeQuantity(cartItem:CartItem,quantityInString:string){
+  ngOnInit(): void {
+    this.cartService.getCartObservable().subscribe((cart) => {
+      this.cart = cart;
+      
+    });
+  }
+  removeFromCart(cartItem: CartItem) {
+    this.cartService.removeFromCart(cartItem.product._id);
+    this.applyPromoCode();
+  }
+
+  changeQuantity(cartItem: CartItem, quantityInString: string) {
     const quantity = parseInt(quantityInString);
     this.cartService.changeQuantity(cartItem.product._id, quantity);
+    if(this.buttonClicked){
+      this.applyPromoCode();
+    }
+    
+  }
+
+  applyPromoCode() {
+    this.promoCodeApplied = true;
+    this.buttonClicked = true
+    console.log(this.promoCode)
+    this.cartService.applyPromoCode(this.promoCode);
+     // Clear the input field after applying the promo code
+    
+  }
+
+  removePromoCode() {
+    this.cartService.removePromoCode();
   }
 }

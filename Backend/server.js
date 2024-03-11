@@ -1,11 +1,35 @@
 const express = require("express");
 const cors = require("cors");
+const Razorpay = require('razorpay');
 const cookieSession = require("cookie-session");
 const ProductModel = require('./app/models/productModel')
 const EventModel = require('./app/models/eventModel')
 const dbConfig = require("./app/config/db.config");
+const promocodeModel = require('./app/models/promocode')
+const bodyParser = require('body-parser');
+const orderModel = require('./app/models/orders')
+const multer = require('multer');
+const path = require('path'); 
+require('./app/middlewares/uploads')
+
+const upload = multer({
+  dest: 'uploads/',
+  fileFilter: (req, file, cb) => {
+    if (file.fieldname === 'imageUrl') {
+      cb(null, true); // Accept the file
+    } else {
+      cb(new Error('Unexpected field')); // Reject the file
+    }
+  }
+});
+
+const STRIPE_SECRET_KEY = 
+"sk_test_51OsOCvSGwbKLSXXDeE92QcXwQQdNGTI4JYgNwslHmi0jOzQnlUmKsdyIZXft9OgjIRR4Gt5KZAP3uLGZkbuusUZX00Y7k1VVR3"
+const stripe = require("stripe")(STRIPE_SECRET_KEY);
 
 const app = express();
+
+app.use('/uploads', express.static('uploads'));
 
 const corsOptions = {
   origin: "http://localhost:4200", // Replace with the actual origin of your Angular app
@@ -101,8 +125,19 @@ app.get('/api/products/category',async (req,res) => {
     res.send(result);
 })
 
-app.post('/api/products',async (req,res) => {
-  const product = new ProductModel(req.body);
+app.post('/api/products', upload.single('imageUrl'), async (req, res)=> {
+  const imageURL = req.file ? `http://localhost:8080/${req.file.path}` : null;
+  const product = new ProductModel({
+    productName: req.body.productName,
+    brandName: req.body.brandName,
+    price: req.body.price,
+    category: req.body.category,
+    description: req.body.description,
+    size: req.body.size,
+    stars: req.body.stars,
+    // Get the path of the uploaded image file
+    imageUrl : imageURL
+  });
   const result = await product.save();
   res.send(result)
 })
@@ -130,19 +165,29 @@ app.delete('/api/products/:productId', async (req, res) => {
   }
 });
 
-app.put('/api/products/:productId', async (req, res) => {
+app.put('/api/products/:productId', upload.single('imageUrl'), async (req, res) => {
   try {
     const productId = req.params.productId;
-    const updatedProductData = req.body;
+    let updatedProductData = req.body;
+    
+    // If an image file is uploaded, update the imageURL
+    if (req.file) {
+      const imageURL = req.file ? `http://localhost:8080/${req.file.path}` : null;
+      updatedProductData.imageUrl = imageURL.toString()
+    }
+    console.log(updatedProductData.imageUrl)
+    // Find the product by its ID and update its data
     const updatedProduct = await ProductModel.findByIdAndUpdate(
       productId,
       { $set: updatedProductData },
-      { new: true } 
+      { new: true } // Return the updated document
     );
+
     if (!updatedProduct) {
       return res.status(404).json({ error: 'Product not found' });
       return res.status(404).json({ error: 'Product not found' });
     }
+
     res.json(updatedProduct);
   } catch (error) {
     console.error(error);
@@ -164,6 +209,124 @@ app.get('/api/products/category/:categoryName',async (req, res) => {
   const products = await ProductModel.find({category:category_});
   res.send(products);
 })
+
+app.get('/api/promocode',async (req, res) => {
+  const promocode = await promocodeModel.find();
+  res.send(promocode);
+})
+
+app.get('/api/promocode/:promocode',async (req, res) => {
+  const promocode_ = req.params.promocode;
+  const codes = await promocodeModel.find();
+  const result = codes.find((code)=>code.promocode == promocode_)
+  res.send(result);
+})
+
+app.post('/api/promocode', async (req, res) => {
+  const promocode = new promocodeModel(req.body);
+  const result = await promocode.save();
+  res.send(result)});
+
+app.get("/success", async(req,res)=>{
+  const session_id = req.query.session_id;
+
+  try{
+    const session = await stripe.checkout.sessions.retrieve(session_id)
+    if(session.payment_status === "paid"){
+      res.send("payment Sucessful");
+    }else{
+      res.send("payment Unsucessful");
+    }
+  }catch(error){
+    res.send("payment Confimation Error");
+  }
+});
+
+app.get("/cancel",(req,res) =>{
+  res.send("Payment Canceled");
+});
+
+
+app.post('/create-checkout-session',async(req,res)=>{
+  try{
+    const session = await stripe.checkout.sessions.create({
+      payement_method_types :["card"],
+      line_items: [
+        {
+          price_data: {
+            currency: "inr",
+            product_data:{
+              name: "Product Name"
+            },
+            unit_amount : 1000
+          },
+          quantity:1
+        }
+      ],
+      mode : "payment",
+      success_url : "http://localhost:8080/success?session_id={CHECKOUT_SESSION_ID}",
+      cancel_url : "http://localhost:8080/cancel"
+    });
+    res.json({url:session.url});
+  }catch(error){
+    res.status(500).json({error: error.message});
+  }
+})
+
+app.get('/api/orders/:orderId', async (req, res) => {
+  try {
+    const orderId = req.params.orderId;
+
+    // Fetching the order by ID from the database
+    const order = await orderModel.findById(orderId);
+
+    if (!order) {
+      return res.status(404).json({ message: "Order not found" }); // Order not found
+    }
+
+    res.status(200).json(order); // Sending the fetched order as response
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server error" }); // Sending an error response
+  }
+});
+
+app.get('/api/orders', async (req, res) => {
+  try {
+    // Fetching orders from the database
+    const orders = await orderModel.find();
+
+    res.status(200).json(orders); // Sending the fetched orders as response
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server error" }); // Sending an error response
+  }
+});
+
+app.post('/api/orders', async (req, res) => {
+  try {
+      // Extracting data from the request body
+      const { user_Id, products, orderValue, address, date,promocode } = req.body;
+
+      // Creating a new order instance
+      const newOrder = new orderModel({
+          user_Id,
+          products,
+          orderValue,
+          address,
+          date,
+          promocode
+      });
+
+      // Saving the order to the database
+      const savedOrder = await newOrder.save();
+
+      res.status(201).json(savedOrder); // Sending the saved order as response
+  } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "Server error" }); // Sending an error response
+  }
+});
 
 
 const PORT = process.env.PORT || 8080;
