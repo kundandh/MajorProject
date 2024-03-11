@@ -8,9 +8,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ProductsComponent } from './products/products.component';
 import { PartialModule } from '../component/partial/partial.module';
 import { EditProductComponent } from './edit-product/edit-product.component';
+import { CategoryComponent } from './category/category.component';
 import { ProductTableComponent } from './product-table/product-table.component';
 import { OrdersTableComponent } from './orders-table/orders-table.component';
-import { CategoryComponent } from './category/category.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,8 @@ import { CategoryComponent } from './category/category.component';
     EditProductComponent,
     CategoryComponent,
     ProductTableComponent, 
-    OrdersTableComponent,
+    OrdersTableComponent
+    
   ],
   imports: [
     CommonModule,
