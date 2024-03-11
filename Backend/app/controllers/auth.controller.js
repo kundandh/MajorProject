@@ -8,8 +8,14 @@ var bcrypt = require("bcryptjs");
 
 exports.signup = (req, res) => {
   const user = new User({
+    firstname: req.body.firstname,
+    lastname: req.body.lastname,
     username: req.body.username,
+    age: req.body.age,
+    gender: req.body.gender,
+    phonenumber: req.body.phonenumber,
     email: req.body.email,
+    address: req.body.address,
     password: bcrypt.hashSync(req.body.password, 8),
   });
 
@@ -104,8 +110,14 @@ exports.signin = (req, res) => {
 
       res.status(200).send({
         id: user._id,
+        firstname: user.firstname,
+        lastname: user.lastname,
         username: user.username,
+        age: user.age,
+        gender: user.gender,
+        phonenumber: user.phonenumber,
         email: user.email,
+        address: user.address,
         roles: authorities,
       });
     });
@@ -118,4 +130,55 @@ exports.signout = async (req, res) => {
   } catch (err) {
     this.next(err);
   }
+};
+
+
+exports.updateAddress = (req, res) => {
+  const userId = req.userId;
+  const updatedAddress = typeof req.body.address === 'string' ? [req.body.address] : req.body.address;
+
+  User.findByIdAndUpdate(userId, { $set: { address: updatedAddress } }, { new: true })
+    .then(user => {
+      if (!user) {
+        return res.status(404).send({ message: "User not found." });
+      }
+      res.send(user);
+    })
+    .catch(err => {
+      res.status(500).send({ message: err.message });
+    });
+};
+
+
+
+exports.updatePassword = (req, res) => {
+  const userId = req.userId; 
+  const { currentPassword, newPassword, confirmNewPassword } = req.body;
+
+  // Implement validation to ensure new password matches the confirmation
+  if (newPassword !== confirmNewPassword) {
+    return res.status(400).send({ message: "New password and confirm password do not match." });
+  }
+
+  User.findById(userId, (err, user) => {
+    if (err) {
+      return res.status(500).send({ message: err });
+    }
+
+    // Check if current password matches
+    if (!bcrypt.compareSync(currentPassword, user.password)) {
+      return res.status(401).send({ message: "Invalid current password." });
+    }
+
+    // Update password
+    user.password = bcrypt.hashSync(newPassword, 8);
+
+    // Save updated user
+    user.save((err) => {
+      if (err) {
+        return res.status(500).send({ message: err });
+      }
+      res.send({ message: "Password updated successfully!" });
+    });
+  });
 };
