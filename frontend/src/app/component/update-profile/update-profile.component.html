@@ -18,6 +18,9 @@ aria-labelledby="offcanvasExampleLabel">
                 <input type="text" class="form-control" [(ngModel)]="newAddress" placeholder="Enter Address">
             </div>
             <button type="button" class="btn btn-primary" (click)="updateAddress()">Add Address</button>
+            @if(upass){
+                <p class="text-success">Address updated</p>
+            }
         </div>
     
         <hr> <!-- Add a horizontal line for visual separation -->

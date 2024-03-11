@@ -8,8 +8,14 @@ var bcrypt = require("bcryptjs");
 
 exports.signup = (req, res) => {
   const user = new User({
+    firstname: req.body.firstname,
+    lastname: req.body.lastname,
     username: req.body.username,
+    age: req.body.age,
+    gender: req.body.gender,
+    phonenumber: req.body.phonenumber,
     email: req.body.email,
+    address: req.body.address,
     password: bcrypt.hashSync(req.body.password, 8),
   });
 
@@ -104,8 +110,14 @@ exports.signin = (req, res) => {
 
       res.status(200).send({
         id: user._id,
+        firstname: user.firstname,
+        lastname: user.lastname,
         username: user.username,
+        age: user.age,
+        gender: user.gender,
+        phonenumber: user.phonenumber,
         email: user.email,
+        address: user.address,
         roles: authorities,
       });
     });
@@ -123,13 +135,14 @@ exports.signout = async (req, res) => {
 
 exports.updateAddress = (req, res) => {
   const userId = req.userId;
+  const updatedAddress = typeof req.body.address === 'string' ? [req.body.address] : req.body.address;
 
-  User.findByIdAndUpdate(userId, { $push: { address: req.body.address } }, { new: true })
+  User.findByIdAndUpdate(userId, { $set: { address: updatedAddress } }, { new: true })
     .then(user => {
       if (!user) {
         return res.status(404).send({ message: "User not found." });
       }
-      res.send({ message: "Address added successfully!" });
+      res.send(user);
     })
     .catch(err => {
       res.status(500).send({ message: err.message });
@@ -137,20 +150,6 @@ exports.updateAddress = (req, res) => {
 };
 
 
-exports.updateUsername = (req, res) => {
-  const userId = req.userId; 
-
-  User.findByIdAndUpdate(userId, { username: req.body.username }, { new: true })
-    .then(user => {
-      if (!user) {
-        return res.status(404).send({ message: "User not found." });
-      }
-      res.send({ message: "Username updated successfully!" });
-    })
-    .catch(err => {
-      res.status(500).send({ message: err.message });
-    });
-};
 
 exports.updatePassword = (req, res) => {
   const userId = req.userId; 
