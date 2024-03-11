@@ -8,11 +8,25 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ProductsComponent } from './products/products.component';
 import { PartialModule } from '../component/partial/partial.module';
 import { EditProductComponent } from './edit-product/edit-product.component';
-
+import { ProductTableComponent } from './product-table/product-table.component';
+import { OrdersTableComponent } from './orders-table/orders-table.component';
 
 @NgModule({
-  declarations: [AddProductComponent, AdminDashboardComponent,ProductsComponent,EditProductComponent],
-  imports: [CommonModule, AdminTempRoutingModule, ReactiveFormsModule, PartialModule],
+  declarations: [
+    AddProductComponent,
+    AdminDashboardComponent,
+    ProductsComponent,
+    EditProductComponent,
+    ProductTableComponent, 
+    OrdersTableComponent
+    
+  ],
+  imports: [
+    CommonModule,
+    AdminTempRoutingModule,
+    ReactiveFormsModule,
+    PartialModule,
+  ],
   exports: [AddProductComponent, AdminDashboardComponent],
 })
 export class AdminTempModule {}

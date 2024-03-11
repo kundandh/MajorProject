@@ -32,6 +32,10 @@ export class HomeComponent {
       })
       
 }
+
+round(x:number):any{
+  Math.round(x);
+}
 }
 
 
