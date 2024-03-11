@@ -12,41 +12,29 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class RegisterComponent {
   form: any = {
-    firstname: null,
-    lastname: null,
     username: null,
-    age: null,
-    gender: null,
-    phonenumber:null,
     email: null,
-    password: null,
-    address: '',
+    password: null
   };
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
-  router: any;
 
   constructor(private authService: AuthService) { }
 
   onSubmit(): void {
-    const { firstname, lastname, username, age, gender, phonenumber, email, password, address } = this.form;
+    const { username, email, password } = this.form;
 
-    this.authService.register(firstname, lastname, username, age, gender, phonenumber, email, password, address).subscribe({
+    this.authService.register(username, email, password).subscribe({
       next: data => {
         console.log(data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
-        this.reloadPage()
       },
       error: err => {
         this.errorMessage = err.error.message;
         this.isSignUpFailed = true;
       }
     });
-  }
-
-  reloadPage(): void {
-    window.location.reload();
   }
 }

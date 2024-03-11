@@ -3,7 +3,7 @@
    <div class="offcanvas-header">
      <h5 class="offcanvas-title" id="offcanvasExampleLabel">Member Register</h5>
     
-     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+     
    </div>
  
    <div class="offcanvas-body d-flex flex-column">
@@ -16,147 +16,35 @@
       >
  
        <div class="member-login-form-body">
-        <div class="mb-4 d-flex">
-          <div class="flex-fill me-2">
-            <label class="form-label mb-2" for="firstname">First Name</label>
-            <input
-              type="text"
-              class="form-control"
-              name="firstname"
-              [(ngModel)]="form.firstname"
-              required
-              minlength="3"
-              maxlength="10"
-              #firstname="ngModel"
-              [ngClass]="{ 'is-invalid': f.submitted && firstname.errors }"
-            />
-            @if (username.errors && f.submitted) {
-              <div class="invalid-feedback">
+         <div class="mb-4">
+           <label class="form-label mb-2" for="username">Username</label>
+ 
+           <input
+            type="text"
+            class="form-control"
+            name="username"
+            [(ngModel)]="form.username"
+            required
+            minlength="3"
+            maxlength="20"
+            #username="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && username.errors }"
+          />
+          @if (username.errors && f.submitted) {
+            <div class="invalid-feedback">
                 @if (username.errors['required']) {
-                  <div>First Name is required</div>
+                <div>Username is required</div>
                 }
                 @if (username.errors['minlength']) {
-                  <div>First Name must be at least 3 characters</div>
+                <div>Username must be at least 3 characters</div>
                 }
                 @if (username.errors['maxlength']) {
-                  <div>First Name must be at most 10 characters</div>
+                <div>Username must be at most 20 characters</div>
                 }
               </div>
-            }
-          </div>
-        
-          <div class="flex-fill ms-2">
-            <label class="form-label mb-2" for="lastname">Last Name</label>
-            <input
-              type="text"
-              class="form-control"
-              name="lastname"
-              [(ngModel)]="form.lastname"
-              required
-              minlength="3"
-              maxlength="10"
-              #lastname="ngModel"
-              [ngClass]="{ 'is-invalid': f.submitted && lastname.errors }"
-            />
-            @if (username.errors && f.submitted) {
-              <div class="invalid-feedback">
-                @if (username.errors['required']) {
-                  <div>Last Name is required</div>
-                }
-                @if (username.errors['minlength']) {
-                  <div>Last Name must be at least 3 characters</div>
-                }
-                @if (username.errors['maxlength']) {
-                  <div>Last Name must be at most 10 characters</div>
-                }
-              </div>
-            }
-          </div>
-        </div>
-        
-        <div class="mb-4 d-flex flex-wrap">
-          <div class="flex-fill me-2 mb-3">
-            <label class="form-label mb-2" for="username">Username</label>
-            <input
-              type="text"
-              class="form-control"
-              name="username"
-              [(ngModel)]="form.username"
-              required
-              minlength="3"
-              maxlength="12"
-              #username="ngModel"
-              [ngClass]="{ 'is-invalid': f.submitted && username.errors }"
-            />
-            @if (username.errors && f.submitted) {
-              <div class="invalid-feedback">
-                @if (username.errors['required']) {
-                  <div>Username is required</div>
-                }
-                @if (username.errors['minlength']) {
-                  <div>Username must be at least 3 characters</div>
-                }
-                @if (username.errors['maxlength']) {
-                  <div>Username must be at most 12 characters</div>
-                }
-              </div>
-            }
-          </div>
-        
-          <div class="flex-fill ms-2 mb-3">
-            <label class="form-label mb-2" for="age">Age</label>
-            <input
-              type="number"
-              class="form-control"
-              name="age"
-              [(ngModel)]="form.age"
-              required
-              min="1"
-              max="99"
-              #age="ngModel"
-              [ngClass]="{ 'is-invalid': f.submitted && age.errors }"
-            />
-            @if (age.errors && f.submitted) {
-              <div class="invalid-feedback">
-                @if (age.errors['required']) {
-                  <div>Age is required</div>
-                }
-                @if (age.errors['min']) {
-                  <div>Age must be greater than 0</div>
-                }
-                @if (age.errors['max']) {
-                  <div>Please enter a valid age</div>
-                }
-              </div>
-            }
-          </div>
-        
-          <div class="flex-fill ms-2 mb-3">
-            <label class="form-label mb-2" for="gender">Gender</label>
-            <select
-              class="form-control"
-              name="gender"
-              [(ngModel)]="form.gender"
-              required
-              #gender="ngModel"
-              [ngClass]="{ 'is-invalid': f.submitted && gender.errors }"
-            >
-              <option value="" disabled>Select Gender</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-              <option value="other">Other</option>
-            </select>
-            @if (gender.errors && f.submitted) {
-              <div class="invalid-feedback">
-                @if (gender.errors['required']) {
-                  <div>Gender is required</div>
-                }
-              </div>
-            }
-          </div>
-        </div>
-        
-        
+          }
+         </div>
+ 
          <div class="mb-4">
            <label class="form-label mb-2" for="email">Email</label>
  
@@ -181,31 +69,6 @@
           </div>
           }
          </div>
-         <div class="mb-4">
-          <label class="form-label mb-2" for="phonenumber">Phone Number</label>
-          <input
-            type="tel"
-            class="form-control"
-            name="phonenumber"
-            [(ngModel)]="form.phonenumber"
-            required
-            pattern="[0-9]{10}"
-            maxlength="10"
-            #phonenumber="ngModel"
-            [ngClass]="{ 'is-invalid': f.submitted && phonenumber.errors }"
-          />
-          @if (phonenumber.errors && f.submitted) {
-            <div class="invalid-feedback">
-              @if (phonenumber.errors['required']) {
-                <div>Phone Number is required</div>
-              }
-              @if (phonenumber.errors['pattern']) {
-                <div>Phone Number must be a 10-digit number</div>
-              }
-            </div>
-          }
-        </div>
-        
          <div class="mb-4">
             <label class="form-label mb-2" for="password">Password</label>
   

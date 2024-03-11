@@ -4,23 +4,18 @@ const User = mongoose.model(
   "User",
   new mongoose.Schema({
     firstname: String,
-    lastname:String,
+    lastname: String,
     username: String,
     age: Number,
-    gender:String,
-    phonenumber:Number,
+    gender: String,
+    phonenumber: Number,
     email: String,
     password: String,
-    address: {
-      type: [String],
-      default: [],
-    },
-    orders:String,
-    membership:String,
+    address: String,
     roles: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Role"
+        ref: "Role" 
       }
     ]
   })

@@ -131,3 +131,10 @@
 .member-block-info p {
     margin-bottom: 0;
 }
+
+/* ---------------- */
+.error-message {
+    margin-top: 5px; /* Adjust as needed */
+    color: red;
+    font-size: 14px;
+}
