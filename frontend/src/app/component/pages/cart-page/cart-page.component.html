@@ -81,6 +81,7 @@
             <p>PROMOCODE</p>
             <input
               id="code"
+              name="promoCode"
               placeholder="Enter your code"
               [(ngModel)]="promoCode"
             />
@@ -94,47 +95,10 @@
           <div class="col">TOTAL PRICE</div>
           <div class="col text-right">₹{{ promoCodeApplied ? cart.discountTotal : cart.totalPrice }}</div>
         </div>
-        <button class="btn">CHECKOUT</button>
+        <button class="btn" routerLink="/checkout">CHECKOUT</button>
       </div>
     </div>
   </div>
 </div>
 <app-footer></app-footer>
 
-<!-- <div *ngIf="cart && cart.items.length" class="container">
-    <ul>
-        <li *ngFor="let cartItem of cart.items">
-            <div>
-                <img [src]="cartItem.product.imageUrl" [alt]="cartItem.product.productName">
-            </div>
-            <div>
-                <a routerLink="/product/{{cartItem.product._id}}">
-                    {{cartItem.product.productName}}
-                </a>
-            </div>
-            <div>
-                <select #quantitySelect [value]="cartItem.quantity" (change)="changeQuantity(cartItem, quantitySelect.value)">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                </select>
-            </div>
-            <div>
-                {{cartItem.price | currency:'INR'}}
-            </div>
-            <div>
-                <button class="remove-button" (click)="removeFromCart(cartItem)"><span class="close">&#10005;</span></button>
-            </div>
-        </li>
-    </ul>
-    <div class="checkout">
-        <div>
-          <div class="products-count">{{cart.totalCount}}</div>
-          <div class="total-price">{{cart.totalPrice | currency:'INR'}}</div>
-        </div>
-      
-        <a routerLink="/checkout">Proceed to Checkout</a>
-      </div>
-</div> -->

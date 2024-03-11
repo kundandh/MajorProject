@@ -56,7 +56,7 @@ export class ProductTableComponent implements OnInit {
       price: ['', Validators.required],
       size: [''],
       stars: ['', Validators.required],
-      imageUrl: [''],
+      imageUrl: ['',Validators.required],
       // Add more form controls as needed
     });
   }
@@ -131,6 +131,13 @@ export class ProductTableComponent implements OnInit {
     }
   }
 
+  onFileChange(event: Event): void { // Specify the type of event parameter explicitly
+    const inputElement = event.target as HTMLInputElement;
+    if (inputElement.files && inputElement.files.length > 0) {
+      this.selectedProduct.imageUrl = inputElement.files[0]; // Assign the selected file to the selectedFile property
+      console.log('Selected file:', this.selectedProduct.imageUrl);
+    }
+  }
   
 
   closeEditModal(): void {

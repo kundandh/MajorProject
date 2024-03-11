@@ -6,6 +6,7 @@ aria-labelledby="offcanvasExampleLabel">
 </div>
 
 <div class="offcanvas-body d-flex flex-column">
+  @if(isLoggedIn){
     <div class="container">
         <h3>User Profile</h3>
         <div class="profile-info">
@@ -30,6 +31,7 @@ aria-labelledby="offcanvasExampleLabel">
                 aria-controls="offcanvasExample">Edit</a></button>
         </div>
     </div>
+  }
 </div>
 
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">

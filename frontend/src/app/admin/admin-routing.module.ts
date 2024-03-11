@@ -4,6 +4,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { AddProductComponent } from './add-product/add-product.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductTableComponent } from './product-table/product-table.component';
+import { OrdersTableComponent } from './orders-table/orders-table.component';
 
 const routes: Routes = [
   { 
@@ -11,6 +12,7 @@ const routes: Routes = [
     component: AdminDashboardComponent, 
     children: [
       
+      { path: 'allOrders', component: OrdersTableComponent },
       { path: 'allProducts', component: ProductTableComponent },
       { 
         path: 'allProducts', component: ProductsComponent, 

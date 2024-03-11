@@ -15,13 +15,18 @@ export class CartPageComponent {
   cart!: Cart;
   promoCode: string = '';
   promoCodeApplied : boolean = false;
+  buttonClicked : boolean = false;
 
   constructor(private cartService: CartService, private router: Router) {
-    this.cartService.getCartObservable().subscribe((cart) => {
-      this.cart = cart;
-    });
+    
   }
 
+  ngOnInit(): void {
+    this.cartService.getCartObservable().subscribe((cart) => {
+      this.cart = cart;
+      
+    });
+  }
   removeFromCart(cartItem: CartItem) {
     this.cartService.removeFromCart(cartItem.product._id);
     this.applyPromoCode();
@@ -30,14 +35,19 @@ export class CartPageComponent {
   changeQuantity(cartItem: CartItem, quantityInString: string) {
     const quantity = parseInt(quantityInString);
     this.cartService.changeQuantity(cartItem.product._id, quantity);
-    this.applyPromoCode();
+    if(this.buttonClicked){
+      this.applyPromoCode();
+    }
+    
   }
 
   applyPromoCode() {
     this.promoCodeApplied = true;
+    this.buttonClicked = true
+    console.log(this.promoCode)
     this.cartService.applyPromoCode(this.promoCode);
-    this.promoCode = ''; // Clear the input field after applying the promo code
-    console.log(this.cart)
+     // Clear the input field after applying the promo code
+    
   }
 
   removePromoCode() {

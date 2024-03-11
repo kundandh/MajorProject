@@ -10,6 +10,7 @@ import { PartialModule } from '../component/partial/partial.module';
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { CategoryComponent } from './category/category.component';
 import { ProductTableComponent } from './product-table/product-table.component';
+import { OrdersTableComponent } from './orders-table/orders-table.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ProductTableComponent } from './product-table/product-table.component';
     ProductsComponent,
     EditProductComponent,
     CategoryComponent,
-    ProductTableComponent
+    ProductTableComponent, 
+    OrdersTableComponent
     
   ],
   imports: [
