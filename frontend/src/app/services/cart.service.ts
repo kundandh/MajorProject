@@ -12,10 +12,7 @@ import { ProductService } from './product.service';
 export class CartService {
   private cart: Cart = this.getCartFromLocalStorage();
   private cartSubject: BehaviorSubject<Cart> = new BehaviorSubject(this.cart);
-  constructor(private productService: ProductService) {}
-
-
-  
+  constructor() { }
 
   addToCart(product: Product): void {
     let cartItem = this.cart.items

@@ -11,7 +11,8 @@ import { httpInterceptorProviders } from "./_helpers/http.interceptor";
 import { NgModule } from "@angular/core";
 import { AdminTempModule } from "./admin/admin.module";
 import { AdminTempRoutingModule } from "./admin/admin-routing.module";
-
+import { ModalModule } from "ngx-bootstrap/modal";
+import {NgxStripeModule} from "ngx-stripe";
 
 
 @NgModule({
@@ -30,8 +31,7 @@ import { AdminTempRoutingModule } from "./admin/admin-routing.module";
     // AdminModule,
     // AdminRoutingModule
     AdminTempModule,
-    AdminTempRoutingModule,
-    ReactiveFormsModule,
+    AdminTempRoutingModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent],

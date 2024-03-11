@@ -12,7 +12,7 @@ import { UpdateProfileComponent } from '../update-profile/update-profile.compone
 })
 export class ProfileComponent {
   user: any;
-  isLoggedIn = false;
+  isLoggedIn: boolean = false;
   constructor(private storageService: StorageService) { }
 
   ngOnInit(): void {

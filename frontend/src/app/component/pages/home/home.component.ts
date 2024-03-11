@@ -30,7 +30,11 @@ export class HomeComponent {
         
           })
       })
-      
+      console.log("hello")
+}
+
+round(x:number):any{
+  Math.round(x);
 }
 
 round(x:number):any{
