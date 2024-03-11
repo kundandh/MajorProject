@@ -28,6 +28,7 @@ import { OrdersTableComponent } from './orders-table/orders-table.component';
     AdminTempRoutingModule,
     ReactiveFormsModule,
     PartialModule,
+    
   ],
   exports: [AddProductComponent, AdminDashboardComponent],
 })

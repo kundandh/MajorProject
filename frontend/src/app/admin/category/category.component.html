@@ -1,0 +1,13 @@
+
+<div class="container">
+    <div class="row">
+    <div class="col-9">
+        <button type="button" class="btn btn-secondary" routerLink="category/All" routerLinkActive="btn-danger" [routerLinkActiveOptions]="{ exact: true }">All Products</button>
+         <button type="button" class="btn btn-secondary" routerLink="category/{{category.name}}" *ngFor="let category of categorys" routerLinkActive="btn-danger">{{category.name}}&ensp;({{category.count}})</button>
+    </div>
+    <div class="col-3">
+        <button type="button" class="btn btn-outline-secondary" id="addProduct" (click)="openModal()"><i class="fa fa-plus" aria-hidden="true"></i> Add Product</button>
+    </div>
+    
+</div>
+</div>
