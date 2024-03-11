@@ -63,7 +63,7 @@ export class CartService {
       .reduce((prevSum, currentItem) => prevSum + currentItem.quantity, 0);
 
     const cartJson = JSON.stringify(this.cart);
-    localStorage.setItem('Cart', cartJson);
+    sessionStorage.setItem('Cart', cartJson);
     this.cartSubject.next(this.cart);
   }
 
@@ -91,14 +91,16 @@ export class CartService {
   applyPromoCode(promoCode: string) {
     this.productService.getPromoCodeByName(promoCode).subscribe(
       (promoData: any) => {
-         let promo = promoData[0]
+         let promo = promoData
         if (promo && promo.discount) {
-          this.cart.promoCode = promo;
+          this.cart.promoCode = promo.promocode;
           this.cart.promoDiscount = promo.discount;
           this.cart.discountTotal = this.cart.totalPrice;
           this.updateCart();
         } else {
           console.log('Invalid promo code');
+          this.cart.discountTotal = this.cart.totalPrice;
+          this.cartSubject.next({ ...this.cart });
         }
       },
       (error: any) => {

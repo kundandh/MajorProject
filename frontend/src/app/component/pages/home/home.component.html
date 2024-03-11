@@ -22,10 +22,13 @@
             <div class="row mt-4">
               <div class="col-sm-3 mb-4" *ngFor="let product of products">
                 <div class="thumb-wrapper">
-                  <span class="wish-icon"><i class="fa fa-heart-o"></i></span>
+                  <!-- <div class="discount"> -->
+                    <div class=" discount">{{ ((100 - (product.price / (product.price + 100)) * 100)).toFixed() }}%<br>OFF</div>
+                  <!-- </div> -->
+                  
                   <div class="img-box">
                     <img
-                      src="{{ product.imageUrl }}"
+                      src={{product.imageUrl}}
                       class="img-fluid"
                       alt="{{ product.productName }}"
                     />
@@ -42,7 +45,7 @@
                       routerLink="/product/{{ product._id }}"
                       class="btn btn-outline-dark"
                     >
-                      Add to Cart
+                      See Details
                     </button>
                   </div>
                 </div>

@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Product } from '../shared/module/Product';
-import { PRODUCTS_BY_CATEGORY_URL, PROMOCODE_URL,PRODUCTS_BY_SEARCH_URL, PRODUCTS_CATEGORY_URL, PRODUCTS_URL, PRODUCT_BY_ID_URL } from '../shared/constants/urls';
+import { PRODUCTS_BY_CATEGORY_URL, PROMOCODE_URL,PRODUCTS_BY_SEARCH_URL, PRODUCTS_CATEGORY_URL, PRODUCTS_URL, PRODUCT_BY_ID_URL, PROMOCODE_URL_BY_NAME, CREATE_ORDER_URL } from '../shared/constants/urls';
 import { Category} from '../shared/module/Category';
+import { PromoCode } from '../shared/module/PromoCode';
 
 
 @Injectable({
@@ -11,7 +12,7 @@ import { Category} from '../shared/module/Category';
 })
 export class ProductService {
 
-  private apiUrl = 'your_backend_api_url';
+  
 
   constructor(private http: HttpClient) {}
 
@@ -54,6 +55,18 @@ export class ProductService {
   }
 
   getPromoCodeByName(promoCode: string): Observable<any> {
-    return this.http.get(PROMOCODE_URL + promoCode);
+    return this.http.get<PromoCode[]>(PROMOCODE_URL_BY_NAME + promoCode);
+  }
+
+  createOrder(orderData: any): Observable<any> {
+    return this.http.post<any>(CREATE_ORDER_URL, orderData);
+  }
+
+  getAllOrders(): Observable<any[]> {
+    return this.http.get<any[]>(CREATE_ORDER_URL);
+  }
+
+  getOrderById(orderId: string): Observable<any> {
+    return this.http.get<any>(CREATE_ORDER_URL+'/'+orderId);
   }
 }
