@@ -13,7 +13,7 @@ import { Membership } from 'src/app/shared/module/Membership';
 export class UsersMembershipComponent {
   @ViewChild('editModal') editModal!: TemplateRef<any>;
   citiesByState: { [key: string]: string[] } = {
-    Maharashtra: ['Mumbai', 'Pune', 'Mumbai'],
+    Maharashtra: ['Mumbai', 'Pune', 'Dhule'],
     Gujarat: ['Ahmedabad', 'Surat', 'Vadodara'],
     Karnataka: ['Bangalore', 'Mysore', 'Hubli'],
   };
