@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { StorageService } from 'src/app/services/storage.service';
@@ -24,7 +24,8 @@ export class NavbarComponent {
   constructor(
     private storageService: StorageService,
     private authService: AuthService,
-    private eventBusService: EventBusService
+    private eventBusService: EventBusService,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -50,6 +51,7 @@ export class NavbarComponent {
         console.log(res);
         this.storageService.clean();
 
+        this.router.navigate(['/']);
         window.location.reload();
       },
       error: err => {

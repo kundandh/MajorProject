@@ -4,11 +4,13 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { ProductsComponent } from './products/products.component';
 import { ProductTableComponent } from './product-table/product-table.component';
 import { OrdersTableComponent } from './orders-table/orders-table.component';
+import { AdminAuthGuardService } from '../services/admin-auth-guard.service';
 
 const routes: Routes = [
   { 
     path: 'admin-dash', 
     component: AdminDashboardComponent, 
+    canActivate: [AdminAuthGuardService],
     children: [
       
       { path: 'allOrders', component: OrdersTableComponent },
