@@ -1,44 +1,54 @@
 /* Add your global styles here */
 .offcanvas {
-    background-color: #fff; /* Background color of the offcanvas */
-  }
-  
-  .offcanvas-header {
-    background-color: #3D405B; /* Header background color */
-    color: #fff; /* Header text color */
-  }
-  
-  .offcanvas-title {
-    color: #fff; /* Title text color */
-  }
-  
-  .offcanvas-body {
-    padding: 20px; /* Padding for the body */
-  }
-  
-  .member-login-form-body {
-    max-width: 400px; /* Set the maximum width of the form */
-    margin: 0 auto; /* Center the form horizontally */
-  }
-  
-  .form-label {
-    color: #3D405B;
-    font-weight: bold; /* Bold labels */
-  }
-  
-  .input-group {
-    position: relative;
-  }
-  
-  .input-group-text {
-    cursor: pointer; /* Add pointer cursor to the eye icon */
-  }
-  
-  .alert {
-    margin-top: 20px; /* Add some space above the alert */
-  }
-  
-  /* Add your own custom styling as needed */
-  input{
-    border: 0.2px solid rgb(108, 107, 107);
-  }
+  background-color: #fff;
+  /* Background color of the offcanvas */
+}
+
+.offcanvas-header {
+  background-color: #3D405B;
+  /* Header background color */
+  color: #fff;
+  /* Header text color */
+}
+
+.offcanvas-title {
+  color: #fff;
+  /* Title text color */
+}
+
+.offcanvas-body {
+  padding: 20px;
+  /* Padding for the body */
+}
+
+.member-login-form-body {
+  max-width: 400px;
+  /* Set the maximum width of the form */
+  margin: 0 auto;
+  /* Center the form horizontally */
+}
+
+.form-label {
+  color: #3D405B;
+  font-weight: bold;
+  /* Bold labels */
+}
+
+.input-group {
+  position: relative;
+}
+
+.input-group-text {
+  cursor: pointer;
+  /* Add pointer cursor to the eye icon */
+}
+
+.alert {
+  margin-top: 20px;
+  /* Add some space above the alert */
+}
+
+/* Add your own custom styling as needed */
+input {
+  border: 0.2px solid rgb(108, 107, 107);
+}

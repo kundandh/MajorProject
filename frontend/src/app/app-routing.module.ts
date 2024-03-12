@@ -6,6 +6,8 @@ import { CartPageComponent } from './component/pages/cart-page/cart-page.compone
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { CheckoutComponent } from './component/pages/checkout/checkout.component';
 import { PaymentGatewayComponent } from './component/pages/payment-gateway/payment-gateway.component';
+import { BlogComponent } from './component/blog/blog.component';
+import { PostDetailsComponent } from './component/post-details/post-details.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -16,6 +18,8 @@ const routes: Routes = [
   { path: 'products', component: HomeComponent },
   { path: 'checkout', component: CheckoutComponent},
   { path: 'payment', component: PaymentGatewayComponent},
+  { path: 'blog', component: BlogComponent },
+  { path: 'post/:id', component: PostDetailsComponent },
 
 ];
 
