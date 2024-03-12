@@ -11,6 +11,8 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from "../login/login.component";
 import { RegisterComponent } from "../register/register.component";
 import { ProfileComponent } from "../profile/profile.component";
+import { BlogComponent } from '../blog/blog.component';
+import { PostDetailsComponent } from '../post-details/post-details.component';
 
 @NgModule({
     declarations: [
@@ -19,6 +21,8 @@ import { ProfileComponent } from "../profile/profile.component";
         NotFoundComponent,
         SearchComponent,
         TagsComponent,
+        BlogComponent,
+        PostDetailsComponent
     ],
     exports: [
         NavbarComponent,

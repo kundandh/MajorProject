@@ -8,6 +8,8 @@ import { CheckoutComponent } from './component/pages/checkout/checkout.component
 import { PaymentGatewayComponent } from './component/pages/payment-gateway/payment-gateway.component';
 import { OrderReceiptComponent } from './component/pages/order-receipt/order-receipt.component';
 import { MembershipconfirmComponent } from './component/pages/membershipconfirm/membershipconfirm.component';
+import { BlogComponent } from './component/blog/blog.component';
+import { PostDetailsComponent } from './component/post-details/post-details.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -18,6 +20,8 @@ const routes: Routes = [
   { path: 'products', component: HomeComponent },
   { path: 'checkout', component: CheckoutComponent},
   { path: 'payment', component: PaymentGatewayComponent},
+  { path: 'blog', component: BlogComponent },
+  { path: 'post/:id', component: PostDetailsComponent },
   { path: 'receipt', component: OrderReceiptComponent},
   {path:'membershipconf', component: MembershipconfirmComponent}
 ];

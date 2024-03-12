@@ -25,7 +25,7 @@
               name="firstname"
               [(ngModel)]="form.firstname"
               required
-              minlength="3"
+              minlength="2"
               maxlength="10"
               #firstname="ngModel"
               [ngClass]="{ 'is-invalid': f.submitted && firstname.errors }"
@@ -84,7 +84,7 @@
               [(ngModel)]="form.username"
               required
               minlength="3"
-              maxlength="12"
+              maxlength="8"
               #username="ngModel"
               [ngClass]="{ 'is-invalid': f.submitted && username.errors }"
             />

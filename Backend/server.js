@@ -3,7 +3,7 @@ const cors = require("cors");
 const Razorpay = require('razorpay');
 const cookieSession = require("cookie-session");
 const ProductModel = require('./app/models/productModel')
-
+const mongoose = require("mongoose");
 const dbConfig = require("./app/config/db.config");
 const promocodeModel = require('./app/models/promocode')
 const bodyParser = require('body-parser');
@@ -336,11 +336,6 @@ app.post('/api/orders', async (req, res) => {
 });
 
 
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}.`);
-});
-
 
 // kunal event routs...............................................................
 
@@ -481,4 +476,59 @@ app.put("/api/users/:userId", async (req, res) => {
     console.error(error);
     res.status(500).json({ error: "Internal Server Error" });
   }
+});
+
+
+// mihir code 
+
+const nutritionPlanSchema = new mongoose.Schema({
+  title: String,
+  description: String,
+  imageUrl: String,
+  // Add more fields as needed
+});
+
+const NutritionPlan = mongoose.model("Dietplan", nutritionPlanSchema);
+
+app.post("/api/nutrition-plans", async (req, res) => {
+  try {
+    const { title, description, imageUrl } = req.body; // Assuming you're sending imageUrl directly
+    const nutritionPlan = new NutritionPlan({
+      title,
+      description,
+      imageUrl,
+    });
+    const newNutritionPlan = await nutritionPlan.save();
+    res.status(201).json(newNutritionPlan);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
+// GET All Nutrition Plans
+app.get("/api/nutrition-plans", async (req, res) => {
+  try {
+    const nutritionPlans = await NutritionPlan.find();
+    res.json(nutritionPlans);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// GET Nutrition Plan by ID
+app.get("/api/nutrition-plans/:id", async (req, res) => {
+  try {
+    const nutritionPlan = await NutritionPlan.findById(req.params.id);
+    if (nutritionPlan == null) {
+      return res.status(404).json({ message: "Nutrition plan not found" });
+    }
+    res.json(nutritionPlan);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}.`);
 });
