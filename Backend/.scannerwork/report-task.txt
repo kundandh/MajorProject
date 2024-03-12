@@ -1,6 +1,0 @@
-projectKey=Tiya_Power_Plus_Club_Backend_28890
-serverUrl=http://172.27.12.78:8000
-serverVersion=7.9.6.41879
-dashboardUrl=http://172.27.12.78:8000/dashboard?id=Tiya_Power_Plus_Club_Backend_28890
-ceTaskId=AY4diAhg02ASefZCyh7u
-ceTaskUrl=http://172.27.12.78:8000/api/ce/task?id=AY4diAhg02ASefZCyh7u

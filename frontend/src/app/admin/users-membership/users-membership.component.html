@@ -1,0 +1,137 @@
+<div class="table-responsive" style="max-height: 400px; overflow: auto;">
+    <table class="table table-bordered mt-4">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Full Name</th>
+                <th scope="col">Plan</th>
+                <th scope="col">Address</th>
+                <th scope="col">Gender</th>
+                <th scope="col">State</th>
+                <th scope="col">City</th>
+                <th scope="col">DOB</th>
+                <th scope="col">Pincode</th>
+                <th scope="col">EmailID</th>
+                <th scope="col">Price</th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let membership of memberships">
+                <th scope="row">{{membership._id}}</th>
+                <td>{{membership.firstName}}{{membership.fatherName}}{{membership.lastName}}</td>
+                <td>{{membership.plan}}</td>
+                <td>{{membership.address}}</td>
+                <td>{{membership.gender}}</td>
+                <td>{{membership.state}}</td>
+                <td>{{membership.city}}</td>
+                <td>{{membership.bod}}</td>
+                <td>{{membership.pincode}}</td>
+                <td>{{membership.emailid}}</td>
+                <td>{{membership.price}}</td>
+                <td>{{membership.status}}</td>
+                <td>
+                    <i class="fa fa-trash" aria-hidden="true" (click)="delete(membership)"></i>&nbsp;&nbsp;&nbsp;
+                    <i class="fa fa-edit" aria-hidden="true" (click)="openEditModal(membership)"></i>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<!-- Bootstrap Modal for Editing -->
+<ng-template #editModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Edit Membership</h4>
+        <button type="button" class="close" aria-label="Close" (click)="closeEditModal()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="membershipForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="userid">User ID:</label>
+                <input type="text" id="userid" formControlName="userid" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="firstName">User First Name:</label>
+                <input id="firstName" formControlName="firstName" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="fatherName">User Father Name:</label>
+                <input id="fatherName" formControlName="fatherName" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="lastName">User Last Name:</label>
+                <input id="lastName" formControlName="lastName" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="plan">Membership Plan:</label>
+                <select id="plan" formControlName="plan" (ngModelChange)="onPlanValueChange($event)"
+                    class="form-control">
+                    <option value="GOLD">GOLD</option>
+                    <option value="PLATINIUM">PLATINIUM</option>
+                    <option value="DIAMOND">DIAMOND</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="address">User Address</label>
+                <input id="address" formControlName="address" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="gender">User Gender:</label>
+                <select id="gender" formControlName="gender" class="form-control">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="state">User State:</label>
+                <select id="state" formControlName="state" class="form-control"
+                    (ngModelChange)="onStateValueChange($event)">
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="Karnataka">Karnataka</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="city">User City:</label>
+                <select id="city" formControlName="city" class="form-control">
+
+                    <option *ngFor="let item of citiesByState[statehold]
+                          " [value]="item">
+                        {{ item }}
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="bod">User Date Of Birth:</label>
+                <input type="date" id="bod" formControlName="bod" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="pincode">Pincode:</label>
+                <input type="number" id="pincode" formControlName="pincode" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="emailid">Email:</label>
+                <input id="emailid" formControlName="emailid" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="emailid">Price:</label>
+                <input id="price" formControlName="price" class="form-control" readonly />
+
+            </div>
+            <div class="form-group">
+                <label for="status">Active Status:</label>
+                <select id="gender" formControlName="status" class="form-control">
+                    <option value="true">True</option>
+                    <option value="false">False</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Update Membership</button>
+        </form>
+    </div>
+</ng-template>

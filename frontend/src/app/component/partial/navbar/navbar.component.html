@@ -1,11 +1,11 @@
-<nav class="navbar navbar-expand-lg fixed-top">
+<nav class="navbar navbar-expand-lg">
   <div class="container">
     <a class="navbar-brand d-flex align-items-center" href="index.html">
       <img src="../../../../assets/img/logo.png" class="navbar-brand-image img-fluid"
         alt="Power Pulse Power Pulse Club">
       <span class="navbar-brand-text">
-        Tiya
-        <small>Power Pulse Club</small>
+        <strong>Power</strong>
+        <small> Pulse Club</small>
       </span>
     </a>
 
@@ -22,17 +22,15 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-lg-auto">
         <li>
-          <a class="nav-link" routerLink="/">Home</a>
+          <a class="nav-link" href="#home">Home</a>
         </li>
-        @if(isLoggedIn){
-          @if(showAdminBoard){
-            <li>
-              <a class="nav-link" routerLink="admin-dash">Admin</a>
-            </li>
-          }
-        }
+
         <li class="nav-item">
-          <a class="nav-link" routerLink="products">Products</a>
+          <a class="nav-link" href="#about_us">About</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#membership">Membership</a>
         </li>
 
         <li class="nav-item">
@@ -40,16 +38,16 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="#membership">Membership</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#about_us">About</a>
-        </li>
-
-        <li class="nav-item">
           <a class="nav-link" href="#contact_us">Contact Us</a>
         </li>
-        
+        <li class="nav-item">
+          <a class="nav-link" routerLink="products">Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="admin">Admin</a>
+        </li>
+
+
       </ul>
       @if (!isLoggedIn) {
       <div class="d-none d-lg-block ms-lg-3">
@@ -62,7 +60,7 @@
       </div>
     }@else {
       <div class="d-none d-lg-block ms-lg-3">
-        <a class="btn custom-btn custom-border-btn" data-bs-toggle="offcanvas" href="#profile" role="button"
+        <a class="btn custom-btn custom-border-btn" data-bs-toggle="offcanvas" href="" role="button"
           aria-controls="offcanvasExample">{{ username }}</a>
       </div>
       <div class="d-none d-lg-block ms-lg-3">
@@ -70,11 +68,9 @@
           aria-controls="offcanvasExample" (click)="logout()">Logout</a>
       </div>
     }
-    
     </div>
   </div>
 </nav>
 
 <app-login/>
 <app-register/>
-<app-profile/>

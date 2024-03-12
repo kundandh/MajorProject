@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { StorageService } from 'src/app/services/storage.service';
 
@@ -22,14 +21,12 @@ export class LoginComponent implements OnInit {
   errorMessage = '';
   roles: string[] = [];
 
-  constructor(private authService: AuthService, private storageService: StorageService, private router:Router) { }
+  constructor(private authService: AuthService, private storageService: StorageService) { }
 
   ngOnInit(): void {
     if (this.storageService.isLoggedIn()) {
       this.isLoggedIn = true;
       this.roles = this.storageService.getUser().roles;
-      console.log(this.roles);
-      
     }
   }
 
@@ -43,12 +40,7 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.storageService.getUser().roles;
-        
-        if(this.roles[0]=="ROLE_ADMIN"){
-          this.admin();
-        }else{
-          this.reloadPage()
-        }
+        this.reloadPage();
       },
       error: err => {
         this.errorMessage = err.error.message;
@@ -56,9 +48,7 @@ export class LoginComponent implements OnInit {
       }
     });
   }
-  admin(){
-    this.router.navigate(['admin-dash']);
-  }
+
   reloadPage(): void {
     window.location.reload();
   }
