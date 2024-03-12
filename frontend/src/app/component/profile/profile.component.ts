@@ -12,12 +12,21 @@ import { UpdateProfileComponent } from '../update-profile/update-profile.compone
 })
 export class ProfileComponent {
   user: any;
+  private roles: string[] = [];
   isLoggedIn = false;
+  showAdminBoard = false;
   constructor(private storageService: StorageService) { }
 
   ngOnInit(): void {
     this.user = this.storageService.getUser();
     this.isLoggedIn = this.storageService.isLoggedIn();
+    if (this.isLoggedIn) {
+      const user = this.storageService.getUser();
+      this.roles = user.roles;
+
+      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+
+    }
   }
 
 }

@@ -61,6 +61,7 @@ export class MembershipComponent {
       this.http.post(CONTACTUS_URL, data).subscribe(
         (response) => {
           console.log('Form submitted successfully:', response);
+          sessionStorage.setItem('auth-user', JSON.stringify(response));
           form.reset();
         },
         (error) => {
