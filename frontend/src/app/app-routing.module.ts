@@ -6,6 +6,7 @@ import { CartPageComponent } from './component/pages/cart-page/cart-page.compone
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { CheckoutComponent } from './component/pages/checkout/checkout.component';
 import { PaymentGatewayComponent } from './component/pages/payment-gateway/payment-gateway.component';
+import { OrderReceiptComponent } from './component/pages/order-receipt/order-receipt.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'products', component: HomeComponent },
   { path: 'checkout', component: CheckoutComponent},
   { path: 'payment', component: PaymentGatewayComponent},
+  { path: 'receipt', component: OrderReceiptComponent},
 
 ];
 

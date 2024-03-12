@@ -3,6 +3,16 @@
    padding-top: 85px;
 }
 
+.custom-list-item {
+   width: 70%; 
+   margin: 0 auto; 
+   cursor: pointer;
+ }
+ 
+ .custom-list-item:hover {
+   background-color: #b5b6b6;
+ }
+ 
 .footer{
    margin-top: 300px;
 }

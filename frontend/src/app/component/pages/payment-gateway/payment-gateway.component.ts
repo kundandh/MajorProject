@@ -58,9 +58,8 @@ export class PaymentGatewayComponent {
     this.productService.createOrder(this.order).subscribe(
       (response) => {
         console.log('Order created successfully:', response);
-        sessionStorage.removeItem('Cart');
-        sessionStorage.removeItem('order');
-        this.router.navigate(['']);
+     
+        this.router.navigate(['receipt']);
       },
       (error) => {
         console.error('Error creating order:', error);
