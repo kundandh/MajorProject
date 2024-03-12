@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { AddProductComponent } from './add-product/add-product.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductTableComponent } from './product-table/product-table.component';
 import { OrdersTableComponent } from './orders-table/orders-table.component';
