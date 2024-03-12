@@ -200,10 +200,14 @@ border-radius: 20px;
 border: 0;
 }
 
+.disabled-link {
+pointer-events: none;
+opacity: 0.5; /* or any other styling to visually indicate it's disabled */
+}
 
 .table-responsive thead tr {
 background-color: var(--secondary-color);
-color: var(--white-color);
+/* color: var(--white-color); */
 }
 
 .table-responsive thead th {

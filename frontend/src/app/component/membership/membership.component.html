@@ -1,540 +1,473 @@
 <section class="membership-section section-padding" id="membership">
     <div class="container">
-        <div class="row">
-
-            <div class="col-lg-12 col-12 text-center mx-auto mb-lg-5 mb-4">
-                <h2><span>Membership</span> at Power Pulse</h2>
-            </div>
-
-
-            <ng-container *ngIf="showMembership; else notLoggedIn">
-                <div style="display: flex;">
-                    <div class="col-lg-6 col-12 mb-3 mb-lg-0">
-                        <h4 class="mb-4 pb-lg-2">Membership Fees</h4>
-
-                        <div class="table-responsive">
-                            <table class="table text-center">
-                                <thead>
-                                    <tr>
-                                        <th style="width: 34%;">Yearly Access</th>
-
-                                        <th style="width: 22%;">Gold</th>
-
-                                        <th style="width: 22%;">Platinium</th>
-
-                                        <th style="width: 22%;">Diamond</th>
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-                                    <tr>
-                                        <th scope="row" class="text-start">Power Pulse Insurance</th>
-
-                                        <td>
-                                            <i class="bi-check-circle-fill"></i>
-                                        </td>
-
-                                        <td>
-                                            <i class="bi-check-circle-fill"></i>
-                                        </td>
-
-                                        <td>
-                                            <i class="bi-check-circle-fill"></i>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <th scope="row" class="text-start">Club Facilities</th>
-
-                                        <td>
-                                            <i class="bi-check-circle-fill"></i>
-                                        </td>
-
-                                        <td>
-                                            <i class="bi-check-circle-fill"></i>
-                                        </td>
-
-                                        <td>
-                                            <i class="bi-check-circle-fill"></i>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <th scope="row" class="text-start">Country Club</th>
-
-                                        <td>
-                                            <i class="bi-x-circle-fill"></i>
-                                        </td>
-
-                                        <td>
-                                            <i class="bi-check-circle-fill"></i>
-                                        </td>
-
-                                        <td>
-                                            <i class="bi-check-circle-fill"></i>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <th scope="row" class="text-start">Weekend Seasonal</th>
-
-                                        <td>
-                                            <i class="bi-x-circle-fill"></i>
-                                        </td>
-
-                                        <td>
-                                            <i class="bi-check-circle-fill"></i>
-                                        </td>
-
-                                        <td>
-                                            <i class="bi-check-circle-fill"></i>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <th scope="row" class="text-start">Premium Courses</th>
-
-                                        <td>
-                                            <i class="bi-x-circle-fill"></i>
-                                        </td>
-
-                                        <td>
-                                            <i class="bi-x-circle-fill"></i>
-                                        </td>
-
-                                        <td>
-                                            <i class="bi-check-circle-fill"></i>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <th scope="row" class="text-start">Pro's Networking</th>
-
-                                        <td>
-                                            <i class="bi-x-circle-fill"></i>
-                                        </td>
-
-                                        <td>
-                                            <i class="bi-x-circle-fill"></i>
-                                        </td>
-
-                                        <td>
-                                            <i class="bi-check-circle-fill"></i>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th></th>
-                                        <td><i class="bi bi-chevron-right custom-btn"
-                                                (click)="onMembershipbtn('gold')"></i>
-                                        </td>
-                                        <td><i #platinium class="bi bi-chevron-right custom-btn"
-                                                (click)="onMembershipbtn('platinium')"></i></td>
-                                        <td><i #diamond class="bi bi-chevron-right custom-btn"
-                                                (click)="onMembershipbtn('diamond')"></i></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-5 col-12 mx-auto">
-
-                        <div>
-                            <!-- Content of the first div -->
-                            <h4 class="mb-4 pb-lg-2">Please join us!</h4>
-                            <!-- <form action="#" method="post" class="custom-form membership-form shadow-lg" role="form">
-                                <h4 class="text-white mb-4">Become a member</h4>
-
-                                <div class="form-floating">
-                                    <input type="text" name="full-name" id="full-name" class="form-control"
-                                        placeholder="Full Name" required="">
-
-                                    <label for="floatingInput">Full Name</label>
-                                </div>
-
-
-                                <div class="form-floating">
-                                    <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*"
-                                        class="form-control" placeholder="Email address" required="">
-
-                                    <label for="floatingInput">Email address</label>
-                                </div>
-
-                                <div class="form-floating">
-                                    <textarea class="form-control" id="message" name="message"
-                                        placeholder="Describe message here"></textarea>
-
-                                    <label for="floatingTextarea"> Comments</label>
-                                </div>
-
-                                <button type="submit" class="form-control">Submit</button>
-                            </form> -->
-                            <img src="../../../assets/img/man-woman-are-watching-training-video.jpg" alt="Sample photo"
-                                class="img-fluid" style="height: 600px;width: 700px;border-radius: 20px;" />
-                        </div>
-                        <!-- <div *ngIf="!">
-
-                        </div> -->
-                    </div>
-                </div>
-            </ng-container>
-            <ng-template #notLoggedIn>
-                <section class="h-100" style="background-color: #3D405B; border-radius: 20px; ">
-                    <div class="container py-5 h-100">
-                        <div class="row d-flex justify-content-center align-items-center h-100">
-                            <div class="col">
-                                <div class="card card-registration my-4">
-                                    <div class="row g-0">
-                                        <div class="col-xl-6 d-none d-xl-block">
-                                            <img src="../../../assets/img/man-woman-are-watching-training-video.jpg"
-                                                alt="Sample photo" class="img-fluid"
-                                                style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
-                                        </div>
-                                        <div class="col-xl-6">
-                                            <div class="card-body p-md-5 text-black">
-                                                <h3 class="mb-5 text-uppercase">Student registration form</h3>
-
-                                                <div class="row">
-                                                    <div class="col-md-6 mb-4">
-                                                        <div class="form-outline">
-                                                            <input type="text" id="form3Example1m"
-                                                                class="form-control form-control-lg" />
-                                                            <label class="form-label" for="form3Example1m">First
-                                                                name</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6 mb-4">
-                                                        <div class="form-outline">
-                                                            <input type="text" id="form3Example1n"
-                                                                class="form-control form-control-lg" />
-                                                            <label class="form-label" for="form3Example1n">Last
-                                                                name</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col-md-6 mb-4">
-                                                        <div class="form-outline">
-                                                            <input [disabled]=true type="text" id="form3Example1m1"
-                                                                class="form-control form-control-lg"
-                                                                [(ngModel)]="flag" />
-                                                            <label class="form-label" for="form3Example1m1">Selected
-                                                                Plan</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6 mb-4">
-                                                        <div class="form-outline">
-                                                            <input type="text" id="form3Example1n1"
-                                                                class="form-control form-control-lg" />
-                                                            <label class="form-label" for="form3Example1n1">Father's
-                                                                name</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-outline mb-4">
-                                                    <input type="text" id="form3Example8"
-                                                        class="form-control form-control-lg" />
-                                                    <label class="form-label" for="form3Example8">Address</label>
-                                                </div>
-
-                                                <div
-                                                    class="d-md-flex justify-content-start align-items-center mb-4 py-2">
-
-                                                    <h6 class="mb-0 me-4">Gender: </h6>
-
-                                                    <div class="form-check form-check-inline mb-0 me-4">
-                                                        <input class="form-check-input" type="radio"
-                                                            name="inlineRadioOptions" id="femaleGender"
-                                                            value="option1" />
-                                                        <label class="form-check-label"
-                                                            for="femaleGender">Female</label>
-                                                    </div>
-
-                                                    <div class="form-check form-check-inline mb-0 me-4">
-                                                        <input class="form-check-input" type="radio"
-                                                            name="inlineRadioOptions" id="maleGender" value="option2" />
-                                                        <label class="form-check-label" for="maleGender">Male</label>
-                                                    </div>
-
-                                                    <div class="form-check form-check-inline mb-0">
-                                                        <input class="form-check-input" type="radio"
-                                                            name="inlineRadioOptions" id="otherGender"
-                                                            value="option3" />
-                                                        <label class="form-check-label" for="otherGender">Other</label>
-                                                    </div>
-
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col-md-6 mb-4">
-                                                        <select class="select" [(ngModel)]="selectedItemState"
-                                                            (ngModelChange)="onStateChange()">
-                                                            <option value="Select a state">Select a state</option>
-                                                            <option *ngFor="let item of states;" [value]="item">
-                                                                {{item}}
-                                                            </option>
-                                                        </select>
-
-                                                    </div>
-                                                    <div class="col-md-6 mb-4">
-
-
-
-                                                        <div *ngIf="selectedItemState!='Select a state'">
-                                                            <select class="select" [(ngModel)]="selectedCity">
-
-                                                                <option
-                                                                    *ngFor="let item of citiesByState[selectedItemState]"
-                                                                    [value]="item">
-                                                                    {{item}}
-                                                                </option>
-                                                            </select>
-                                                        </div>
-
-
-
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-outline mb-4">
-                                                    <input type="text" id="form3Example9"
-                                                        class="form-control form-control-lg" />
-                                                    <label class="form-label" for="form3Example9">DOB</label>
-                                                </div>
-
-                                                <div class="form-outline mb-4">
-                                                    <input type="text" id="form3Example90"
-                                                        class="form-control form-control-lg" />
-                                                    <label class="form-label" for="form3Example90">Pincode</label>
-                                                </div>
-
-                                                <div class="form-outline mb-4">
-                                                    <input type="text" id="form3Example99"
-                                                        class="form-control form-control-lg" />
-                                                    <label class="form-label" for="form3Example99">Course</label>
-                                                </div>
-
-                                                <div class="form-outline mb-4">
-                                                    <input type="text" id="form3Example97"
-                                                        class="form-control form-control-lg" />
-                                                    <label class="form-label" for="form3Example97">Email ID</label>
-                                                </div>
-
-                                                <div class="d-flex justify-content-end pt-3">
-                                                    <button type="button" class="custom-btn form-control"
-                                                        (click)="backToMembership()">Back</button>
-                                                    <button type="button" class="custom-btn form-control">Reset
-                                                        all</button>
-                                                    <button type="button" class="custom-btn form-control">Submit
-                                                        form</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </ng-template>
-
-
-
+      <div class="row">
+        <div class="col-lg-12 col-12 text-center mx-auto mb-lg-5 mb-4">
+          <h2><span>Membership</span> at Power Pulse</h2>
         </div>
+  
+        <ng-container *ngIf="showMembership; else notLoggedIn">
+          <div style="display: flex">
+            <div class="col-lg-6 col-12 mb-3 mb-lg-0">
+              <h4 class="mb-4 pb-lg-2">Membership Fees</h4>
+  
+              <div class="table-responsive">
+                <table class="table text-center">
+                  <thead>
+                    <tr>
+                      <!-- <th style="width: 34%"></th> -->
+                      <th scope="row" class="text-start">
+                        Yearly Access
+                      </th>
+  
+                      <th style="width: 22%">Gold</th>
+  
+                      <th style="width: 22%">Platinium</th>
+  
+                      <th style="width: 22%">Diamond</th>
+                    </tr>
+                  </thead>
+  
+                  <tbody>
+                    <tr>
+                      <th scope="row" class="text-start">Power Pulse Insurance</th>
+  
+                      <td>
+                        <i class="bi-check-circle-fill"></i>
+                      </td>
+  
+                      <td>
+                        <i class="bi-check-circle-fill"></i>
+                      </td>
+  
+                      <td>
+                        <i class="bi-check-circle-fill"></i>
+                      </td>
+                    </tr>
+  
+                    <tr>
+                      <th scope="row" class="text-start">Club Facilities</th>
+  
+                      <td>
+                        <i class="bi-check-circle-fill"></i>
+                      </td>
+  
+                      <td>
+                        <i class="bi-check-circle-fill"></i>
+                      </td>
+  
+                      <td>
+                        <i class="bi-check-circle-fill"></i>
+                      </td>
+                    </tr>
+  
+                    <tr>
+                      <th scope="row" class="text-start">Personal Trainer</th>
+  
+                      <td>
+                        <i class="bi-x-circle-fill"></i>
+                      </td>
+  
+                      <td>
+                        <i class="bi-check-circle-fill"></i>
+                      </td>
+  
+                      <td>
+                        <i class="bi-check-circle-fill"></i>
+                      </td>
+                    </tr>
+  
+                    <tr>
+                      <th scope="row" class="text-start">Weekend Seasonal</th>
+  
+                      <td>
+                        <i class="bi-x-circle-fill"></i>
+                      </td>
+  
+                      <td>
+                        <i class="bi-check-circle-fill"></i>
+                      </td>
+  
+                      <td>
+                        <i class="bi-check-circle-fill"></i>
+                      </td>
+                    </tr>
+  
+                    <tr>
+                      <th scope="row" class="text-start">Premium Courses</th>
+  
+                      <td>
+                        <i class="bi-x-circle-fill"></i>
+                      </td>
+  
+                      <td>
+                        <i class="bi-x-circle-fill"></i>
+                      </td>
+  
+                      <td>
+                        <i class="bi-check-circle-fill"></i>
+                      </td>
+                    </tr>
+  
+                    <tr>
+                      <th scope="row" class="text-start">Diet Plan</th>
+  
+                      <td>
+                        <i class="bi-x-circle-fill"></i>
+                      </td>
+  
+                      <td>
+                        <i class="bi-x-circle-fill"></i>
+                      </td>
+  
+                      <td>
+                        <i class="bi-check-circle-fill"></i>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row" class="text-start">Membership Price</th>
+                      <td>
+                        <i class="bi custom-btn" (click)="onMembershipbtn('gold')">&#8377;4999</i>
+                      </td>
+                      <td>
+                        <i #platinium class="bi custom-btn" (click)="onMembershipbtn('platinium')">&#8377;5999</i>
+                      </td>
+                      <td>
+                        <i #diamond class="bi custom-btn" (click)="onMembershipbtn('diamond')">&#8377;6999</i>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+  
+            <div class="col-lg-5 col-12 mx-auto">
+              <div>
+                <!-- Content of the first div -->
+                <!-- <h4 class="mb-4 pb-lg-2">Please join us!</h4> -->
+                <!-- <form action="#" method="post" class="custom-form membership-form shadow-lg" role="form">
+                                  <h4 class="text-white mb-4">Become a member</h4>
+  
+                                  <div class="form-floating">
+                                      <input type="text" name="full-name" id="full-name" class="form-control"
+                                          placeholder="Full Name" required="">
+  
+                                      <label for="floatingInput">Full Name</label>
+                                  </div>
+  
+  
+                                  <div class="form-floating">
+                                      <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*"
+                                          class="form-control" placeholder="Email address" required="">
+  
+                                      <label for="floatingInput">Email address</label>
+                                  </div>
+  
+                                  <div class="form-floating">
+                                      <textarea class="form-control" id="message" name="message"
+                                          placeholder="Describe message here"></textarea>
+  
+                                      <label for="floatingTextarea"> Comments</label>
+                                  </div>
+  
+                                  <button type="submit" class="form-control">Submit</button>
+                              </form> -->
+                <img src="../../../assets/img/man-woman-are-watching-training-video.jpg" alt="Sample photo"
+                  class="img-fluid rounded-3" style="max-height: 600px; width: 100%;" />
+  
+              </div>
+            
+            </div>
+          </div>
+        </ng-container>
+        <ng-template #notLoggedIn>
+          <section class="h-100" style="background-color: #3d405b; border-radius: 20px">
+            <div class="container py-5 h-100">
+              <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col">
+                  <div class="card card-registration my-4">
+                    <div class="row g-0">
+                      <div class="col-xl-6 d-none d-xl-block">
+                        <img src="../../../assets/img/man-woman-are-watching-training-video.jpg" alt="Sample photo"
+                          class="img-fluid" style="
+                            border-top-left-radius: 0.25rem;
+                            border-bottom-left-radius: 0.25rem;
+                          " />
+                      </div>
+                      <div class="col-xl-6">
+                        <div class="card-body p-md-5 text-black">
+                          <h3 class="mb-5 text-uppercase">
+                            User registration form
+                          </h3>
+  
+                          <div class="row">
+                            <div class="col-md-6 mb-4">
+                              <div class="form-outline">
+                                <input type="text" id="form3Example1m" class="form-control form-control-lg"
+                                  [(ngModel)]="membership.firstName" name="firstName" />
+                                <label class="form-label" for="form3Example1m">First name</label>
+                              </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                              <div class="form-outline">
+                                <input type="text" id="form3Example1n" class="form-control form-control-lg"
+                                  [(ngModel)]="membership.lastName" name="lastName" />
+                                <label class="form-label" for="form3Example1n">Last name</label>
+                              </div>
+                            </div>
+                          </div>
+  
+                          <div class="row">
+                            <div class="col-md-6 mb-4">
+                              <div class="form-outline">
+                                <input [disabled]="true" type="text" id="form3Example1m1"
+                                  class="form-control form-control-lg" [(ngModel)]="membership.plan" name="plan" />
+                                <label class="form-label" for="form3Example1m1">Selected Plan</label>
+                              </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                              <div class="form-outline">
+                                <input type="text" id="form3Example1n1" [(ngModel)]="membership.fatherName"
+                                  name="fatherName" class="form-control form-control-lg" />
+                                <label class="form-label" for="form3Example1n1">Father's name</label>
+                              </div>
+                            </div>
+                          </div>
+  
+                          <div class="form-outline mb-4">
+                            <input type="text" id="form3Example8" class="form-control form-control-lg"
+                              [(ngModel)]="membership.address" name="address" />
+                            <label class="form-label" for="form3Example8">Address</label>
+                          </div>
+  
+                          <div class="d-md-flex justify-content-start align-items-center mb-4 py-2">
+                            <h6 class="mb-0 me-4">Gender:</h6>
+  
+                            <div class="form-check form-check-inline mb-0 me-4">
+                              <input class="form-check-input" type="radio" name="gender" id="femaleGender" value="female"
+                                [(ngModel)]="membership.gender" />
+                              <label class="form-check-label" for="femaleGender">Female</label>
+                            </div>
+  
+                            <div class="form-check form-check-inline mb-0 me-4">
+                              <input class="form-check-input" type="radio" name="gender" id="maleGender" value="male"
+                                [(ngModel)]="membership.gender" />
+                              <label class="form-check-label" for="maleGender">Male</label>
+                            </div>
+  
+                            <div class="form-check form-check-inline mb-0">
+                              <input class="form-check-input" type="radio" name="gender" id="otherGender" value="other"
+                                [(ngModel)]="membership.gender" />
+                              <label class="form-check-label" for="otherGender">Other</label>
+                            </div>
+                          </div>
+  
+                          <div class="row">
+                            <div class="col-md-6 mb-4">
+                              <select class="select" [(ngModel)]="selectedItemState" (ngModelChange)="onStateChange()">
+                                <option value="Select a state">
+                                  Select a state
+                                </option>
+                                <option *ngFor="let item of states" [value]="item">
+                                  {{ item }}
+                                </option>
+                              </select>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                              <div *ngIf="selectedItemState != 'Select a state'">
+                                <select class="select" [(ngModel)]="membership.city">
+                                  <option *ngFor="
+                                      let item of citiesByState[selectedItemState]
+                                    " [value]="item">
+                                    {{ item }}
+                                  </option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+  
+                          <div class="form-outline mb-4">
+                            <input type="date" id="form3Example9" class="form-control form-control-lg"
+                              [(ngModel)]="membership.bod" name="bod" />
+                            <label class="form-label" for="form3Example9">DOB</label>
+                          </div>
+  
+                          <div class="form-outline mb-4">
+                            <input type="number" id="form3Example90" class="form-control form-control-lg"
+                              [(ngModel)]="membership.pincode" name="pincode" pattern="[0-9]{6}" min="0" minlength="6"
+                              maxlength="6" />
+                            <label class="form-label" for="form3Example90">Pincode</label>
+                          </div>
+  
+                          <div class="form-outline mb-4">
+                            <input type="text" id="form3Example97" class="form-control form-control-lg"
+                              [(ngModel)]="membership.emailid" name="emailid" #email="ngModel"
+                              [ngModelOptions]="{ updateOn: 'blur' }"
+                              [ngClass]="{ 'is-invalid': email.invalid && (email.dirty || email.touched) }"
+                              [pattern]="'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$'" required>
+                            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="invalid-feedback">
+                              <div *ngIf="email.errors?.['required']">Email is required.</div>
+                              <div *ngIf="email.errors?.['pattern']">Invalid email format.</div>
+                            </div>
+                            <label class="form-label" for="form3Example97">Email ID</label>
+                          </div>
+  
+  
+                          <div class="d-flex justify-content-end pt-3">
+                            <button type="button" class="custom-btn form-control" (click)="backToMembership()">
+                              Back
+                            </button>
+                            <button type="button" class="custom-btn form-control" (click)="resetMembershipForm()">
+                              Reset all
+                            </button>
+                            <button type="button" class="custom-btn form-control" (click)="submitMembershipForm()">
+                              Submit form
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </ng-template>
+      </div>
     </div>
-</section>
-
-
-<section class="events-section section-bg section-padding" id="events">
+  </section>
+  
+  <section class="events-section section-bg section-padding" id="events">
     <div class="container">
-        <div class="row">
-
-            <div class="col-lg-12 col-12">
-                <h2 class="mb-lg-3">Upcoming Events</h2>
-            </div>
-
-            <div class="row custom-block-bg custom-block mb-3">
-                <div class="col-lg-2 col-md-4 col-12 order-2 order-md-0 order-lg-0">
-                    <div
-                        class="custom-block-date-wrap d-flex d-lg-block d-md-block align-items-center mt-3 mt-lg-0 mt-md-0">
-                        <h6 class="custom-block-date mb-lg-1 mb-0 me-3 me-lg-0 me-md-0">24</h6>
-
-                        <strong class="text-white">Feb 2048</strong>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-8 col-12 order-1 order-lg-0">
-                    <div class="custom-block-image-wrap">
-                        <img src="../../../assets/img/bruce-mars-gJtDg6WfMlQ-unsplash.jpg"
-                            class="custom-block-image img-fluid" alt="">
-
-                    </div>
-                </div>
-
-                <div class="col-lg-6 col-12 order-3 order-lg-0">
-                    <div class="custom-block-info mt-2 mt-lg-0">
-                        <a href="event-detail.html" class="events-title mb-3">Private activities</a>
-
-                        <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna aliqua.</p>
-
-                        <div class="d-flex flex-wrap border-top mt-4 pt-3">
-
-                            <div class="mb-4 mb-lg-0">
-                                <div class="d-flex flex-wrap align-items-center mb-1">
-                                    <span class="custom-block-span">Location:</span>
-
-                                    <p class="mb-0">National Center, NYC</p>
-                                </div>
-
-                                <div class="d-flex flex-wrap align-items-center">
-                                    <span class="custom-block-span">Price:</span>
-
-                                    <p class="mb-0">&#8377;3250</p>
-                                </div>
-                            </div>
-
-                            <div class="d-flex align-items-center ms-lg-auto">
-                                <a href="event-detail.html" class="btn custom-btn">Buy Ticket</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row custom-block custom-block-bg">
-                <div class="col-lg-2 col-md-4 col-12 order-2 order-md-0 order-lg-0">
-                    <div
-                        class="custom-block-date-wrap d-flex d-lg-block d-md-block align-items-center mt-3 mt-lg-0 mt-md-0">
-                        <h6 class="custom-block-date mb-lg-1 mb-0 me-3 me-lg-0 me-md-0">28</h6>
-
-                        <strong class="text-white">Feb 2048</strong>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-8 col-12 order-1 order-lg-0">
-                    <div class="custom-block-image-wrap">
-                        <img src="../../../assets/img/dylan-gillis-YJdCZba0TYE-unsplash.jpg"
-                            class="custom-block-image img-fluid" alt="">
-
-
-                    </div>
-                </div>
-
-                <div class="col-lg-6 col-12 order-3 order-lg-0">
-                    <div class="custom-block-info mt-2 mt-lg-0">
-                        <a href="event-detail.html" class="events-title mb-3">Group tournament activities</a>
-
-                        <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna aliqua.</p>
-
-                        <div class="d-flex flex-wrap border-top mt-4 pt-3">
-
-                            <div class="mb-4 mb-lg-0">
-                                <div class="d-flex flex-wrap align-items-center mb-1">
-                                    <span class="custom-block-span">Location:</span>
-
-                                    <p class="mb-0">National Center, NYC</p>
-                                </div>
-
-                                <div class="d-flex flex-wrap align-items-center">
-                                    <span class="custom-block-span">Price:</span>
-
-                                    <p class="mb-0">&#8377;3000</p>
-                                </div>
-                            </div>
-
-                            <div class="d-flex align-items-center ms-lg-auto">
-                                <a href="event-detail.html" class="btn custom-btn">Buy Ticket</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+      <div class="row">
+        <div class="col-lg-12 col-12">
+          <h2 class="mb-lg-3">Upcoming Events</h2>
         </div>
+  
+        <div *ngFor="let event of events" class="row custom-block-bg custom-block mb-3">
+          <div class="col-lg-2 col-md-4 col-12 order-2 order-md-0 order-lg-0">
+            <div class="custom-block-date-wrap d-flex d-lg-block d-md-block align-items-center mt-3 mt-lg-0 mt-md-0">
+              <h6 class="custom-block-date mb-lg-1 mb-0 me-3 me-lg-0 me-md-0">
+                {{ event.date | date : "dd" }}
+              </h6>
+  
+              <strong class="text-white">{{
+                event.date | date : "MMM yyyy"
+                }}</strong>
+            </div>
+          </div>
+  
+          <div class="col-lg-4 col-md-8 col-12 order-1 order-lg-0">
+            <div class="custom-block-image-wrap">
+              <img [src]="event.imageUrl" class="custom-block-image img-fluid" alt="" />
+            </div>
+          </div>
+  
+          <div class="col-lg-6 col-12 order-3 order-lg-0">
+            <div class="custom-block-info mt-2 mt-lg-0">
+              <a href="event-detail.html" class="events-title mb-3">{{
+                event.title
+                }}</a>
+  
+              <p class="mb-0">{{ event.description }}</p>
+  
+              <div class="d-flex flex-wrap border-top mt-4 pt-3">
+                <div class="mb-4 mb-lg-0">
+                  <div class="d-flex flex-wrap align-items-center mb-1">
+                    <span class="custom-block-span">Location:</span>
+  
+                    <p class="mb-0">Power pluse,Pune</p>
+                  </div>
+  
+                  <div class="d-flex flex-wrap align-items-center">
+                    <span class="custom-block-span">Price:</span>
+  
+                    <p class="mb-0">&#8377;{{ event.price }}/Day</p>
+                  </div>
+                </div>
+  
+                <div class="d-flex align-items-center ms-lg-auto">
+                  <a href="event-detail.html" class="btn custom-btn disabled-link" >Book Now</a>
+  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</section>
-
-<section class="contact-section section-padding" id="contact_us">
+  </section>
+  
+  <section class="contact-section section-padding" id="contact_us">
     <div class="container">
-        <div class="row">
-
-            <div class="col-lg-5 col-12">
-                <form #myForm="ngForm" (ngSubmit)="submitForm(myForm)" class="custom-form contact-form">
-                    <h2 class="mb-4 pb-2">Contact Tiya</h2>
-
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-12">
-                            <div>
-                                <input type="text" name="fullName" id="fullName" class="form-control"
-                                    placeholder="Full Name" [attr.required]="true" [(ngModel)]="formData.fullName"
-                                    #fullName="ngModel" required>
-
-                            </div>
-                            <div *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)" class="text-danger">
-                                <div *ngIf="fullName.errors?.['required']">Full Name is required.</div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 col-md-6 col-12">
-                            <div>
-
-                                <input type="email" placeholder="Email address" class="form-control"
-                                    [(ngModel)]="formData.email" name="email" ngModel #email="ngModel" required email>
-                            </div>
-
-                            <div class="error" *ngIf="email.touched" class="text-danger">
-                                <div *ngIf="email.errors?.['required']">Email is required</div>
-                                <div *ngIf="email.errors?.['email']">Not a valid Email</div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-12 col-12">
-                            <div>
-                                <textarea class="form-control" id="message" name="message"
-                                    placeholder="Describe message here" [(ngModel)]="formData.message"
-                                    #message="ngModel"></textarea>
-
-                            </div>
-
-                            <button type="submit" class="form-control" [disabled]="myForm.invalid">Submit Form</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-            <div class="col-lg-6 col-12">
-                <div class="contact-info mt-5">
-                    <div class="contact-info-item">
-                        <div class="contact-info-body">
-                            <strong>London, United Kingdom</strong>
-
-                            <p class="mt-2 mb-1">
-                                <a href="tel: 010-020-0340" class="contact-link">
-                                    (020)
-                                    010-020-0340
-                                </a>
-                            </p>
-
-                            <p class="mb-0">
-                                <a href="mailto:info@company.com" class="contact-link">
-
-                                </a>
-                            </p>
-                        </div>
-
-                        <div class="contact-info-footer">
-                            <a href="#">Directions</a>
-                        </div>
-                    </div>
-
-                    <img src="../../../assets/img/WorldMap.svg" class="img-fluid" alt="">
+      <div class="row">
+        <div class="col-lg-5 col-12">
+          <form #myForm="ngForm" (ngSubmit)="submitForm(myForm)" class="custom-form contact-form">
+            <h2 class="mb-4 pb-2">Contact Power Pluse</h2>
+  
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-12">
+                <div>
+                  <input type="text" name="fullName" id="fullName" class="form-control" placeholder="Full Name"
+                    [attr.required]="true" [(ngModel)]="formData.fullName" #fullName="ngModel" required />
                 </div>
+                <div *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)" class="text-danger">
+                  <div *ngIf="fullName.errors?.['required']">
+                    Full Name is required.
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-lg-6 col-md-6 col-12">
+                <div>
+                  <input type="email" placeholder="Email address" class="form-control" [(ngModel)]="formData.email"
+                    name="email" ngModel #email="ngModel" required email />
+                </div>
+  
+                <div class="error" *ngIf="email.touched" class="text-danger">
+                  <div *ngIf="email.errors?.['required']">Email is required</div>
+                  <div *ngIf="email.errors?.['email']">Not a valid Email</div>
+                </div>
+              </div>
+  
+              <div class="col-lg-12 col-12">
+                <div>
+                  <textarea class="form-control" id="message" name="message" placeholder="Describe message here"
+                    [(ngModel)]="formData.message" #message="ngModel"></textarea>
+                </div>
+  
+                <button type="submit" class="form-control" [disabled]="myForm.invalid">
+                  Submit Form
+                </button>
+              </div>
             </div>
-
+          </form>
         </div>
+  
+        <div class="col-lg-6 col-12">
+          <div class="contact-info mt-5">
+            <div class="contact-info-item">
+              <div class="contact-info-body">
+                <strong>Power PLuse,Pune</strong>
+  
+                <p class="mt-2 mb-1">
+                  <a href="tel: 010-020-0340" class="contact-link">
+                    (020) 010-020-0340
+                  </a>
+                </p>
+  
+                <p class="mb-0">
+                  <a href="mailto:info@company.com" class="contact-link"> </a>
+                </p>
+              </div>
+  
+              <div class="contact-info-footer">
+                <a (click)="redirectToMapPage()">Directions</a>
+              </div>
+            </div>
+  
+            <img src="../../../assets/img/WorldMap.svg" class="img-fluid" alt="" />
+          </div>
+        </div>
+      </div>
     </div>
-</section>
+  </section>

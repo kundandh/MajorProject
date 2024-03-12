@@ -5,6 +5,7 @@ export const EVENT_URL = BASE_URL + '/api/events';
 export const NEWSLETTER_URL = BASE_URL + '/api/newsletter';
 export const CONTACTUS_URL = BASE_URL + '/api/contactus';
 export const MEMBERSHIP_URL = BASE_URL + '/api/membeships';
+export const MEMBERSHIPBY_ID_URL = MEMBERSHIP_URL + '/';
 
 export const PRODUCTS_URL = BASE_URL + '/api/products';
 export const PRODUCTS_CATEGORY_URL = PRODUCTS_URL + '/category';

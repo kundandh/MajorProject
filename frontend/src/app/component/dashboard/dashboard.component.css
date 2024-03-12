@@ -69,9 +69,6 @@
   right: 0;
   left: 0;
 }
-#home{
-  margin-top: -33px;
-}
 
 .hero-section>svg {
   top: 0;
@@ -318,6 +315,8 @@
 
 
 .navbar {
+  
+ 
 
 
   position: sticky;

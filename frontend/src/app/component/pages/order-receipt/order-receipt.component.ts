@@ -27,4 +27,9 @@ checkout! : any
     sessionStorage.removeItem('order');
     this.router.navigate(['products']);
   }
-}
+
+  round(x:number):any{
+    Math.round(x);
+  }
+  }
+

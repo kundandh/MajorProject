@@ -60,14 +60,14 @@
             <div class="col-8" style="padding-left: 0">
               Discount
             </div>
-            <div class="col text-right">-₹{{ order.promoDiscount }}</div>
+            <div class="col text-right">-₹{{ order.totalPrice - checkout.orderValue }}</div>
           </div>
           <hr>
           <div class="row">
             <div class="col-8" style="padding-left: 0">
               <b>Amount Paid</b>
             </div>
-            <div class="col text-right"><b>₹{{ order.totalPrice - order.promoDiscount }}</b></div>
+            <div class="col text-right"><b>₹{{checkout.orderValue }}</b></div>
           </div>
           <hr>
         </div>

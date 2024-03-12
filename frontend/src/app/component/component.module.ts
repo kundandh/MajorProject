@@ -15,6 +15,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { PaymentGatewayComponent } from './pages/payment-gateway/payment-gateway.component';
 import { OrderReceiptComponent } from './pages/order-receipt/order-receipt.component';
+import { MembershipconfirmComponent } from './pages/membershipconfirm/membershipconfirm.component';
 
 
 
@@ -28,7 +29,8 @@ import { OrderReceiptComponent } from './pages/order-receipt/order-receipt.compo
     CartPageComponent,
     CheckoutComponent,
     PaymentGatewayComponent,
-    OrderReceiptComponent
+    OrderReceiptComponent,
+    MembershipconfirmComponent
   ],
   imports: [
     CommonModule,
