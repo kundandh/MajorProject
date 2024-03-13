@@ -9,4 +9,5 @@ export class CartItem{
     imageUrl: string = this.product.imageUrl;
     productName : string = this.product.productName;
     brandName : string = this.product.brandName;
+    // console.log(brandName);
 }
