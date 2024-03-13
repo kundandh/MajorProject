@@ -139,6 +139,10 @@ exports.updateAddress = (req, res) => {
   const userId = req.userId;
   const updatedAddress = typeof req.body.address === 'string' ? [req.body.address] : req.body.address;
 
+  if (!updatedAddress || updatedAddress.length === 0) {
+    return res.status(400).send({ message: "Address cannot be empty." });
+  }
+  else{
   User.findByIdAndUpdate(userId, { $set: { address: updatedAddress } }, { new: true })
     .then(user => {
       if (!user) {
@@ -149,6 +153,7 @@ exports.updateAddress = (req, res) => {
     .catch(err => {
       res.status(500).send({ message: err.message });
     });
+  }
 };
 
 

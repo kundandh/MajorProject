@@ -6,6 +6,11 @@ import { CartPageComponent } from './component/pages/cart-page/cart-page.compone
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { CheckoutComponent } from './component/pages/checkout/checkout.component';
 import { PaymentGatewayComponent } from './component/pages/payment-gateway/payment-gateway.component';
+import { OrderReceiptComponent } from './component/pages/order-receipt/order-receipt.component';
+import { MembershipconfirmComponent } from './component/pages/membershipconfirm/membershipconfirm.component';
+import { BlogComponent } from './component/blog/blog.component';
+import { PostDetailsComponent } from './component/post-details/post-details.component';
+import { FeedbackComponent } from './component/pages/feedback/feedback.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -15,8 +20,13 @@ const routes: Routes = [
   { path: 'cart-page', component: CartPageComponent },
   { path: 'products', component: HomeComponent },
   { path: 'checkout', component: CheckoutComponent},
+  { path: 'checkout/cart-page', component: CartPageComponent},
   { path: 'payment', component: PaymentGatewayComponent},
-
+  { path: 'blog', component: BlogComponent },
+  { path: 'post/:id', component: PostDetailsComponent },
+  { path: 'receipt', component: OrderReceiptComponent},
+  {path:'membershipconf', component: MembershipconfirmComponent},
+  {path:'receipt/feedback', component: FeedbackComponent}
 ];
 
 @NgModule({

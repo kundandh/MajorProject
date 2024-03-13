@@ -32,7 +32,9 @@
   --font-weight-medium: 500;
   --font-weight-bold: 700;
 }
-
+#home{
+  margin-top: -8px;
+}
 /*---------------------------------------
   HERO        
 -----------------------------------------*/
@@ -68,9 +70,6 @@
   position: absolute;
   right: 0;
   left: 0;
-}
-#home{
-  margin-top: -33px;
 }
 
 .hero-section>svg {
@@ -318,6 +317,8 @@
 
 
 .navbar {
+  
+ 
 
 
   position: sticky;

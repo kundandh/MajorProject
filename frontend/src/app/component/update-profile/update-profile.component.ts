@@ -54,20 +54,27 @@ export class UpdateProfileComponent {
   }
 
   updateAddress(): void {
+    // Check if the new address is not empty
+    if (!this.newAddress || this.newAddress.trim() === '') {
+      console.error('Address cannot be empty.');
+      return;
+    }
+  
     // Make a PUT request to update the user's address
     this.http.put('http://localhost:8080/api/auth/updateAddress', { address: this.newAddress })
       .subscribe((response: any) => {
         console.log(response);
-        this.upass=true;
+        this.upass = true;
         // sessionStorage.clear();
         sessionStorage.setItem('auth-user', JSON.stringify(response));
         console.log(response);
-        
-        window.location.reload()
+  
+        window.location.reload();
       }, (error: any) => {
         console.error(error);
       });
   }
+  
 
   showNotification(message: string, type: 'success' | 'error'): void {
     const notificationDiv = this.notificationArea.nativeElement;

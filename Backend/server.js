@@ -3,7 +3,7 @@ const cors = require("cors");
 const Razorpay = require('razorpay');
 const cookieSession = require("cookie-session");
 const ProductModel = require('./app/models/productModel')
-const EventModel = require('./app/models/eventModel')
+const mongoose = require("mongoose");
 const dbConfig = require("./app/config/db.config");
 const promocodeModel = require('./app/models/promocode')
 const bodyParser = require('body-parser');
@@ -11,6 +11,8 @@ const orderModel = require('./app/models/orders')
 const multer = require('multer');
 const path = require('path'); 
 require('./app/middlewares/uploads')
+const FeedbackModel = require('./app/models/FeedbackModel');
+
 
 const upload = multer({
   dest: 'uploads/',
@@ -49,8 +51,19 @@ app.use(
   })
 );
 
+
 const db = require("./app/models");
+const {
+  Event,
+  NewsLetter,
+  ContactUs,
+  // MEMBERSHIP,
+  Membership,
+} = require("./app/models/dashboard.model");
+const User = require("./app/models/user.model");
 const Role = db.role;
+
+
 
 db.mongoose
   .connect(dbConfig.url, {
@@ -95,11 +108,6 @@ function initial() {
 }
 
 // kundan product routs
-app.get('/api/events',async (req,res) => {
-  const result = await EventModel.find();
-  res.send(result);
-})
-
 
 app.get('/api/products',async (req,res) => {
   const result = await ProductModel.find();
@@ -325,6 +333,224 @@ app.post('/api/orders', async (req, res) => {
   } catch (error) {
       console.error(error);
       res.status(500).json({ message: "Server error" }); // Sending an error response
+  }
+});
+
+
+
+// kunal event routs...............................................................
+
+app.get("/api/events", async (req, res) => {
+  try {
+    const events = await Event.find();
+    res.send(events);
+  } catch (error) {
+    res.status(500).send({ message: error.message });
+  }
+});
+
+app.post("/api/events", async (req, res) => {
+  const event = new Event(req.body);
+  try {
+    const result = await event.save();
+    res.status(201).send(result);
+  } catch (error) {
+    res.status(400).send({ message: error.message });
+  }
+});
+app.get("/api/newsletter", async (req, res) => {
+  try {
+    const newletter = await NewsLetter.find();
+    res.send(newletter);
+  } catch (error) {
+    res.status(500).send({ message: error.message });
+  }
+});
+app.post("/api/newsletter", async (req, res) => {
+  const newletter = new NewsLetter(req.body);
+  try {
+    const result = await newletter.save();
+    res.status(201).send(result);
+  } catch (error) {
+    res.status(400).send({ message: error.message });
+  }
+});
+app.get("/api/contactus", async (req, res) => {
+  try {
+    const contactus = await ContactUs.find();
+    res.send(contactus);
+  } catch (error) {
+    res.status(500).send({ message: error.message });
+  }
+});
+app.post("/api/contactus", async (req, res) => {
+  const contactus = new ContactUs(req.body);
+  try {
+    const result = await contactus.save();
+    res.status(201).send(result);
+  } catch (error) {
+    res.status(400).send({ message: error.message });
+  }
+});
+app.get("/api/membeships", async (req, res) => {
+  try {
+    const membership = await Membership.find();
+    res.send(membership);
+  } catch (error) {
+    res.status(500).send({ message: error.message });
+  }
+});
+app.post("/api/membeships", async (req, res) => {
+  const membeship = new Membership(req.body);
+  try {
+    const result = await membeship.save();
+    res.status(201).send(result);
+  } catch (error) {
+    res.status(400).send({ message: error.message });
+  }
+});
+
+app.put("/api/membeships/:userId", async (req, res) => {
+  try {
+    const userId = req.params.userId.trim(); // Remove leading/trailing whitespace
+    console.log();
+    const updatedUserData = req.body;
+    const updatedUser = await Membership.findByIdAndUpdate(
+      userId,
+      { $set: updatedUserData },
+      { new: true }
+    );
+    if (!updatedUser) {
+      return res.status(404).json({ error: "User not found" });
+    }
+    res.json(updatedUser);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.delete("/api/membeships/:membershipId", async (req, res) => {
+  const membershipId = req.params.membershipId;
+  // console.log(productId);
+  try {
+    const deletedmembership = await Membership.findByIdAndDelete(membershipId);
+    if (!deletedmembership) {
+      return res.status(404).send({ message: "Membership not found" });
+    }
+    res.send({ message: "Membership deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting membership:", error);
+    res.status(500).send({ message: "Internal Server Error" });
+  }
+});
+
+app.delete("/api/users/:userId", async (req, res) => {
+  const userId = req.params.userId.trim(); // Remove leading/trailing whitespace
+  try {
+    const deletedUser = await User.findByIdAndDelete(userId);
+    if (!deletedUser) {
+      return res.status(404).send({ message: "User not found" });
+    }
+    res.send({ message: "User deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting user:", error);
+    res.status(500).send({ message: "Internal Server Error" });
+  }
+});
+
+app.put("/api/users/:userId", async (req, res) => {
+  try {
+    const userId = req.params.userId.trim(); // Remove leading/trailing whitespace
+    console.log();
+    const updatedUserData = req.body;
+    const updatedUser = await User.findByIdAndUpdate(
+      userId,
+      { $set: updatedUserData },
+      { new: true }
+    );
+    if (!updatedUser) {
+      return res.status(404).json({ error: "User not found" });
+    }
+    res.json(updatedUser);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+
+// mihir code 
+
+const nutritionPlanSchema = new mongoose.Schema({
+  title: String,
+  description: String,
+  imageUrl: String,
+  // Add more fields as needed
+});
+
+const NutritionPlan = mongoose.model("Dietplan", nutritionPlanSchema);
+
+app.post("/api/nutrition-plans", async (req, res) => {
+  try {
+    const { title, description, imageUrl } = req.body; // Assuming you're sending imageUrl directly
+    const nutritionPlan = new NutritionPlan({
+      title,
+      description,
+      imageUrl,
+    });
+    const newNutritionPlan = await nutritionPlan.save();
+    res.status(201).json(newNutritionPlan);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
+// GET All Nutrition Plans
+app.get("/api/nutrition-plans", async (req, res) => {
+  try {
+    const nutritionPlans = await NutritionPlan.find();
+    res.json(nutritionPlans);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// GET Nutrition Plan by ID
+app.get("/api/nutrition-plans/:id", async (req, res) => {
+  try {
+    const nutritionPlan = await NutritionPlan.findById(req.params.id);
+    if (nutritionPlan == null) {
+      return res.status(404).json({ message: "Nutrition plan not found" });
+    }
+    res.json(nutritionPlan);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+
+// Kshitija 
+
+// Route to fetch all feedback from MongoDB
+app.get('/feedbacks', async (req, res) => {
+  try {
+      const feedbacks = await FeedbackModel.find();
+      res.json(feedbacks);
+  } catch (error) {
+      res.status(500).send(error.message);
+  }
+});
+
+// Route to submit feedback to MongoDB
+app.post('/submitFeedback', async (req, res) => {
+  try {
+      const feedbackData = req.body;
+      const feedback = new FeedbackModel(feedbackData);
+      const result = await feedback.save();
+      res.send(result);
+  } catch (error) {
+      res.status(500).send(error.message);
   }
 });
 

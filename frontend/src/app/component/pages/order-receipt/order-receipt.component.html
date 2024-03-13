@@ -1,0 +1,82 @@
+<app-navbar />
+
+<div class="container-xl" id="abc">
+  <div class="card mt-5 mb-5">
+    <div class="row">
+      <div class="col-md-8 cart">
+        <div class="title">
+          <div class="row">
+            <div class="col">
+              <h4><b>Thank You! for shoppin with us</b></h4>
+            </div>
+          </div>
+        </div>
+        <div class="row border-top border-bottom">
+          <div class="row main align-items-center">
+            
+              <h6>Shipping to {{checkout.address.firstName}} {{checkout.address.lastName}} </h6>
+              <h6>{{checkout.address.street}} {{checkout.address.landmark}} {{checkout.address.city}} </h6>
+              <h6>Phone :{{checkout.address.mobileNumber}}  </h6>
+              <hr>
+            <h6>items:</h6>
+              <div
+          *ngFor="let cartItem of order.items"
+          class="row border-top border-bottom"
+        >
+          <div class="row main align-items-center">
+            <div class="col-2">
+              <img class="img-fluid" src="{{ cartItem.product.imageUrl }}" />
+            </div>
+            <div class="col">
+              <div class="row text-muted">
+                {{ cartItem.product.productName }}
+              </div>
+              <div class="row">{{ cartItem.product.brandName }}</div>
+            </div>
+            <div class="col">
+              {{cartItem.quantity}}
+            </div>
+            <div class="col">
+              ₹ {{ cartItem.price }} &nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+          </div>
+        </div>
+            </div>
+            <button class="btn" (click)="exit()">CONTINUE SHOPPING</button>
+        </div>
+        </div>
+        
+      <div class="col-md-4 summary">
+        <div>
+          <h5><b>Order Summary</b></h5>
+          <hr>
+          <div class="row">
+            <div class="col-8" style="padding-left: 0">
+              ITEMS {{ order.totalCount }}
+            </div>
+            <div class="col text-right">&nbsp;₹{{ order.totalPrice }}</div>
+          </div>
+          <div class="row">
+            <div class="col-8" style="padding-left: 0">
+              Discount
+            </div>
+            <div class="col text-right">-₹{{ (order.totalPrice - checkout.orderValue).toFixed() }}</div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-8" style="padding-left: 0">
+              <b>Amount Paid</b>
+            </div>
+            <div class="col text-right"><b>₹{{checkout.orderValue }}</b></div>
+            
+          </div>
+          
+          <hr>
+          <button class="btn"  (click)="feedback()">SHARE FEEDBACK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

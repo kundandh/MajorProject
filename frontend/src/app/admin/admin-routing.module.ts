@@ -6,6 +6,9 @@ import { ProductsComponent } from './products/products.component';
 import { ProductTableComponent } from './product-table/product-table.component';
 import { OrdersTableComponent } from './orders-table/orders-table.component';
 import { AdminAuthGuardService } from '../services/admin-auth-guard.service';
+import { UsersEditComponent } from './users-edit/users-edit.component';
+import { UsersMembershipComponent } from './users-membership/users-membership.component';
+import { AddEventComponent } from './add-event/add-event.component';
 
 const routes: Routes = [
   { 
@@ -13,7 +16,10 @@ const routes: Routes = [
     component: AdminDashboardComponent, 
     canActivate: [AdminAuthGuardService],
     children: [
-      
+      { path: 'addEvent', component: AddEventComponent },
+      { path: 'allUsers', component: UsersEditComponent },
+      { path: 'allMembershipUser', component: UsersMembershipComponent },
+      { path: 'allUser', component: UsersEditComponent },
       { path: 'allOrders', component: OrdersTableComponent },
       { path: 'allProducts', component: ProductTableComponent },
       { 

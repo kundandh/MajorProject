@@ -1,8 +1,90 @@
 
+
+
 .container{
    padding-top: 85px;
 }
 
-.footer{
-   margin-top: 300px;
-}
+
+ 
+/* .footer{
+   margin-top: 450px;
+} */
+
+
+/*---------------------------------------
+  CUSTOM PROPERTIES ( VARIABLES )             
+-----------------------------------------*/
+:host {
+   --white-color: #ffffff;
+   --primary-color: #81B29A;
+   --secondary-color: #3D405B;
+   --section-bg-color: #F4F1DE;
+   --custom-btn-bg-color: #F2CC8F;
+   --custom-btn-bg-hover-color: #E07A5F;
+   --dark-color: #000000;
+   --p-color: #717275;
+   --link-hover-color: #F2CC8F;
+ 
+   --body-font-family: 'DM Sans', sans-serif;
+ 
+   --h1-font-size: 42px;
+   --h2-font-size: 36px;
+   --h3-font-size: 28px;
+   --h4-font-size: 24px;
+   --h5-font-size: 22px;
+   --h6-font-size: 20px;
+   --p-font-size: 18px;
+   --menu-font-size: 16px;
+   --btn-font-size: 14px;
+ 
+   --border-radius-large: 100px;
+   --border-radius-medium: 20px;
+   --border-radius-small: 10px;
+ 
+   --font-weight-normal: 400;
+   --font-weight-medium: 500;
+   --font-weight-bold: 700;
+ }
+ 
+/*---------------------------------------
+ SITE FOOTER            
+-----------------------------------------*/
+.site-footer {
+   position: relative;
+   padding-bottom: 200px;
+ }
+ 
+ .site-footer .container {
+   position: relative;
+   z-index: 2;
+ }
+ 
+ .site-footer svg {
+   position: absolute;
+   bottom: 0;
+   right: 0;
+   left: 0;
+   pointer-events: none;
+ }
+ 
+ .site-footer-title {
+   color: var(--secondary-color);
+ }
+ 
+ .site-footer p span {
+   font-weight: var(--font-weight-medium);
+   margin-right: auto;
+ }
+ 
+ .custom-list-item {
+   width: 70%; 
+   margin: 0 auto; 
+   cursor: pointer;
+   color: white;
+ }
+ 
+ .custom-list-item:hover {
+   background-color: #b5b6b6;
+   
+ }
