@@ -1,0 +1,6 @@
+projectKey=Tiya_Power_Plus_Club_Frontend_28890
+serverUrl=http://172.27.12.78:8000
+serverVersion=7.9.6.41879
+dashboardUrl=http://172.27.12.78:8000/dashboard?id=Tiya_Power_Plus_Club_Frontend_28890
+ceTaskId=AY42j_EF02ASefZCyh9N
+ceTaskUrl=http://172.27.12.78:8000/api/ce/task?id=AY42j_EF02ASefZCyh9N
