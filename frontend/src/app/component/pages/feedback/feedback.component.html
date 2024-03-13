@@ -1,0 +1,154 @@
+<div class="container">
+  <h1>FEEDBACK FORM</h1>
+  <form #feedbackForm="ngForm" (ngSubmit)="submitFeedback()">
+    <div class="form-group">
+      <label for="fullName">Full Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="fullName"
+        placeholder="Enter your name here"
+        [(ngModel)]="formData.fullName"
+        name="fullName"
+        required
+      />
+      <div
+        *ngIf="
+          feedbackForm.controls['fullName']?.invalid &&
+          (feedbackForm.controls['fullName']?.dirty ||
+            feedbackForm.controls['fullName']?.touched)
+        "
+      ></div>
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        placeholder="Enter your email here"
+        [(ngModel)]="formData.email"
+        name="email"
+        required
+        email
+      />
+      <div
+        *ngIf="
+          feedbackForm.controls['email']?.invalid &&
+          (feedbackForm.controls['email']?.dirty ||
+            feedbackForm.controls['email']?.touched)
+        "
+      >
+        <div *ngIf="feedbackForm.controls['email'].hasError('required')">
+          Email is required.
+        </div>
+        <div *ngIf="feedbackForm.controls['email'].hasError('email')">
+          Please enter a valid email address.
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="form-group">
+        <label>Gender</label>
+        <div>
+          <input
+            type="radio"
+            name="gender"
+            id="male"
+            value="Male"
+            [(ngModel)]="formData.gender"
+            required
+          />
+          <label for="male">Male</label>
+        </div>
+        <div>
+          <input
+            type="radio"
+            name="gender"
+            id="female"
+            value="Female"
+            [(ngModel)]="formData.gender"
+            required
+          />
+          <label for="female">Female</label>
+        </div>
+        <div
+          *ngIf="
+            feedbackForm.controls['gender']?.invalid &&
+            (feedbackForm.controls['gender']?.dirty ||
+              feedbackForm.controls['gender']?.touched)
+          "
+        >
+          <div *ngIf="feedbackForm.controls['gender'].hasError('required')">
+            Gender is required.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Select Products Purchased</label>
+        <div>
+          <select
+            class="form-control"
+            id="productPurchased"
+            [(ngModel)]="formData.productPurchased"
+            name="productPurchased"
+            [required]="
+              feedbackForm.controls['productPurchased'] &&
+              feedbackForm.controls['productPurchased'].hasError('required')
+            "
+          >
+            <label for="productPurchased">Category</label>
+            <option value="">Select</option>
+            <option value="Supplement">Supplement</option>
+            <option value="Gear">Gear</option>
+            <option value="Equipment">Equipment</option>
+            <!-- Add more options as needed --></select
+          ><br /><br />
+          <div class="form-group">
+            <label>Detailed Issue Feedback if any</label>
+            <div *ngFor="let option of feedbackOptions">
+              <input
+                type="checkbox"
+                [id]="option"
+                [value]="option"
+                [(ngModel)]="formData.selectedOptions[option]"
+                name="selectedOptions"
+              />
+              <label [for]="option">{{ option }}</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Suggestions</label>
+            <textarea
+              class="form-control"
+              id="suggestions"
+              [(ngModel)]="formData.suggestions"
+              name="suggestions"
+            ></textarea>
+            <div>
+              <br /><br />
+              <!-- Continue with other form fields -->
+              <button
+                type="submit"
+                class="btn btn-info"
+                (click)="submitFeedback()"
+              >
+                Submit
+              </button>
+              <button
+                type="button"
+                class="btn btn-danger"
+                (click)="deleteFeedback()"
+              >
+                Delete
+              </button>
+              <button type="button" class="btn btn-info" (click)="clearForm()">
+                Clear Form
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

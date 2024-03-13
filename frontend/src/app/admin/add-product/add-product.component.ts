@@ -35,6 +35,7 @@ export class AddProductComponent implements OnInit {
   }
 
   onSubmit() {
+    if(this.productForm.valid){
     const formData : any = new FormData();
     formData.append('productName', this.productForm.get('productName')?.value);
     formData.append('description', this.productForm.get('description')?.value);
@@ -59,6 +60,10 @@ export class AddProductComponent implements OnInit {
       }
     );
     this.bsModalRef.hide();
+    }
+    else{
+      alert("please provide all neccessary fields")
+    }
   }
 
   onFileChange(event: Event): void { // Specify the type of event parameter explicitly

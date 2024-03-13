@@ -16,6 +16,7 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { PaymentGatewayComponent } from './pages/payment-gateway/payment-gateway.component';
 import { OrderReceiptComponent } from './pages/order-receipt/order-receipt.component';
 import { MembershipconfirmComponent } from './pages/membershipconfirm/membershipconfirm.component';
+import { FeedbackComponent } from './pages/feedback/feedback.component';
 
 
 
@@ -30,7 +31,8 @@ import { MembershipconfirmComponent } from './pages/membershipconfirm/membership
     CheckoutComponent,
     PaymentGatewayComponent,
     OrderReceiptComponent,
-    MembershipconfirmComponent
+    MembershipconfirmComponent,
+    FeedbackComponent
   ],
   imports: [
     CommonModule,
@@ -49,7 +51,8 @@ import { MembershipconfirmComponent } from './pages/membershipconfirm/membership
     CartPageComponent,
     CheckoutComponent,
     PaymentGatewayComponent,
-    OrderReceiptComponent
+    OrderReceiptComponent,
+    FeedbackComponent
   ],
 })
 export class ComponentModule {}

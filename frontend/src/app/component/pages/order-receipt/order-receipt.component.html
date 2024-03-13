@@ -1,6 +1,6 @@
 <app-navbar />
 
-<div class="container-xl">
+<div class="container-xl" id="abc">
   <div class="card mt-5 mb-5">
     <div class="row">
       <div class="col-md-8 cart">
@@ -60,7 +60,7 @@
             <div class="col-8" style="padding-left: 0">
               Discount
             </div>
-            <div class="col text-right">-₹{{ order.totalPrice - checkout.orderValue }}</div>
+            <div class="col text-right">-₹{{ (order.totalPrice - checkout.orderValue).toFixed() }}</div>
           </div>
           <hr>
           <div class="row">
@@ -68,8 +68,11 @@
               <b>Amount Paid</b>
             </div>
             <div class="col text-right"><b>₹{{checkout.orderValue }}</b></div>
+            
           </div>
+          
           <hr>
+          <button class="btn"  (click)="feedback()">SHARE FEEDBACK</button>
         </div>
       </div>
     </div>

@@ -55,6 +55,8 @@ export class MembershipconfirmComponent {
       this.membershipService.addMembership(this.membership).subscribe(
         (addedMembership) => {
           console.log(addedMembership);
+          // ...mohit code
+          sessionStorage.setItem('auth-user', JSON.stringify(addedMembership));
           this.router.navigate(['']);
         },
         (error) => {

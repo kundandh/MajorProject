@@ -11,6 +11,7 @@ const orderModel = require('./app/models/orders')
 const multer = require('multer');
 const path = require('path'); 
 require('./app/middlewares/uploads')
+const FeedbackModel = require('./app/models/FeedbackModel');
 
 
 const upload = multer({
@@ -527,6 +528,32 @@ app.get("/api/nutrition-plans/:id", async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+
+
+// Kshitija 
+
+// Route to fetch all feedback from MongoDB
+app.get('/feedbacks', async (req, res) => {
+  try {
+      const feedbacks = await FeedbackModel.find();
+      res.json(feedbacks);
+  } catch (error) {
+      res.status(500).send(error.message);
+  }
+});
+
+// Route to submit feedback to MongoDB
+app.post('/submitFeedback', async (req, res) => {
+  try {
+      const feedbackData = req.body;
+      const feedback = new FeedbackModel(feedbackData);
+      const result = await feedback.save();
+      res.send(result);
+  } catch (error) {
+      res.status(500).send(error.message);
+  }
+});
+
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {

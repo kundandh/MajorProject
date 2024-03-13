@@ -83,7 +83,6 @@ export class UsersEditComponent {
   }
 
   onSubmit(): void {
-    console.log("hf");
 
     if (this.userForm.valid) {
 
@@ -94,7 +93,6 @@ export class UsersEditComponent {
       this.userServices.editUserById(userId, updatedUser).subscribe(
         (result) => {
           console.log(`User with ID ${userId} updated successfully.`, result);
-
           const index = this.users.findIndex(p => p._id.toString() === userId);
           if (index !== -1) {
             this.users[index] = result;

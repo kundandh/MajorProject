@@ -27,6 +27,11 @@ checkout! : any
     sessionStorage.removeItem('order');
     this.router.navigate(['products']);
   }
+  feedback():void{
+    sessionStorage.removeItem('Cart');
+    sessionStorage.removeItem('order');
+    this.router.navigate(['receipt/feedback']);
+  }
 
   round(x:number):any{
     Math.round(x);

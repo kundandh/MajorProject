@@ -10,6 +10,7 @@ import { OrderReceiptComponent } from './component/pages/order-receipt/order-rec
 import { MembershipconfirmComponent } from './component/pages/membershipconfirm/membershipconfirm.component';
 import { BlogComponent } from './component/blog/blog.component';
 import { PostDetailsComponent } from './component/post-details/post-details.component';
+import { FeedbackComponent } from './component/pages/feedback/feedback.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -24,7 +25,8 @@ const routes: Routes = [
   { path: 'blog', component: BlogComponent },
   { path: 'post/:id', component: PostDetailsComponent },
   { path: 'receipt', component: OrderReceiptComponent},
-  {path:'membershipconf', component: MembershipconfirmComponent}
+  {path:'membershipconf', component: MembershipconfirmComponent},
+  {path:'receipt/feedback', component: FeedbackComponent}
 ];
 
 @NgModule({

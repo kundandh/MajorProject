@@ -26,29 +26,17 @@ export class MembershipComponent {
   selectedCity: string = 'Select a city';
   states: string[] = ['Maharashtra', 'Gujarat', 'Karnataka']; // list of states
   citiesByState: { [key: string]: string[] } = {
-    Maharashtra: ['Mumbai', 'Pune', 'Mumbai'],
+    Maharashtra: ['Mumbai', 'Pune', 'Dhule'],
     Gujarat: ['Ahmedabad', 'Surat', 'Vadodara'],
     Karnataka: ['Bangalore', 'Mysore', 'Hubli'],
   };
   formData: any = {};
-  membershipForm!: FormGroup;
-  // membership = {
-  //   userid: '',
-  //   firstName: '',
-  //   lastName: '',
-  //   fatherName: '',
-  //   plan: '',
-  //   address: '',
-  //   gender: '',
-  //   state: this.selectedItemState,
-  //   city: '',
-  //   bod: '',
-  //   pincode: '',
-  //   emailid: '',
-  // };
+  // membershipForm!: FormGroup;
+
   constructor(private eventService: EventService, private router: Router, private http: HttpClient, private membershipService: MembershipService) { }
   ngOnInit(): void {
     this.loadEvents();
+    this.resetMembershipForm();
   }
   submitForm(form: NgForm): void {
     if (form.valid) {
@@ -99,7 +87,7 @@ export class MembershipComponent {
       }
       this.membership.status = true;
       this.membership.plan = flag.toUpperCase();
-      console.log(this.membership);
+      // console.log(this.membership);
 
       this.showMembership = !this.showMembership;
     } else {
@@ -110,12 +98,15 @@ export class MembershipComponent {
 
   submitMembershipForm() {
     if (this.isFormValid()) {
+      // console.log("hit");
+
       sessionStorage.setItem('membership', JSON.stringify(this.membership));
       this.router.navigate(['membershipconf']);
       this.resetMembershipForm();
       this.backToMembership();
     } else {
       console.log('Please fill in all required fields.');
+      alert("Please fill in all required fields.");
     }
   }
   getSessionStorageItem(key: string): string | null {
