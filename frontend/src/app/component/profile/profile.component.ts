@@ -20,6 +20,7 @@ export class ProfileComponent {
   ngOnInit(): void {
     this.user = this.storageService.getUser();
     this.isLoggedIn = this.storageService.isLoggedIn();
+    
     if (this.isLoggedIn) {
       const user = this.storageService.getUser();
       this.roles = user.roles;
