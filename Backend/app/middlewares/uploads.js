@@ -9,5 +9,5 @@ const storage = multer.diskStorage({
     cb(null, file.originalname) // Use the original file name for the uploaded file
   }
 });
-
+//console.log("hello"); 
 const upload = multer({ storage: storage });
