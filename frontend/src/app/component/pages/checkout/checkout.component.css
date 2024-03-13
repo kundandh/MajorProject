@@ -10,10 +10,13 @@ body{
 .title{
     margin-bottom: 5vh;
 }
+#abc{
+    margin-top: 100px;
+}
 .card{
     margin: auto;
     max-width: 950px;
-    width: 90%;
+    width: 80%;
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 1rem;
     border: transparent;
