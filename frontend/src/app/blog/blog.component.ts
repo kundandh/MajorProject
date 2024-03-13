@@ -19,6 +19,7 @@ export class BlogComponent implements OnInit {
     this.nutritionPlanService.getAllPlans().subscribe(posts => {
       this.posts = posts;
      this.imageUrl=posts;
+      console.log(this.imageUrl);
     });
   }
 }
